@@ -6,7 +6,7 @@ categories: ["marketing", "business"]
 tags: ["copywriting", "marketing", "sales", "advertising", "content-marketing"]
 author: "aman"
 featured: true
-difficulty_level: "beginner"
+difficulty: "beginner"
 use_case: "Marketing campaigns, advertising, content creation"
 likes: 89
 views: 445

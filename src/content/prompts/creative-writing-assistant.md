@@ -6,7 +6,7 @@ categories: ["writing", "creativity"]
 tags: ["creative-writing", "storytelling", "narrative", "fiction"]
 author: "aman"
 featured: true
-difficulty_level: "intermediate"
+difficulty: "intermediate"
 use_case: "Content creation, creative writing, storytelling"
 likes: 45
 views: 230

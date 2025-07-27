@@ -6,7 +6,7 @@ categories: ["programming", "technical"]
 tags: ["code-review", "software-engineering", "best-practices", "debugging"]
 author: "aman"
 featured: false
-difficulty_level: "advanced"
+difficulty: "advanced"
 use_case: "Code quality assurance, technical reviews, software development"
 likes: 67
 views: 312
