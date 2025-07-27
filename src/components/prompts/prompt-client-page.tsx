@@ -8,43 +8,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
-import { Share2, Heart, Star, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import type { Prompt } from "@/types/prompt";
 import type { Author } from "@/types/author";
+import { getDifficultyStars } from "@/lib/prompt-utils";
 
 interface PromptClientPageProps {
   prompt: Prompt;
   author: Author | null;
   referrerCategory?: string;
   referrerAuthor?: string;
-}
-
-// Helper function to convert difficulty to stars
-function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
-  const getStarCount = (diff: string | undefined): number => {
-    switch (diff?.toLowerCase()) {
-      case 'beginner':
-        return 1;
-      case 'intermediate':
-        return 2;
-      case 'advanced':
-        return 3;
-      default:
-        return 0;
-    }
-  };
-
-  const starCount = getStarCount(difficulty);
-  
-  if (starCount === 0) return <></>;
-  
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: starCount }, (_, i) => (
-        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-      ))}
-    </div>
-  );
 }
 
 // Main Prompt Card Component

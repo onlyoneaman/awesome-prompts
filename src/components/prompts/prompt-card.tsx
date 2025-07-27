@@ -1,56 +1,16 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Star } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Prompt } from "@/types/prompt";
+import { getDifficultyStars, getPromptTypeIcon } from "@/lib/prompt-utils";
 
 interface PromptCardProps {
   prompt: Prompt;
   showFullText?: boolean;
   referrerCategory?: string;
   referrerAuthor?: string;
-}
-
-// Helper function to convert difficulty to stars
-function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
-  const getStarCount = (diff: string | undefined): number => {
-    switch (diff?.toLowerCase()) {
-      case 'beginner':
-        return 1;
-      case 'intermediate':
-        return 2;
-      case 'advanced':
-        return 3;
-      default:
-        return 0;
-    }
-  };
-
-  const starCount = getStarCount(difficulty);
-  
-  if (starCount === 0) return <></>;
-  
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: starCount }, (_, i) => (
-        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-      ))}
-    </div>
-  );
-}
-
-// Helper function to get prompt type icon
-function getPromptTypeIcon(type: string | undefined): string {
-  switch (type) {
-    case 'image':
-      return '🖼️';
-    case 'video':
-      return '🎬';
-    default: // Handles 'text', undefined, or any unknown type
-      return '📄';
-  }
 }
 
 export function PromptCard({ prompt, showFullText = false, referrerCategory, referrerAuthor }: PromptCardProps) {
