@@ -1,67 +1,142 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`c3`](https://developers.cloudflare.com/pages/get-started/c3).
+# 🚀 Awesome Prompts
 
-## Getting Started
+> A curated collection of high-quality AI prompts for various use cases and industries.
 
-First, run the development server:
+[![GitHub stars](https://img.shields.io/github/stars/onlyoneaman/awesome-prompts?style=social)](https://github.com/onlyoneaman/awesome-prompts)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🌟 What is Awesome Prompts?
+
+Awesome Prompts is an open-source library of carefully curated AI prompts designed to help you get better results from AI tools like ChatGPT, Claude, Gemini, and other language models. Whether you're a developer, content creator, marketer, or just someone who wants to improve their AI interactions, you'll find valuable prompts here.
+
+## 🎯 Features
+
+- **📚 Curated Collection**: Hand-picked, tested prompts for various use cases
+- **🏷️ Categorized**: Organized by domains like writing, programming, marketing, etc.
+- **🔍 Searchable**: Easy-to-browse interface with search functionality
+- **📱 Responsive**: Works perfectly on desktop and mobile devices
+- **🚀 Fast**: Built with Next.js for optimal performance
+- **🎨 Clean UI**: Minimal, distraction-free design focused on content
+
+## 🚀 Live Demo
+
+Visit [awesome-prompts.vercel.app](https://awesome-prompts.vercel.app) to explore the collection.
+
+## 📂 Project Structure
+
+```
+awesome-prompts/
+├── src/
+│   ├── app/                 # Next.js app directory
+│   ├── components/          # React components
+│   │   ├── layout/         # Layout components (Header, Footer)
+│   │   ├── prompts/        # Prompt-specific components
+│   │   └── ui/             # Reusable UI components
+│   ├── lib/                # Utility functions and data
+│   └── types/              # TypeScript type definitions
+├── public/                 # Static assets
+├── CONTRIBUTING.md         # Contribution guidelines
+├── LICENSE                 # MIT License
+└── README.md              # This file
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tech Stack
 
-## Cloudflare integration
+- **Framework**: [Next.js 15](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Deployment**: [Vercel](https://vercel.com/)
 
-Besides the `dev` script mentioned above `c3` has added a few extra scripts that allow you to integrate the application with the [Cloudflare Pages](https://pages.cloudflare.com/) environment, these are:
-  - `pages:build` to build the application for Pages using the [`@cloudflare/next-on-pages`](https://github.com/cloudflare/next-on-pages) CLI
-  - `preview` to locally preview your Pages application using the [Wrangler](https://developers.cloudflare.com/workers/wrangler/) CLI
-  - `deploy` to deploy your Pages application using the [Wrangler](https://developers.cloudflare.com/workers/wrangler/) CLI
+## 🏃‍♂️ Getting Started
 
-> __Note:__ while the `dev` script is optimal for local development you should preview your Pages application as well (periodically or before deployments) in order to make sure that it can properly work in the Pages environment (for more details see the [`@cloudflare/next-on-pages` recommended workflow](https://github.com/cloudflare/next-on-pages/blob/main/internal-packages/next-dev/README.md#recommended-development-workflow))
+### Prerequisites
 
-### Bindings
+- Node.js 18+ and npm
 
-Cloudflare [Bindings](https://developers.cloudflare.com/pages/functions/bindings/) are what allows you to interact with resources available in the Cloudflare Platform.
+### Installation
 
-You can use bindings during development, when previewing locally your application and of course in the deployed application:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/onlyoneaman/awesome-prompts.git
+   cd awesome-prompts
+   ```
 
-- To use bindings in dev mode you need to define them in the `next.config.js` file under `setupDevBindings`, this mode uses the `next-dev` `@cloudflare/next-on-pages` submodule. For more details see its [documentation](https://github.com/cloudflare/next-on-pages/blob/05b6256/internal-packages/next-dev/README.md).
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-- To use bindings in the preview mode you need to add them to the `pages:preview` script accordingly to the `wrangler pages dev` command. For more details see its [documentation](https://developers.cloudflare.com/workers/wrangler/commands/#dev-1) or the [Pages Bindings documentation](https://developers.cloudflare.com/pages/functions/bindings/).
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-- To use bindings in the deployed application you will need to configure them in the Cloudflare [dashboard](https://dash.cloudflare.com/). For more details see the  [Pages Bindings documentation](https://developers.cloudflare.com/pages/functions/bindings/).
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-#### KV Example
+### Build for Production
 
-`c3` has added for you an example showing how you can use a KV binding.
+```bash
+npm run build
+npm start
+```
 
-In order to enable the example:
-- Search for javascript/typescript lines containing the following comment:
-  ```ts
-  // KV Example:
-  ```
-  and uncomment the commented lines below it (also uncomment the relevant imports).
-- In the `wrangler.jsonc` file add the following configuration line:
-  ```
-  "kv_namespaces": [{ "binding": "MY_KV_NAMESPACE", "id": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" }],
-  ```
-- If you're using TypeScript run the `cf-typegen` script to update the `env.d.ts` file:
-  ```bash
-  npm run cf-typegen
-  # or
-  yarn cf-typegen
-  # or
-  pnpm cf-typegen
-  # or
-  bun cf-typegen
-  ```
+## 🤝 Contributing
 
-After doing this you can run the `dev` or `preview` script and visit the `/api/hello` route to see the example in action.
+We welcome contributions! There are several ways to contribute:
 
-Finally, if you also want to see the example work in the deployed application make sure to add a `MY_KV_NAMESPACE` binding to your Pages application in its [dashboard kv bindings settings section](https://dash.cloudflare.com/?to=/:account/pages/view/:pages-project/settings/functions#kv_namespace_bindings_section). After having configured it make sure to re-deploy your application.
+### 📝 Submit a Prompt via Form
+1. Visit the [Submit Prompt](https://awesome-prompts.vercel.app/prompts/submit) page
+2. Fill out the form with your prompt details
+3. Our team will review and add it to the collection
+
+### 💻 Create a Pull Request
+1. Read our [Contributing Guidelines](CONTRIBUTING.md)
+2. Fork the repository
+3. Add your prompt to the appropriate category
+4. Submit a pull request
+
+### 🐛 Report Issues
+Found a bug or have a suggestion? [Open an issue](https://github.com/onlyoneaman/awesome-prompts/issues).
+
+## 📋 Categories
+
+- **✍️ Writing**: Creative writing, copywriting, content creation
+- **💻 Programming**: Code generation, debugging, documentation
+- **📈 Marketing**: Campaigns, social media, advertising
+- **🎨 Creativity**: Brainstorming, ideation, creative projects
+- **💼 Business**: Strategy, analysis, productivity
+- **⚙️ Technical**: Analysis, troubleshooting, technical writing
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👨‍💻 Author
+
+**Aman Kumar**
+- Website: [amankumar.ai](https://amankumar.ai)
+- GitHub: [@onlyoneaman](https://github.com/onlyoneaman)
+- Twitter: [@onlyoneaman](https://twitter.com/onlyoneaman)
+
+## 🙏 Acknowledgments
+
+- Thanks to all contributors who help improve this collection
+- Inspired by the amazing AI community and their prompt engineering innovations
+- Built with love for the open source community
+
+## ⭐ Show Your Support
+
+If this project helped you, please consider:
+- ⭐ Starring the repository
+- 🍴 Forking and contributing
+- 📢 Sharing with others who might benefit
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://amankumar.ai">Aman Kumar</a> for the AI community
+</p>
