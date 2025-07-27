@@ -89,14 +89,10 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
   );
 }
 
-// More Details Component
 function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null }) {
   return (
-    <Card className="mt-6">
-      <CardHeader>
-        <CardTitle className="text-lg">More Details</CardTitle>
-      </CardHeader>
-      <CardContent>
+    <Card>
+      <CardContent className="p-4 md:p-6">
         <div className="space-y-6">
           {/* Prompt Stats */}
           <div>
@@ -364,7 +360,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
             </div>
 
             {/* Prompt Content */}
-            <div>
+            <div className="space-y-4">
               <PromptMainCard prompt={prompt} />
               <MoreDetails prompt={prompt} author={author} />
             </div>
