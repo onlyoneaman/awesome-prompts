@@ -8,13 +8,11 @@ import { getDifficultyStars, getPromptTypeIcon } from "@/lib/prompt-utils";
 
 interface PromptCardProps {
   prompt: Prompt;
-  showFullText?: boolean;
   referrerCategory?: string;
   referrerAuthor?: string;
 }
 
-export function PromptCard({ prompt, showFullText = false, referrerCategory, referrerAuthor }: PromptCardProps) {
-  // Helper function to build the link with referrer category and/or author
+export function PromptCard({ prompt, referrerCategory, referrerAuthor }: PromptCardProps) {
   const buildPromptLink = (slug: string) => {
     const params = new URLSearchParams();
     
@@ -30,73 +28,6 @@ export function PromptCard({ prompt, showFullText = false, referrerCategory, ref
     return queryString ? `/prompts/${slug}?${queryString}` : `/prompts/${slug}`;
   };
 
-  if (showFullText) {
-    // Full detailed view for individual prompt pages
-    return (
-      <Card className="border border-gray-200">
-        <CardHeader>
-          <CardTitle className="text-xl">{prompt.title}</CardTitle>
-          <CardDescription>{prompt.description}</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Prompt Text:</h4>
-            <div className="bg-gray-50 p-4 rounded-lg">
-              <pre className="whitespace-pre-wrap text-sm font-mono">
-                {prompt.actual_text}
-              </pre>
-            </div>
-          </div>
-          
-          {prompt.use_cases && prompt.use_cases.length > 0 && (
-            <div>
-              <h4 className="font-semibold mb-2">Use Cases:</h4>
-              <div className="flex flex-wrap gap-1">
-                {prompt.use_cases.map((useCase, index) => (
-                  <Badge key={index} variant="outline" className="text-xs">
-                    {useCase}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          <div className="space-y-3">
-            {/* Categories */}
-            <div className="flex flex-wrap gap-1">
-              {prompt.categories.map((category) => (
-                                       <Link key={category} href={`/categories/${category}`}>
-                  <Badge variant="outline" className="hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer text-xs">
-                    {category}
-                  </Badge>
-                </Link>
-              ))}
-            </div>
-
-            {/* Tags */}
-            <div className="flex flex-wrap gap-1">
-              {prompt.tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-xs">
-                  #{tag}
-                </Badge>
-              ))}
-            </div>
-            
-            {prompt.difficulty && (
-              <div className="flex items-center gap-2">
-                <span className="text-sm text-gray-500">Difficulty:</span>
-                <span className="text-lg">
-                  {getDifficultyStars(prompt.difficulty)}
-                </span>
-              </div>
-            )}
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  // Minimal card view for listings
   return (
     <Link href={buildPromptLink(prompt.slug)}>
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
