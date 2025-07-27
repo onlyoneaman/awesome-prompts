@@ -10,14 +10,25 @@ import { getCategoryBySlug } from "@/lib/content";
 interface NavigationBackProps {
   currentPromptCategories: string[];
   className?: string;
+  referrerCategory?: string;
 }
 
-export function NavigationBack({ currentPromptCategories, className }: NavigationBackProps) {
+export function NavigationBack({ currentPromptCategories, className, referrerCategory }: NavigationBackProps) {
   const [backUrl, setBackUrl] = useState("/prompts");
   const [backLabel, setBackLabel] = useState("Back to Prompts");
 
   useEffect(() => {
-    // Get referrer from document
+    // If referrerCategory is provided via URL parameter, prioritize it
+    if (referrerCategory) {
+      const category = getCategoryBySlug(referrerCategory);
+      if (category) {
+        setBackUrl(`/categories/${referrerCategory}`);
+        setBackLabel(`Back to ${category.name}`);
+        return;
+      }
+    }
+
+    // Fallback to original referrer-based logic
     const referrer = document.referrer;
     const context = getNavigationContext(referrer);
     
@@ -41,7 +52,7 @@ export function NavigationBack({ currentPromptCategories, className }: Navigatio
       setBackUrl("/prompts");
       setBackLabel("Back to All Prompts");
     }
-  }, [currentPromptCategories]);
+  }, [currentPromptCategories, referrerCategory]);
 
   return (
     <Button variant="ghost" asChild className={className}>

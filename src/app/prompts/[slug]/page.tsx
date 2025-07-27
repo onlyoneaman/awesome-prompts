@@ -13,6 +13,7 @@ import React from "react";
 
 interface Props {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Helper function to convert difficulty to stars
@@ -78,8 +79,11 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function PromptPage({ params }: Props) {
+export default async function PromptPage({ params, searchParams }: Props) {
   const { slug } = await params;
+  const search = await searchParams;
+  const referrerCategory = typeof search.referrer_category === 'string' ? search.referrer_category : undefined;
+  
   const prompt = getPromptBySlug(slug);
 
   if (!prompt) {
@@ -94,7 +98,7 @@ export default async function PromptPage({ params }: Props) {
       {/* Navigation & Breadcrumb */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-4">
-          <NavigationBack currentPromptCategories={prompt.categories} />
+          <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} />
           
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-500">

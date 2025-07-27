@@ -8,6 +8,7 @@ import { Prompt } from "@/types/prompt";
 interface PromptCardProps {
   prompt: Prompt;
   showFullText?: boolean;
+  referrerCategory?: string;
 }
 
 // Helper function to convert difficulty to stars
@@ -38,7 +39,15 @@ function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
   );
 }
 
-export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
+export function PromptCard({ prompt, showFullText = false, referrerCategory }: PromptCardProps) {
+  // Helper function to build the link with referrer category
+  const buildPromptLink = (slug: string) => {
+    if (referrerCategory) {
+      return `/prompts/${slug}?referrer_category=${encodeURIComponent(referrerCategory)}`;
+    }
+    return `/prompts/${slug}`;
+  };
+
   if (showFullText) {
     // Full detailed view for individual prompt pages
     return (
@@ -107,7 +116,7 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
 
   // Minimal card view for listings
   return (
-    <Link href={`/prompts/${prompt.slug}`}>
+    <Link href={buildPromptLink(prompt.slug)}>
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">

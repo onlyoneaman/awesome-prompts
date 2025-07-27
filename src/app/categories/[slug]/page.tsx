@@ -94,7 +94,7 @@ export default async function CategoryPage({ params }: Props) {
       {sortedPrompts.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sortedPrompts.map((prompt) => (
-            <PromptCard key={prompt.id} prompt={prompt} />
+            <PromptCard key={prompt.id} prompt={prompt} referrerCategory={slug} />
           ))}
         </div>
       ) : (
