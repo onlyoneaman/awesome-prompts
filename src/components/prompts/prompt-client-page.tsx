@@ -17,6 +17,7 @@ interface PromptClientPageProps {
   prompt: Prompt;
   author: Author | null;
   referrerCategory?: string;
+  referrerAuthor?: string;
 }
 
 // Helper function to convert difficulty to stars
@@ -186,7 +187,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
   );
 }
 
-export default function PromptClientPage({ prompt, author, referrerCategory }: PromptClientPageProps) {
+export default function PromptClientPage({ prompt, author, referrerCategory, referrerAuthor }: PromptClientPageProps) {
   // Gallery state for image prompts
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -257,12 +258,12 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
       <div className="mb-4 md:mb-6">
         {/* Mobile: Centered back button only */}
         <div className="flex justify-center md:hidden mb-4">
-          <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} />
+          <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} referrerAuthor={referrerAuthor} />
         </div>
         
         {/* Desktop: Back button on left, breadcrumb on right */}
         <div className="hidden md:flex items-center justify-between">
-          <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} />
+          <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} referrerAuthor={referrerAuthor} />
           
           <nav className="flex items-center gap-2 text-sm text-gray-500">
             <Link href="/prompts" className="hover:text-gray-700 whitespace-nowrap">Prompts</Link>

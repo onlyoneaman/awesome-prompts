@@ -10,6 +10,7 @@ interface PromptCardProps {
   prompt: Prompt;
   showFullText?: boolean;
   referrerCategory?: string;
+  referrerAuthor?: string;
 }
 
 // Helper function to convert difficulty to stars
@@ -52,13 +53,21 @@ function getPromptTypeIcon(type: string | undefined): string {
   }
 }
 
-export function PromptCard({ prompt, showFullText = false, referrerCategory }: PromptCardProps) {
-  // Helper function to build the link with referrer category
+export function PromptCard({ prompt, showFullText = false, referrerCategory, referrerAuthor }: PromptCardProps) {
+  // Helper function to build the link with referrer category and/or author
   const buildPromptLink = (slug: string) => {
+    const params = new URLSearchParams();
+    
     if (referrerCategory) {
-      return `/prompts/${slug}?referrer_category=${encodeURIComponent(referrerCategory)}`;
+      params.append('referrer_category', referrerCategory);
     }
-    return `/prompts/${slug}`;
+    
+    if (referrerAuthor) {
+      params.append('referrer_author', referrerAuthor);
+    }
+    
+    const queryString = params.toString();
+    return queryString ? `/prompts/${slug}?${queryString}` : `/prompts/${slug}`;
   };
 
   if (showFullText) {

@@ -11,6 +11,12 @@ export {
   generatePromptSlug 
 } from "@/lib/content";
 
+// Re-export client-side author functions
+export { 
+  getAuthorBySlug, 
+  getAllAuthorsBasic 
+} from "@/lib/authors.client";
+
 // Category utility function (not re-exported since categories are defined here)
 export function getCategoryBySlug(slug: string): PromptCategory | undefined {
   return sampleCategories.find(category => category.slug === slug);

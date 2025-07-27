@@ -90,6 +90,7 @@ export default async function PromptPage({ params, searchParams }: Props) {
   const { slug } = await params;
   const search = await searchParams;
   const referrerCategory = typeof search.referrer_category === 'string' ? search.referrer_category : undefined;
+  const referrerAuthor = typeof search.referrer_author === 'string' ? search.referrer_author : undefined;
   
   const prompt = getPromptBySlug(slug);
 
@@ -105,6 +106,7 @@ export default async function PromptPage({ params, searchParams }: Props) {
       prompt={prompt}
       author={author}
       referrerCategory={referrerCategory}
+      referrerAuthor={referrerAuthor}
     />
   );
 } 

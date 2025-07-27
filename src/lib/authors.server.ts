@@ -9,14 +9,15 @@ export function getAllAuthors(): Author[] {
   try {
     const fileNames = fs.readdirSync(authorsDirectory);
     const authors = fileNames
-      .filter(name => name.endsWith('.md'))
+      .filter(name => name.endsWith('.md') && !name.toLowerCase().includes('readme'))
       .map(name => {
         const fullPath = path.join(authorsDirectory, name);
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data } = matter(fileContents);
         
         return data as Author;
-      });
+      })
+      .filter(author => author.slug && author.name); // Only include valid authors
 
     return authors;
   } catch (error) {
