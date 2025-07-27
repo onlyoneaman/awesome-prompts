@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
 import Link from "next/link";
-import { Share2, Heart, Eye, Star } from "lucide-react";
+import { Share2, Heart, Star } from "lucide-react";
 import React from "react";
 
 interface Props {
