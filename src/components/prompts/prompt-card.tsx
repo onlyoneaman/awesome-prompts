@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Star } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -37,6 +38,18 @@ function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
       ))}
     </div>
   );
+}
+
+// Helper function to get prompt type icon
+function getPromptTypeIcon(type: string | undefined): string {
+  switch (type) {
+    case 'image':
+      return '🖼️';
+    case 'video':
+      return '🎬';
+    default: // Handles 'text', undefined, or any unknown type
+      return '📄';
+  }
 }
 
 export function PromptCard({ prompt, showFullText = false, referrerCategory }: PromptCardProps) {
@@ -120,14 +133,33 @@ export function PromptCard({ prompt, showFullText = false, referrerCategory }: P
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">
-            <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-              <span className="text-orange-600 text-lg">📄</span>
-            </div>
+            {prompt.type === 'image' && prompt.image ? (
+              <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
+                <Image
+                  src={prompt.image}
+                  alt={prompt.title}
+                  width={64}
+                  height={64}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                <span className="text-orange-600 text-lg">{getPromptTypeIcon(prompt.type)}</span>
+              </div>
+            )}
             <div className="flex-1 min-w-0">
-              <CardTitle className="text-base font-semibold line-clamp-1 text-gray-900 hover:text-blue-600 transition-colors">
-                {prompt.title}
-              </CardTitle>
-              <CardDescription className="text-sm text-gray-600 line-clamp-2 mt-1">
+              <div className="flex items-center gap-2 mb-1">
+                <CardTitle className="text-base font-semibold line-clamp-1 text-gray-900 hover:text-blue-600 transition-colors">
+                  {prompt.title}
+                </CardTitle>
+                {prompt.type && prompt.type !== 'text' && (
+                  <Badge variant="secondary" className="text-xs capitalize">
+                    {prompt.type}
+                  </Badge>
+                )}
+              </div>
+              <CardDescription className="text-sm text-gray-600 line-clamp-2">
                 {prompt.description}
               </CardDescription>
             </div>

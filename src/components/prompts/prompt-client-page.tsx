@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Markdown from 'react-markdown';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -99,9 +100,27 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
             </CardHeader>
 
             <CardContent className="space-y-4">
+              {/* Image Display for Image Prompts */}
+              {prompt.type === 'image' && prompt.image && (
+                <div>
+                  <h4 className="font-semibold mb-2">Generated Image:</h4>
+                  <div className="rounded-lg overflow-hidden bg-gray-50 p-4">
+                    <Image
+                      src={prompt.image}
+                      alt={prompt.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-auto rounded-lg shadow-sm"
+                    />
+                  </div>
+                </div>
+              )}
+
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold">Prompt:</h4>
+                  <h4 className="font-semibold">
+                    {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
+                  </h4>
                   <CopyButton text={prompt.actual_text} />
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
@@ -142,6 +161,11 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
               {/* Prompt Info */}
               <div>
                 <div className="flex flex-wrap gap-2 text-sm">
+                  {prompt.type && prompt.type !== 'text' && (
+                    <Badge variant="default" className="text-xs capitalize">
+                      {prompt.type} prompt
+                    </Badge>
+                  )}
                   <Badge variant="secondary" className="text-xs">
                     {prompt.created_at.toLocaleDateString()}
                   </Badge>

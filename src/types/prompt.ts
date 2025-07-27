@@ -3,6 +3,8 @@ export interface Prompt {
   title: string;
   description: string;
   actual_text: string;
+  type: 'text' | 'image' | 'video'; // New field to distinguish prompt types
+  image?: string; // Optional field for image prompts (path to image)
   categories: string[];
   tags: string[];
   created_at: Date;

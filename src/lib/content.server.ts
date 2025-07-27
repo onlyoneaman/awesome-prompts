@@ -20,6 +20,8 @@ export function getAllPrompts(): Prompt[] {
           title: data.title,
           description: data.description,
           actual_text: content.trim(),
+          type: data.type || 'text', // Default to 'text' if not specified
+          image: data.image, // Optional image field
           categories: data.categories || [],
           tags: data.tags || [],
           created_at: new Date(data.created_at),
@@ -52,6 +54,8 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       title: data.title,
       description: data.description,
       actual_text: content.trim(),
+      type: data.type || 'text', // Default to 'text' if not specified
+      image: data.image, // Optional image field
       categories: data.categories || [],
       tags: data.tags || [],
       created_at: new Date(data.created_at),
