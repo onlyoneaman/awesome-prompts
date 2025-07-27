@@ -127,7 +127,7 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mb-4 md:mb-6">
         {/* Back Navigation - Centered on mobile */}
         <div className="flex justify-center md:justify-start mb-4">
-          <Button variant="ghost" asChild className="hover:bg-gray-100">
+          <Button variant="link" asChild className="hover:underline">
             <Link href="/categories" className="flex items-center gap-2 px-4 py-2">
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm md:text-base">Back to Categories</span>

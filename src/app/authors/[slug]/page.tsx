@@ -67,8 +67,8 @@ export default async function AuthorPage({ params }: Props) {
     <div className="container mx-auto px-4 py-8">
       {/* Navigation */}
       <div className="mb-6">
-        <Button variant="ghost" asChild>
-          <Link href="/authors" className="flex items-center gap-2">
+        <Button variant="link" asChild>
+          <Link href="/authors" className="flex items-center gap-2 hover:underline">
             <ArrowLeft className="w-4 h-4" />
             Back to Authors
           </Link>

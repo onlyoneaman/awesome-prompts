@@ -75,7 +75,7 @@ export function NavigationBack({ currentPromptCategories, className, referrerCat
   }, [currentPromptCategories, referrerCategory, referrerAuthor]);
 
   return (
-    <Button variant="ghost" asChild className={`hover:bg-gray-100 ${className}`}>
+    <Button variant="link" asChild className={`hover:underline ${className}`}>
       <Link href={backUrl} className="flex items-center gap-2 px-4 py-2">
         <ArrowLeft className="w-4 h-4" />
         <span className="text-sm md:text-base">{backLabel}</span>
