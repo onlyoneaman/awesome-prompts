@@ -5,7 +5,6 @@ slug: "marketing-copy-generator"
 categories: ["marketing", "business"]
 tags: ["copywriting", "marketing", "sales", "advertising", "content-marketing"]
 author: "aman"
-featured: true
 difficulty: "beginner"
 use_cases: ["Marketing campaigns", "advertising", "content creation"]
 likes: 89

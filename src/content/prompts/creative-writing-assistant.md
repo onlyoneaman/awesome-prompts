@@ -5,7 +5,6 @@ slug: "creative-writing-assistant"
 categories: ["writing", "creativity"]
 tags: ["creative-writing", "storytelling", "narrative", "fiction"]
 author: "aman"
-featured: true
 difficulty: "intermediate"
 use_cases: ["Content creation", "creative writing", "storytelling"]
 likes: 45

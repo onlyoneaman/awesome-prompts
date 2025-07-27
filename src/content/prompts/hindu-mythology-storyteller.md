@@ -5,7 +5,6 @@ slug: "hindu-mythology-storyteller"
 categories: ["storytelling", "education", "culture"]
 tags: ["hindu-mythology", "audio-stories", "indian-culture", "educational-content", "json-structured", "age-appropriate"]
 author: "aman"
-featured: true
 difficulty: "advanced"
 use_cases: ["Educational content creation", "Audio story generation", "Cultural storytelling", "Children's content", "Mythology adaptation"]
 likes: 0
