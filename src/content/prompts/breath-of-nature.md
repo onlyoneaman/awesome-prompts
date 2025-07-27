@@ -5,9 +5,6 @@ slug: "breath-of-nature"
 type: "image"
 images: 
   - "/images/breath-of-nature.png"
-  - "/images/breath-of-nature.png"
-  - "/images/breath-of-nature.png"
-  - "/images/breath-of-nature.png"
 categories: ["art", "nature", "creative"]
 tags: ["glass-art", "nature", "lungs", "wildflowers", "hyper-realistic", "surreal", "photography"]
 author: "aman"
