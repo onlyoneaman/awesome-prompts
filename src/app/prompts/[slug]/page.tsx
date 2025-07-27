@@ -10,6 +10,7 @@ import { NavigationBack } from "@/components/ui/navigation-back";
 import Link from "next/link";
 import { Share2, Heart, Star } from "lucide-react";
 import React from "react";
+import Markdown from 'react-markdown';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -192,10 +193,10 @@ export default async function PromptPage({ params, searchParams }: Props) {
                   <h4 className="font-semibold">Prompt:</h4>
                   <CopyButton text={prompt.actual_text} />
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg overflow-hidden">
-                  <pre className="whitespace-pre-wrap text-sm font-mono break-words overflow-x-auto">
+                <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
+                  <Markdown>
                     {prompt.actual_text}
-                  </pre>
+                  </Markdown>
                 </div>
               </div>
             </CardContent>
