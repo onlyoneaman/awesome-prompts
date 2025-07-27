@@ -1,4 +1,6 @@
+import React from "react";
 import Link from "next/link";
+import { Star } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Prompt } from "@/types/prompt";
@@ -6,6 +8,34 @@ import { Prompt } from "@/types/prompt";
 interface PromptCardProps {
   prompt: Prompt;
   showFullText?: boolean;
+}
+
+// Helper function to convert difficulty to stars
+function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
+  const getStarCount = (diff: string | undefined): number => {
+    switch (diff?.toLowerCase()) {
+      case 'beginner':
+        return 1;
+      case 'intermediate':
+        return 2;
+      case 'advanced':
+        return 3;
+      default:
+        return 0;
+    }
+  };
+
+  const starCount = getStarCount(difficulty);
+  
+  if (starCount === 0) return <></>;
+  
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: starCount }, (_, i) => (
+        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+      ))}
+    </div>
+  );
 }
 
 export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
@@ -58,12 +88,9 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
             {prompt.difficulty_level && (
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-500">Difficulty:</span>
-                <Badge 
-                  variant={prompt.difficulty_level === 'beginner' ? 'secondary' : 
-                          prompt.difficulty_level === 'intermediate' ? 'default' : 'destructive'}
-                >
-                  {prompt.difficulty_level}
-                </Badge>
+                <span className="text-lg">
+                  {getDifficultyStars(prompt.difficulty_level)}
+                </span>
               </div>
             )}
           </div>
@@ -102,12 +129,9 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
               ))}
             </div>
             {prompt.difficulty_level && (
-              <Badge 
-                variant="secondary"
-                className="text-xs"
-              >
-                {prompt.difficulty_level}
-              </Badge>
+              <span className="text-sm">
+                {getDifficultyStars(prompt.difficulty_level)}
+              </span>
             )}
           </div>
         </CardContent>

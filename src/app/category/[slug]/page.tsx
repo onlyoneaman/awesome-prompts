@@ -57,38 +57,32 @@ export default async function CategoryPage({ params }: Props) {
     <div className="container mx-auto px-4 py-8">
       {/* Navigation */}
       <div className="mb-6">
-        <Button variant="ghost" asChild className="mb-4">
-          <Link href="/prompts" className="flex items-center gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Back to All Prompts
-          </Link>
-        </Button>
-        
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-gray-500">
-          <Link href="/prompts" className="hover:text-gray-700">Prompts</Link>
-          <span>/</span>
-          <span className="text-gray-900">{category.name}</span>
-        </nav>
+        <div className="flex items-center justify-between">
+          <Button variant="ghost" asChild>
+            <Link href="/prompts" className="flex items-center gap-2">
+              <ArrowLeft className="w-4 h-4" />
+              Back to All Prompts
+            </Link>
+          </Button>
+          
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-sm text-gray-500">
+            <Link href="/prompts" className="hover:text-gray-700">Prompts</Link>
+            <span>/</span>
+            <span className="text-gray-900">{category.name}</span>
+          </nav>
+        </div>
       </div>
 
       {/* Category Header */}
       <div className="text-center mb-12">
         <div className="flex items-center justify-center gap-3 mb-4">
           <span className="text-4xl">{category.icon}</span>
-          <h1 className="text-4xl font-bold">{category.name} Prompts</h1>
+          <h1 className="text-4xl font-bold">{category.name}</h1>
         </div>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-          {category.description}
+          {category.description} ( {sortedPrompts.length} prompt{sortedPrompts.length === 1 ? '' : 's'} )
         </p>
-        <div className="flex items-center justify-center gap-4">
-          <Badge variant="secondary" className="text-lg px-4 py-2">
-            {sortedPrompts.length} {sortedPrompts.length === 1 ? 'Prompt' : 'Prompts'} Available
-          </Badge>
-          <Button variant="outline">
-            Filter & Sort
-          </Button>
-        </div>
       </div>
 
       {/* Prompts Grid */}
