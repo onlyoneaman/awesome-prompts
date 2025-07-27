@@ -2,6 +2,35 @@ import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
 import { sampleCategories } from "@/lib/prompts";
 
+const navigationLinks = [
+  { href: "/", label: "Home" },
+  { href: "/prompts", label: "All Prompts" },
+  { href: "/categories", label: "All Categories" },
+  { href: "/authors", label: "Authors" },
+  { href: "/prompts/submit", label: "Submit Prompt" },
+];
+
+const resourceLinks = [
+  {
+    href: "https://github.com/onlyoneaman/awesome-prompts",
+    label: "GitHub",
+    icon: Github,
+    external: true,
+  },
+  {
+    href: "https://platform.openai.com/docs/examples",
+    label: "OpenAI Prompt Examples",
+    icon: ExternalLink,
+    external: true,
+  },
+  {
+    href: "https://docs.anthropic.com/en/resources/prompt-library/library",
+    label: "Anthropic Prompt Library",
+    icon: ExternalLink,
+    external: true,
+  },
+];
+
 export function Footer() {
   return (
     <footer className="border-t bg-white">
@@ -11,36 +40,15 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-4">Navigation</h3>
             <div className="space-y-2">
-              <Link 
-                href="/" 
-                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Home
-              </Link>
-              <Link 
-                href="/prompts" 
-                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                All Prompts
-              </Link>
-              <Link 
-                href="/categories" 
-                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                All Categories
-              </Link>
-              <Link 
-                href="/authors" 
-                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Authors
-              </Link>
-              <Link 
-                href="/prompts/submit" 
-                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                Submit Prompt
-              </Link>
+              {navigationLinks.map((link) => (
+                <Link 
+                  key={link.href}
+                  href={link.href} 
+                  className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
 
@@ -70,15 +78,21 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
             <div className="space-y-2">
-              <Link 
-                href="https://github.com/onlyoneaman/awesome-prompts" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                <Github className="w-4 h-4" />
-                GitHub
-              </Link>
+              {resourceLinks.map((resource) => {
+                const IconComponent = resource.icon;
+                return (
+                  <Link 
+                    key={resource.href}
+                    href={resource.href} 
+                    target={resource.external ? "_blank" : undefined}
+                    rel={resource.external ? "noopener noreferrer" : undefined}
+                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  >
+                    <IconComponent className="w-4 h-4" />
+                    {resource.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
