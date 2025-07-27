@@ -59,7 +59,7 @@ export default function PromptsPage() {
             <h2 className="text-2xl font-semibold mb-4">Browse by Category</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                           {sampleCategories.map((category) => (
-              <Link key={category.id} href={`/category/${category.slug}`}>
+              <Link key={category.id} href={`/categories/${category.slug}`}>
                   <div className="p-4 rounded-lg border border-gray-200 hover:shadow-md transition-shadow cursor-pointer text-center bg-white">
                     <div className="text-2xl mb-2">{category.icon}</div>
                     <h3 className="font-semibold text-sm">{category.name}</h3>

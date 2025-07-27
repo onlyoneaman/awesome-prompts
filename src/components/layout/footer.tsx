@@ -1,75 +1,105 @@
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
+import { sampleCategories } from "@/lib/content";
 
 export function Footer() {
   return (
     <footer className="border-t bg-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Left side - OS info */}
-          <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-600">
-            <div className="flex items-center gap-2">
-              <span>Made with ❤️ by</span>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Navigation */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">Navigation</h3>
+            <div className="space-y-2">
               <Link 
-                href="https://amankumar.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 font-medium text-blue-600 hover:text-blue-700"
+                href="/" 
+                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
               >
-                Aman
-                <ExternalLink className="w-3 h-3" />
+                Home
+              </Link>
+              <Link 
+                href="/prompts" 
+                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                All Prompts
+              </Link>
+              <Link 
+                href="/authors" 
+                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Authors
+              </Link>
+              <Link 
+                href="/prompts/submit" 
+                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                Submit Prompt
               </Link>
             </div>
           </div>
 
-          {/* Right side - Links */}
-          <div className="flex items-center gap-6">
-            <Link 
-              href="https://github.com/onlyoneaman/awesome-prompts" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <Github className="w-4 h-4" />
-              <span className="text-sm font-medium">Star on GitHub</span>
-            </Link>
-            
-            <Link 
-              href="/prompts" 
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Browse Prompts
-            </Link>
-
-            <Link 
-              href="/authors" 
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Authors
-            </Link>
-            
-            <Link 
-              href="/prompts/submit" 
-              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Contribute
-            </Link>
+          {/* Categories */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">Categories</h3>
+            <div className="space-y-2">
+              {sampleCategories.map((category) => (
+                <Link 
+                  key={category.slug}
+                  href={`/categories/${category.slug}`} 
+                  className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <span className="mr-2">{category.icon}</span>
+                  {category.name}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Bottom */}
-        <div className="mt-6 pt-6 border-t border-gray-200 text-center text-xs text-gray-500">
-          <p>
-            © 2024 Awesome Prompts. Licensed under MIT License. 
-            <Link 
-              href="https://github.com/onlyoneaman/awesome-prompts/blob/main/LICENSE" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="ml-1 underline hover:text-gray-700"
-            >
-              View License
-            </Link>
-          </p>
+          {/* Resources */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">Resources</h3>
+            <div className="space-y-2">
+              <Link 
+                href="https://github.com/onlyoneaman/awesome-prompts" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                <Github className="w-4 h-4" />
+                GitHub Repository
+              </Link>
+              <Link 
+                href="https://github.com/onlyoneaman/awesome-prompts/blob/main/LICENSE" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                MIT License
+              </Link>
+            </div>
+          </div>
+
+          {/* About */}
+          <div>
+            <h3 className="font-semibold text-gray-900 mb-4">About</h3>
+            <div className="space-y-2">
+              <div className="text-sm text-gray-600">
+                Made with ❤️ by
+              </div>
+              <Link 
+                href="https://amankumar.ai" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
+              >
+                Aman Kumar
+                <ExternalLink className="w-3 h-3" />
+              </Link>
+              <div className="text-xs text-gray-500 mt-4">
+                © 2025 Awesome Prompts
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

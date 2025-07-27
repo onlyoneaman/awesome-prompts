@@ -69,7 +69,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {sampleCategories.map((category) => (
-                <Link key={category.id} href={`/category/${category.slug}`}>
+                <Link key={category.id} href={`/categories/${category.slug}`}>
                   <Card className="h-full hover:shadow-md transition-shadow border border-gray-200">
                     <CardContent className="p-4 text-center">
                       <div className="text-2xl mb-2">{category.icon}</div>

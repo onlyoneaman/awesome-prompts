@@ -42,9 +42,9 @@ export default function NotFound() {
                 <h4 className="font-semibold mb-2">Explore Popular Prompts</h4>
                 <ul className="text-gray-600 space-y-1">
                   <li>• <Link href="/prompts" className="hover:text-blue-600">Browse all prompts</Link></li>
-                  <li>• <Link href="/category/writing" className="hover:text-blue-600">Writing prompts</Link></li>
-                  <li>• <Link href="/category/programming" className="hover:text-blue-600">Programming prompts</Link></li>
-                  <li>• <Link href="/category/marketing" className="hover:text-blue-600">Marketing prompts</Link></li>
+                              <li>• <Link href="/categories/writing" className="hover:text-blue-600">Writing prompts</Link></li>
+            <li>• <Link href="/categories/programming" className="hover:text-blue-600">Programming prompts</Link></li>
+            <li>• <Link href="/categories/marketing" className="hover:text-blue-600">Marketing prompts</Link></li>
                 </ul>
               </div>
               <div>

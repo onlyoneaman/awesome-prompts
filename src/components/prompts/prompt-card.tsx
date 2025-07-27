@@ -74,7 +74,7 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
             {/* Categories */}
             <div className="flex flex-wrap gap-1">
               {prompt.categories.map((category) => (
-                                       <Link key={category} href={`/category/${category}`}>
+                                       <Link key={category} href={`/categories/${category}`}>
                   <Badge variant="outline" className="hover:bg-blue-50 hover:text-blue-700 transition-colors cursor-pointer text-xs">
                     {category}
                   </Badge>

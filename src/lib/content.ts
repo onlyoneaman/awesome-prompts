@@ -155,6 +155,14 @@ export const sampleCategories: PromptCategory[] = [
     slug: "technical",
     color: "#6B7280",
     icon: "⚙️"
+  },
+  {
+    id: "psychology",
+    name: "Psychology",
+    description: "Prompts for psychological insights, behavior analysis, and mental wellness",
+    slug: "psychology",
+    color: "#EC4899",
+    icon: "🧠"
   }
 ];
 

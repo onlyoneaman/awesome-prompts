@@ -58,15 +58,15 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mb-6">
         <div className="flex items-center justify-between">
           <Button variant="ghost" asChild>
-            <Link href="/prompts" className="flex items-center gap-2">
+            <Link href="/categories" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
-              Back to All Prompts
+              Back to Categories
             </Link>
           </Button>
           
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/prompts" className="hover:text-gray-700">Prompts</Link>
+            <Link href="/categories" className="hover:text-gray-700">Categories</Link>
             <span>/</span>
             <span className="text-gray-900">{category.name}</span>
           </nav>
@@ -75,13 +75,19 @@ export default async function CategoryPage({ params }: Props) {
 
       {/* Category Header */}
       <div className="text-center mb-12">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <span className="text-4xl">{category.icon}</span>
-          <h1 className="text-4xl font-bold">{category.name}</h1>
+        <div 
+          className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl"
+          style={{ backgroundColor: `${category.color}20`, color: category.color }}
+        >
+          {category.icon}
         </div>
+        <h1 className="text-4xl font-bold mb-4">{category.name}</h1>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
-          {category.description} ( {sortedPrompts.length} prompt{sortedPrompts.length === 1 ? '' : 's'} )
+          {category.description}
         </p>
+        <div className="text-lg text-gray-500">
+          {sortedPrompts.length} prompt{sortedPrompts.length === 1 ? '' : 's'} available
+        </div>
       </div>
 
       {/* Prompts Grid */}
@@ -112,9 +118,14 @@ export default async function CategoryPage({ params }: Props) {
           {sampleCategories
             .filter(cat => cat.slug !== slug)
             .map((otherCategory) => (
-              <Link key={otherCategory.id} href={`/category/${otherCategory.slug}`}>
+              <Link key={otherCategory.id} href={`/categories/${otherCategory.slug}`}>
                 <div className="p-4 rounded-lg border hover:shadow-md transition-shadow cursor-pointer text-center">
-                  <div className="text-2xl mb-2">{otherCategory.icon}</div>
+                  <div 
+                    className="w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2 text-lg"
+                    style={{ backgroundColor: `${otherCategory.color}20`, color: otherCategory.color }}
+                  >
+                    {otherCategory.icon}
+                  </div>
                   <h3 className="font-semibold text-sm">{otherCategory.name}</h3>
                   <p className="text-xs text-gray-500 mt-1">
                     {getPromptsByCategory(otherCategory.slug).length} prompts
