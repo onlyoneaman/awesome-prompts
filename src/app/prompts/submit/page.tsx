@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import axios from "axios";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -44,7 +45,6 @@ export default function SubmitPromptPage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -65,6 +65,13 @@ export default function SubmitPromptPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    const submitEndpoint = process.env.NEXT_PUBLIC_SUBMIT_ENDPOINT;
+    if (!submitEndpoint) {
+      toast.error("Submit endpoint not configured. Please set NEXT_PUBLIC_SUBMIT_ENDPOINT environment variable.");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -81,19 +88,36 @@ export default function SubmitPromptPage() {
       };
 
       // API call to log the event
-      await axios.post('https://bella.amankumar.ai/experiments/v1/log_event', {
+      await axios.post(submitEndpoint, {
         event: "prompt_submission",
-        duration: "",
+        duration: 0,
         request_data: promptData,
         response_data: {},
         user_id: ""
       });
 
       console.log('Prompt submitted successfully:', promptData);
-      setSubmitStatus("success");
+      toast.success("Prompt submitted successfully! We'll review it and get back to you within 2 business days.");
+      
+      // Reset form
+      setFormData({
+        title: "",
+        description: "",
+        actual_text: "",
+        categories: [],
+        tags: "",
+        difficulty: "beginner",
+        use_cases: "",
+        author: "",
+        author_website: "",
+        author_email: "",
+        author_phone: "",
+        author_twitter: "",
+        author_github: ""
+      });
     } catch (error) {
       console.error('Error submitting prompt:', error);
-      setSubmitStatus("error");
+      toast.error("Failed to submit prompt. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -108,34 +132,7 @@ export default function SubmitPromptPage() {
     return `${formData.categories.length} categories selected`;
   };
 
-  if (submitStatus === "success") {
-    return (
-        <div className="bg-gray-50">
-          <div className="container mx-auto px-4 py-8">
-            <div className="max-w-2xl mx-auto text-center">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-green-600">✅ Prompt Submitted Successfully!</CardTitle>
-                  <CardDescription>
-                    Thank you for contributing! We&apos;ll review your prompt and get back to you within 2 business days (often much sooner).
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex gap-4 justify-center">
-                    <Button asChild>
-                      <Link href="/prompts">Browse Prompts</Link>
-                    </Button>
-                    <Button variant="outline" asChild>
-                      <Link href="/prompts/submit">Submit Another</Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-    );
-  }
+
 
   return (
       <div className="bg-gray-50">
@@ -451,13 +448,7 @@ export default function SubmitPromptPage() {
                   </div>
                 </form>
 
-                {submitStatus === "error" && (
-                  <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-                    <p className="text-red-600 text-sm">
-                      There was an error submitting your prompt. Please try again.
-                    </p>
-                  </div>
-                )}
+
               </CardContent>
             </Card>
 
