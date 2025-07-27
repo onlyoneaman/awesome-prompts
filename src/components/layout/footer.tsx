@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Heart, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
@@ -9,21 +9,16 @@ export function Footer() {
           {/* Left side - OS info */}
           <div className="flex flex-col md:flex-row items-center gap-4 text-sm text-gray-600">
             <div className="flex items-center gap-2">
-              <span>Open Source project by</span>
+              <span>Made with ❤️ by</span>
               <Link 
                 href="https://amankumar.ai" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 font-medium text-blue-600 hover:text-blue-700"
               >
-                Aman Kumar
+                Aman
                 <ExternalLink className="w-3 h-3" />
               </Link>
-            </div>
-            <div className="flex items-center gap-1">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500" />
-              <span>for the AI community</span>
             </div>
           </div>
 
