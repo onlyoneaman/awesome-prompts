@@ -14,7 +14,7 @@ export default function SubmitPromptPage() {
     actual_text: "",
     categories: [] as string[],
     tags: "",
-    difficulty_level: "beginner" as "beginner" | "intermediate" | "advanced",
+    difficulty: "beginner" as "beginner" | "intermediate" | "advanced",
     use_case: "",
     author: "",
     author_website: "",
@@ -265,16 +265,16 @@ export default function SubmitPromptPage() {
 
                   {/* Difficulty Level */}
                   <div>
-                    <label htmlFor="difficulty_level" className="block text-sm font-medium mb-2">
+                    <label htmlFor="difficulty" className="block text-sm font-medium mb-2">
                       Difficulty Level
                     </label>
                     <select
-                      id="difficulty_level"
-                      name="difficulty_level"
-                      value={formData.difficulty_level}
+                      id="difficulty"
+                      name="difficulty"
+                      value={formData.difficulty}
                       onChange={(e) => setFormData(prev => ({ 
                         ...prev, 
-                        difficulty_level: e.target.value as "beginner" | "intermediate" | "advanced"
+                        difficulty: e.target.value as "beginner" | "intermediate" | "advanced"
                       }))}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >

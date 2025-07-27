@@ -10,7 +10,7 @@ export interface Prompt {
   author?: string;
   slug: string; // SEO-friendly URL slug
   featured?: boolean;
-  difficulty_level?: 'beginner' | 'intermediate' | 'advanced';
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
   use_case?: string;
   likes?: number;
   views?: number;
@@ -28,7 +28,7 @@ export interface PromptCategory {
 export interface PromptFilters {
   categories?: string[];
   tags?: string[];
-  difficulty_level?: string;
+  difficulty?: string;
   search?: string;
   featured?: boolean;
 }

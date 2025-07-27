@@ -7,10 +7,39 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import Link from "next/link";
-import { ArrowLeft, Share2, Heart, Eye } from "lucide-react";
+import { ArrowLeft, Share2, Heart, Eye, Star } from "lucide-react";
+import React from "react";
 
 interface Props {
   params: Promise<{ slug: string }>;
+}
+
+// Helper function to convert difficulty to stars
+function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
+  const getStarCount = (diff: string | undefined): number => {
+    switch (diff?.toLowerCase()) {
+      case 'beginner':
+        return 1;
+      case 'intermediate':
+        return 2;
+      case 'advanced':
+        return 3;
+      default:
+        return 0;
+    }
+  };
+
+  const starCount = getStarCount(difficulty);
+  
+  if (starCount === 0) return <></>;
+  
+  return (
+    <div className="flex gap-0.5">
+      {Array.from({ length: starCount }, (_, i) => (
+        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+      ))}
+    </div>
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -105,28 +134,6 @@ export default async function PromptPage({ params }: Props) {
                 <div className="flex-1">
                   <CardTitle className="text-3xl mb-4">{prompt.title}</CardTitle>
                   <p className="text-lg text-gray-600 mb-4">{prompt.description}</p>
-                  
-                  {/* Metadata */}
-                  <div className="flex items-center gap-6 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <Heart className="w-4 h-4" />
-                      <span>{prompt.likes || 0} likes</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="w-4 h-4" />
-                      <span>{prompt.views || 0} views</span>
-                    </div>
-                    <span>Updated {prompt.updated_at.toLocaleDateString()}</span>
-                    {author && (
-                      <span>
-                        by {author.website ? (
-                          <Link href={author.website} className="text-blue-600 hover:underline" target="_blank">
-                            {author.name}
-                          </Link>
-                        ) : author.name}
-                      </span>
-                    )}
-                  </div>
                 </div>
                 
                 <div className="flex gap-2">
@@ -166,6 +173,43 @@ export default async function PromptPage({ params }: Props) {
 
         {/* Sidebar */}
         <div className="space-y-6">
+          {/* Prompt Info */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Prompt Info</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-center gap-6 text-sm text-gray-500">
+                  <div className="flex items-center gap-1">
+                    <Heart className="w-4 h-4" />
+                    <span>{prompt.likes || 0} likes</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Eye className="w-4 h-4" />
+                    <span>{prompt.views || 0} views</span>
+                  </div>
+                </div>
+                <div className="text-sm text-gray-500">
+                  Updated {prompt.updated_at.toLocaleDateString('en-GB', { 
+                    day: '2-digit', 
+                    month: '2-digit', 
+                    year: 'numeric' 
+                  })}
+                </div>
+                {author && (
+                  <div className="text-sm text-gray-500">
+                    by {author.website ? (
+                      <Link href={author.website} className="text-blue-600 hover:underline" target="_blank">
+                        {author.name}
+                      </Link>
+                    ) : author.name}
+                  </div>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Categories & Tags */}
           <Card>
             <CardHeader>
@@ -177,7 +221,7 @@ export default async function PromptPage({ params }: Props) {
                   <h4 className="font-semibold mb-2">Categories</h4>
                   <div className="flex flex-wrap gap-1">
                     {prompt.categories.map((category) => (
-                      <Link key={category} href={`/prompts/category/${category}`}>
+                      <Link key={category} href={`/category/${category}`}>
                         <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
                           {category}
                         </Badge>
@@ -197,15 +241,13 @@ export default async function PromptPage({ params }: Props) {
                   </div>
                 </div>
 
-                {prompt.difficulty_level && (
+                {prompt.difficulty && (
                   <div>
                     <h4 className="font-semibold mb-2">Difficulty</h4>
-                    <Badge 
-                      variant={prompt.difficulty_level === 'beginner' ? 'secondary' : 
-                              prompt.difficulty_level === 'intermediate' ? 'default' : 'destructive'}
-                    >
-                      {prompt.difficulty_level}
-                    </Badge>
+                    <div className="flex items-center gap-2">
+                      {getDifficultyStars(prompt.difficulty)}
+                      <span className="text-sm text-gray-600 capitalize">{prompt.difficulty}</span>
+                    </div>
                   </div>
                 )}
               </div>

@@ -14,7 +14,7 @@ export const samplePrompts: Prompt[] = [
     author: "PromptCrafter",
     slug: "creative-writing-assistant",
     featured: true,
-    difficulty_level: "intermediate",
+    difficulty: "intermediate",
     use_case: "Content creation, creative writing, storytelling",
     likes: 45,
     views: 230
@@ -31,7 +31,7 @@ export const samplePrompts: Prompt[] = [
     author: "TechLead",
     slug: "code-review-expert",
     featured: false,
-    difficulty_level: "advanced",
+    difficulty: "advanced",
     use_case: "Code quality assurance, technical reviews, software development",
     likes: 67,
     views: 312
@@ -48,7 +48,7 @@ export const samplePrompts: Prompt[] = [
     author: "MarketingPro",
     slug: "marketing-copy-generator",
     featured: true,
-    difficulty_level: "beginner",
+    difficulty: "beginner",
     use_case: "Marketing campaigns, advertising, content creation",
     likes: 89,
     views: 445
@@ -148,9 +148,9 @@ export function filterPrompts(
     );
   }
 
-  if (filters.difficulty_level) {
+  if (filters.difficulty) {
     filtered = filtered.filter(prompt =>
-      prompt.difficulty_level === filters.difficulty_level
+      prompt.difficulty === filters.difficulty
     );
   }
 

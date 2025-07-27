@@ -48,7 +48,7 @@ Each prompt should include:
   actual_text: "The actual prompt text with [PLACEHOLDERS] for variables",
   categories: ["category1", "category2"],
   tags: ["tag1", "tag2", "tag3"],
-  difficulty_level: "beginner" | "intermediate" | "advanced",
+  difficulty: "beginner" | "intermediate" | "advanced",
   use_case: "Specific use case description",
   author: "Your name (optional)"
 }

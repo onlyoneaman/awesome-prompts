@@ -27,9 +27,9 @@ export function filterPrompts(
     );
   }
 
-  if (filters.difficulty_level) {
+  if (filters.difficulty) {
     filtered = filtered.filter(prompt =>
-      prompt.difficulty_level === filters.difficulty_level
+      prompt.difficulty === filters.difficulty
     );
   }
 

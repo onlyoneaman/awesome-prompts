@@ -85,11 +85,11 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
               ))}
             </div>
             
-            {prompt.difficulty_level && (
+            {prompt.difficulty && (
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-500">Difficulty:</span>
                 <span className="text-lg">
-                  {getDifficultyStars(prompt.difficulty_level)}
+                  {getDifficultyStars(prompt.difficulty)}
                 </span>
               </div>
             )}
@@ -128,9 +128,9 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
                 </Badge>
               ))}
             </div>
-            {prompt.difficulty_level && (
+            {prompt.difficulty && (
               <span className="text-sm">
-                {getDifficultyStars(prompt.difficulty_level)}
+                {getDifficultyStars(prompt.difficulty)}
               </span>
             )}
           </div>

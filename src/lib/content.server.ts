@@ -27,7 +27,7 @@ export function getAllPrompts(): Prompt[] {
           author: data.author,
           slug: data.slug,
           featured: data.featured || false,
-          difficulty_level: data.difficulty_level,
+          difficulty: data.difficulty,
           use_case: data.use_case,
           likes: data.likes || 0,
           views: data.views || 0
@@ -59,7 +59,7 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       author: data.author,
       slug: data.slug,
       featured: data.featured || false,
-      difficulty_level: data.difficulty_level,
+      difficulty: data.difficulty,
       use_case: data.use_case,
       likes: data.likes || 0,
       views: data.views || 0
