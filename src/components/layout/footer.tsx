@@ -29,6 +29,12 @@ const resourceLinks = [
     icon: ExternalLink,
     external: true,
   },
+  {
+    href: "https://ai.google.dev/gemini-api/prompts",
+    label: "Gemini Prompt Gallery",
+    icon: ExternalLink,
+    external: true,
+  },
 ];
 
 export function Footer() {
