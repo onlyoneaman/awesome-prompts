@@ -1,58 +1,64 @@
-export const runtime = "edge";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Home, Search } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <>
-      <title>404: This page could not be found.</title>
-      <div style={styles.error}>
-        <div>
-          <style
-            dangerouslySetInnerHTML={{
-              __html: `body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}`,
-            }}
-          />
-          <h1 className="next-error-h1" style={styles.h1}>
-            404
-          </h1>
-          <div style={styles.desc}>
-            <h2 style={styles.h2}>This page could not be found.</h2>
+    <div className="bg-gray-50">
+      <div className="container mx-auto px-4 py-16">
+        <div className="text-center max-w-2xl mx-auto">
+          {/* 404 Error */}
+          <div className="mb-8">
+            <h1 className="text-9xl font-bold text-gray-300 mb-4">404</h1>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Page Not Found
+            </h2>
+            <p className="text-xl text-gray-600 mb-8">
+              Sorry, we couldn&apos;t find the page you&apos;re looking for. The prompt or page you requested might have been moved, deleted, or doesn&apos;t exist.
+            </p>
+          </div>
+
+          {/* Actions */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button asChild size="lg">
+              <Link href="/" className="flex items-center gap-2">
+                <Home className="w-5 h-5" />
+                Go Home
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" asChild>
+              <Link href="/prompts" className="flex items-center gap-2">
+                <Search className="w-5 h-5" />
+                Browse Prompts
+              </Link>
+            </Button>
+          </div>
+
+          {/* Helpful suggestions */}
+          <div className="bg-white rounded-lg border p-8">
+            <h3 className="text-xl font-semibold mb-4">What can you do instead?</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div>
+                <h4 className="font-semibold mb-2">Explore Popular Prompts</h4>
+                <ul className="text-gray-600 space-y-1">
+                  <li>• <Link href="/prompts" className="hover:text-blue-600">Browse all prompts</Link></li>
+                  <li>• <Link href="/category/writing" className="hover:text-blue-600">Writing prompts</Link></li>
+                  <li>• <Link href="/category/programming" className="hover:text-blue-600">Programming prompts</Link></li>
+                  <li>• <Link href="/category/marketing" className="hover:text-blue-600">Marketing prompts</Link></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-2">Contribute</h4>
+                <ul className="text-gray-600 space-y-1">
+                  <li>• <Link href="/prompts/submit" className="hover:text-blue-600">Submit a new prompt</Link></li>
+                  <li>• <Link href="https://github.com/onlyoneaman/awesome-prompts" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">View on GitHub</Link></li>
+                  <li>• <Link href="https://github.com/onlyoneaman/awesome-prompts/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">Contribution Guide</Link></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
-
-const styles = {
-  error: {
-    fontFamily:
-      'system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"',
-    height: "100vh",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  desc: {
-    display: "inline-block",
-  },
-
-  h1: {
-    display: "inline-block",
-    margin: "0 20px 0 0",
-    padding: "0 23px 0 0",
-    fontSize: 24,
-    fontWeight: 500,
-    verticalAlign: "top",
-    lineHeight: "49px",
-  },
-
-  h2: {
-    fontSize: 14,
-    fontWeight: 400,
-    lineHeight: "49px",
-    margin: 0,
-  },
-} as const;

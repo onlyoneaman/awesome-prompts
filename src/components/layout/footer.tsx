@@ -40,6 +40,13 @@ export function Footer() {
             >
               Browse Prompts
             </Link>
+
+            <Link 
+              href="/authors" 
+              className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              Authors
+            </Link>
             
             <Link 
               href="/prompts/submit" 

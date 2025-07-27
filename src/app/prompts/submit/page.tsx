@@ -3,11 +3,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Layout } from "@/components/layout/layout";
 import Link from "next/link";
 import { Info, Github, FileText } from "lucide-react";
-import { sampleCategories } from "@/lib/prompts";
-import { generatePromptSlug } from "@/lib/prompts";
+import { sampleCategories, generatePromptSlug } from "@/lib/content";
 
 export default function SubmitPromptPage() {
   const [formData, setFormData] = useState({
@@ -18,7 +16,11 @@ export default function SubmitPromptPage() {
     tags: "",
     difficulty_level: "beginner" as "beginner" | "intermediate" | "advanced",
     use_case: "",
-    author: ""
+    author: "",
+    author_website: "",
+    author_email: "",
+    author_twitter: "",
+    author_github: ""
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -74,7 +76,6 @@ export default function SubmitPromptPage() {
 
   if (submitStatus === "success") {
     return (
-      <Layout>
         <div className="bg-gray-50">
           <div className="container mx-auto px-4 py-8">
             <div className="max-w-2xl mx-auto text-center">
@@ -99,18 +100,16 @@ export default function SubmitPromptPage() {
             </div>
           </div>
         </div>
-      </Layout>
     );
   }
 
   return (
-    <Layout>
       <div className="bg-gray-50">
         <div className="container mx-auto px-4 py-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold mb-4 text-gray-900">
-                Share Your Prompt
+                Submit Your Prompt
               </h1>
               <p className="text-xl text-gray-600">
                 Contribute to the open source community by sharing your best AI prompts.
@@ -301,20 +300,96 @@ export default function SubmitPromptPage() {
                     />
                   </div>
 
-                  {/* Author */}
-                  <div>
-                    <label htmlFor="author" className="block text-sm font-medium mb-2">
-                      Your Name (Optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="author"
-                      name="author"
-                      value={formData.author}
-                      onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="Your name for attribution"
-                    />
+                  {/* Author Information */}
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-medium text-gray-900 border-b pb-2">
+                      Author Information (Optional)
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Author Name */}
+                      <div>
+                        <label htmlFor="author" className="block text-sm font-medium mb-2">
+                          Your Name
+                        </label>
+                        <input
+                          type="text"
+                          id="author"
+                          name="author"
+                          value={formData.author}
+                          onChange={handleInputChange}
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="Your name for attribution"
+                        />
+                      </div>
+
+                      {/* Website */}
+                      <div>
+                        <label htmlFor="author_website" className="block text-sm font-medium mb-2">
+                          Website / Portfolio
+                        </label>
+                        <input
+                          type="url"
+                          id="author_website"
+                          name="author_website"
+                          value={formData.author_website}
+                          onChange={handleInputChange}
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="https://yourwebsite.com"
+                        />
+                      </div>
+
+                      {/* Email */}
+                      <div>
+                        <label htmlFor="author_email" className="block text-sm font-medium mb-2">
+                          Email
+                        </label>
+                        <input
+                          type="email"
+                          id="author_email"
+                          name="author_email"
+                          value={formData.author_email}
+                          onChange={handleInputChange}
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="your@email.com"
+                        />
+                        <p className="text-xs text-gray-500 mt-1">
+                          We&apos;ll only use this to contact you about your submission
+                        </p>
+                      </div>
+
+                      {/* Twitter */}
+                      <div>
+                        <label htmlFor="author_twitter" className="block text-sm font-medium mb-2">
+                          Twitter
+                        </label>
+                        <input
+                          type="text"
+                          id="author_twitter"
+                          name="author_twitter"
+                          value={formData.author_twitter}
+                          onChange={handleInputChange}
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="@yourusername"
+                        />
+                      </div>
+
+                      {/* GitHub */}
+                      <div className="md:col-span-2">
+                        <label htmlFor="author_github" className="block text-sm font-medium mb-2">
+                          GitHub
+                        </label>
+                        <input
+                          type="text"
+                          id="author_github"
+                          name="author_github"
+                          value={formData.author_github}
+                          onChange={handleInputChange}
+                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          placeholder="yourusername"
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   {/* Submit Button */}
@@ -375,6 +450,5 @@ export default function SubmitPromptPage() {
           </div>
         </div>
       </div>
-    </Layout>
   );
 } 

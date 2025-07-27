@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPromptBySlug, samplePrompts } from "@/lib/prompts";
-import { PromptCard } from "@/components/prompts/prompt-card";
+import { getPromptBySlug, getAllPrompts } from "@/lib/content.server";
+import { getAuthorBySlug } from "@/lib/authors.server";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CopyButton } from "@/components/ui/copy-button";
 import Link from "next/link";
 import { ArrowLeft, Share2, Heart, Eye } from "lucide-react";
 
@@ -44,7 +45,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return samplePrompts.map((prompt) => ({
+  const allPrompts = getAllPrompts();
+  return allPrompts.map((prompt) => ({
     slug: prompt.slug,
   }));
 }
@@ -58,34 +60,40 @@ export default async function PromptPage({ params }: Props) {
   }
 
   // Get related prompts (same categories, excluding current)
-  const relatedPrompts = samplePrompts
-    .filter(p => 
+  const allPrompts = getAllPrompts();
+  const relatedPrompts = allPrompts
+    .filter((p) => 
       p.id !== prompt.id && 
-      p.categories.some(cat => prompt.categories.includes(cat))
+      p.categories.some((cat) => prompt.categories.includes(cat))
     )
     .slice(0, 3);
 
+  // Get author information
+  const author = prompt.author ? getAuthorBySlug(prompt.author) : null;
+
   return (
     <div className="container mx-auto px-4 py-8">
-      {/* Navigation */}
+      {/* Navigation & Breadcrumb */}
       <div className="mb-6">
-        <Button variant="ghost" asChild className="mb-4">
-          <Link href="/prompts" className="flex items-center gap-2">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Prompts
-          </Link>
-        </Button>
-        
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-gray-500">
-          <Link href="/prompts" className="hover:text-gray-700">Prompts</Link>
-          <span>/</span>
-          <Link href={`/prompts/category/${prompt.categories[0]}`} className="hover:text-gray-700">
-            {prompt.categories[0]}
-          </Link>
-          <span>/</span>
-          <span className="text-gray-900">{prompt.title}</span>
-        </nav>
+        <div className="flex items-center justify-between mb-4">
+          <Button variant="ghost" asChild>
+            <Link href="/prompts" className="flex items-center gap-2">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Prompts
+            </Link>
+          </Button>
+          
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-sm text-gray-500">
+            <Link href="/prompts" className="hover:text-gray-700">Prompts</Link>
+            <span>/</span>
+            <Link href={`/category/${prompt.categories[0]}`} className="hover:text-gray-700">
+              {prompt.categories[0]}
+            </Link>
+            <span>/</span>
+            <span className="text-gray-900">{prompt.title}</span>
+          </nav>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -109,7 +117,15 @@ export default async function PromptPage({ params }: Props) {
                       <span>{prompt.views || 0} views</span>
                     </div>
                     <span>Updated {prompt.updated_at.toLocaleDateString()}</span>
-                    {prompt.author && <span>by {prompt.author}</span>}
+                    {author && (
+                      <span>
+                        by {author.website ? (
+                          <Link href={author.website} className="text-blue-600 hover:underline" target="_blank">
+                            {author.name}
+                          </Link>
+                        ) : author.name}
+                      </span>
+                    )}
                   </div>
                 </div>
                 
@@ -125,8 +141,25 @@ export default async function PromptPage({ params }: Props) {
               </div>
             </CardHeader>
 
-            <CardContent>
-              <PromptCard prompt={prompt} showFullText={true} />
+            <CardContent className="space-y-4">
+              <div>
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-semibold">Prompt Text:</h4>
+                  <CopyButton text={prompt.actual_text} />
+                </div>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <pre className="whitespace-pre-wrap text-sm font-mono">
+                    {prompt.actual_text}
+                  </pre>
+                </div>
+              </div>
+              
+              {prompt.use_case && (
+                <div>
+                  <h4 className="font-semibold mb-2">Use Case:</h4>
+                  <p className="text-sm text-gray-600">{prompt.use_case}</p>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>

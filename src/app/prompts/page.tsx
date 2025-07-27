@@ -1,9 +1,9 @@
 import { Metadata } from "next";
-import { samplePrompts, sampleCategories, filterPrompts, sortPrompts } from "@/lib/prompts";
+import { getAllPrompts } from "@/lib/content.server";
+import { sampleCategories, filterPrompts, sortPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Layout } from "@/components/layout/layout";
 import Link from "next/link";
 import { Search } from "lucide-react";
 
@@ -19,15 +19,17 @@ export const metadata: Metadata = {
 };
 
 export default function PromptsPage() {
+  // Get all prompts from MD files
+  const allPromptsData = getAllPrompts();
+  
   // Get featured prompts
-  const featuredPrompts = filterPrompts(samplePrompts, { featured: true });
+  const featuredPrompts = filterPrompts(allPromptsData, { featured: true });
   const sortedFeaturedPrompts = sortPrompts(featuredPrompts, 'created_at', 'desc');
 
   // Get all prompts sorted by creation date
-  const allPrompts = sortPrompts(samplePrompts, 'created_at', 'desc');
+  const allPrompts = sortPrompts(allPromptsData, 'created_at', 'desc');
 
   return (
-    <Layout>
       <div className="bg-gray-50">
         <div className="container mx-auto px-4 py-8">
           {/* Header */}
@@ -109,12 +111,11 @@ export default function PromptsPage() {
             </p>
             <Button asChild>
               <Link href="/prompts/submit">
-                Submit Your Prompt
+                Submit Prompt
               </Link>
             </Button>
           </div>
         </div>
       </div>
-    </Layout>
   );
 } 

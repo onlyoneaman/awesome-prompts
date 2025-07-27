@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { sampleCategories } from "@/lib/prompts";
+import { sampleCategories } from "@/lib/content";
 import { ChevronDown, Github } from "lucide-react";
 
 export function Header() {
@@ -70,7 +70,7 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center gap-3">
             <Button variant="outline" size="sm" asChild>
-              <Link href="/prompts/submit">Share Prompt</Link>
+              <Link href="/prompts/submit">Submit Prompt</Link>
             </Button>
             
             {/* Mobile menu button */}

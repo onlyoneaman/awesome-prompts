@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PromptCard } from "@/components/prompts/prompt-card";
-import { Layout } from "@/components/layout/layout";
 import { samplePrompts, sampleCategories, sortPrompts } from "@/lib/prompts";
 import { Search, ArrowRight } from "lucide-react";
 
@@ -12,7 +11,6 @@ export default function Home() {
   const previewPrompts = sortedPrompts.slice(0, 6);
 
   return (
-    <Layout>
       <div className="bg-gray-50">
         {/* Hero Section */}
         <section className="py-16 bg-white">
@@ -85,6 +83,5 @@ export default function Home() {
           </div>
         </section>
       </div>
-    </Layout>
   );
 }
