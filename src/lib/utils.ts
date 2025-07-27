@@ -10,25 +10,25 @@ export function cn(...inputs: ClassValue[]) {
 export function getNavigationContext(referrer?: string | null) {
   if (!referrer) return { type: 'direct', category: null };
   
-  // Check if coming from homepage
-  if (referrer.endsWith('/') && !referrer.includes('/category') && !referrer.includes('/prompts')) {
-    return { type: 'home', category: null };
-  }
-  
-  // Check if coming from a category page  
-  const categoryMatch = referrer.match(/\/categories\/([^/?]+)/);
+  // Check if coming from a specific category page
+  const categoryMatch = referrer.match(/\/categories\/([^/?#]+)$/);
   if (categoryMatch) {
     return { type: 'category', category: categoryMatch[1] };
   }
   
+  // Check if coming from categories listing page
+  if (referrer.includes('/categories') && referrer.endsWith('/categories')) {
+    return { type: 'categories', category: null };
+  }
+  
   // Check if coming from prompts listing
-  if (referrer.includes('/prompts') && !referrer.includes('/prompts/')) {
+  if (referrer.includes('/prompts') && referrer.endsWith('/prompts')) {
     return { type: 'prompts', category: null };
   }
   
-  // Check if coming from categories listing
-  if (referrer.includes('/categories') && !referrer.includes('/categories/')) {
-    return { type: 'categories', category: null };
+  // Check if coming from homepage (root domain ending with just /)
+  if (referrer.match(/https?:\/\/[^\/]+\/?$/)) {
+    return { type: 'home', category: null };
   }
   
   return { type: 'direct', category: null };

@@ -71,32 +71,7 @@ export default function CategoriesPage() {
         ))}
       </div>
 
-      {/* Stats Section */}
-      <div className="mt-16 text-center">
-        <div className="bg-gray-50 rounded-lg p-8">
-          <h2 className="text-2xl font-semibold mb-4">Explore Our Collection</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">
-                {sampleCategories.length}
-              </div>
-              <div className="text-gray-600">Categories</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">
-                {allPrompts.length}
-              </div>
-              <div className="text-gray-600">Total Prompts</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-primary mb-2">
-                {allPrompts.reduce((sum, prompt) => sum + (prompt.views || 0), 0)}
-              </div>
-              <div className="text-gray-600">Total Views</div>
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
   );
 } 

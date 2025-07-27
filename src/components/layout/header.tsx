@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { sampleCategories } from "@/lib/content";
-import { ChevronDown, Github } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export function Header() {
   return (
@@ -49,7 +49,7 @@ export function Header() {
                     className="flex items-center gap-2 w-full font-medium"
                   >
                     <span>📂</span>
-                    <span>Browse All Categories</span>
+                    <span>Browse All</span>
                   </Link>
                 </DropdownMenuItem>
                 <div className="border-t my-1"></div>
@@ -67,14 +67,7 @@ export function Header() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link 
-              href="https://github.com/onlyoneaman/awesome-prompts" 
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </Link>
+
           </nav>
 
           {/* Actions */}

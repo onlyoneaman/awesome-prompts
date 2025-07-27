@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
-import { RelatedPrompts } from "@/components/prompts/related-prompts";
 import Link from "next/link";
 import { Share2, Heart, Eye, Star } from "lucide-react";
 import React from "react";
@@ -86,9 +85,6 @@ export default async function PromptPage({ params }: Props) {
   if (!prompt) {
     notFound();
   }
-
-  // Get all prompts for related prompts logic
-  const allPrompts = getAllPrompts();
 
   // Get author information
   const author = prompt.author ? getAuthorBySlug(prompt.author) : null;
@@ -189,34 +185,19 @@ export default async function PromptPage({ params }: Props) {
           {/* Author Info */}
           {author && (
             <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Author</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center gap-3">
-                  {author.profile_picture && (
-                    <img 
-                      src={author.profile_picture} 
-                      alt={author.name}
-                      className="w-12 h-12 rounded-full"
-                    />
-                  )}
-                  <div>
-                    <h4 className="font-semibold">{author.name}</h4>
-                    {author.bio && (
-                      <p className="text-sm text-gray-600">{author.bio}</p>
-                    )}
-                    {author.website && (
-                      <Link 
-                        href={author.website} 
-                        target="_blank" 
-                        className="text-sm text-blue-600 hover:text-blue-700"
-                      >
-                        Visit Website
-                      </Link>
-                    )}
+              <CardContent className="p-4">
+                <Link 
+                  href={`/authors/${author.slug}`}
+                  className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
+                >
+                  <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600">
+                    {author.name.charAt(0).toUpperCase()}
                   </div>
-                </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">{author.name}</h4>
+                    <p className="text-sm text-gray-500">View Profile</p>
+                  </div>
+                </Link>
               </CardContent>
             </Card>
           )}
@@ -292,8 +273,7 @@ export default async function PromptPage({ params }: Props) {
             </CardContent>
           </Card>
 
-          {/* Related Prompts */}
-          <RelatedPrompts currentPrompt={prompt} allPrompts={allPrompts} />
+
         </div>
       </div>
     </div>
