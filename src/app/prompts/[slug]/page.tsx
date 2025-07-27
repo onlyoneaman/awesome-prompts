@@ -239,6 +239,11 @@ export default async function PromptPage({ params, searchParams }: Props) {
                   <Badge variant="secondary" className="text-xs">
                     ❤️ {prompt.likes || 0}
                   </Badge>
+                  {prompt.difficulty && (
+                    <Badge variant='secondary'>
+                      {getDifficultyStars(prompt.difficulty)}
+                    </Badge>
+                  )}
                 </div>
               </div>
 
@@ -281,16 +286,6 @@ export default async function PromptPage({ params, searchParams }: Props) {
                   ))}
                 </div>
               </div>
-
-              {/* Rating */}
-              {prompt.difficulty && (
-                <div>
-                  <h4 className="font-semibold mb-2">Rating</h4>
-                  <div className="flex items-center">
-                    {getDifficultyStars(prompt.difficulty)}
-                  </div>
-                </div>
-              )}
             </CardContent>
           </Card>
         </div>
