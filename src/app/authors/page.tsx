@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { Globe, Github, Linkedin, Twitter } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Authors | Awesome Prompts",
@@ -117,7 +118,7 @@ export default function AuthorsPage() {
               <div className="text-center">
                 <Link 
                   href={`/authors/${author.slug}`}
-                  className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 transition-colors"
+                  className="inline-flex items-center text-sm hover:underline"
                 >
                   View Prompts →
                 </Link>
@@ -135,9 +136,11 @@ export default function AuthorsPage() {
         </p>
         <Link 
           href="/prompts/submit"
-          className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="inline-flex items-center rounded-lg"
         >
-          Submit Prompt
+          <Button>
+            Submit Prompt
+          </Button>
         </Link>
       </div>
     </div>
