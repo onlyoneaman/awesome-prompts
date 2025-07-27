@@ -30,55 +30,55 @@ export function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
-            <Link 
-              href="/" 
-              className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            >
-              Home
-            </Link>
-            
-            <Link 
-              href="/prompts" 
-              className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            >
-              Prompts
-            </Link>
+          {/* Actions - Desktop Navigation + Submit */}
+          <div className="flex items-center gap-2 md:gap-6">
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6">
+              <Link 
+                href="/" 
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              >
+                Home
+              </Link>
+              
+              <Link 
+                href="/prompts" 
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              >
+                Prompts
+              </Link>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-gray-600 hover:text-gray-900 font-medium transition-colors">
-                Categories
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link 
-                    href="/categories"
-                    className="flex items-center gap-2 w-full font-medium"
-                  >
-                    <span>📂</span>
-                    <span>Browse All</span>
-                  </Link>
-                </DropdownMenuItem>
-                <div className="border-t my-1"></div>
-                {sampleCategories.map((category) => (
-                  <DropdownMenuItem key={category.id} asChild>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 text-gray-600 hover:text-gray-900 font-medium transition-colors">
+                  Categories
+                  <ChevronDown className="w-4 h-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-48">
+                  <DropdownMenuItem asChild>
                     <Link 
-                      href={`/categories/${category.slug}`}
-                      className="flex items-center gap-2 w-full"
+                      href="/categories"
+                      className="flex items-center gap-2 w-full font-medium"
                     >
-                      <span>{category.icon}</span>
-                      <span>{category.name}</span>
+                      <span>📂</span>
+                      <span>Browse All</span>
                     </Link>
                   </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </nav>
+                  <div className="border-t my-1"></div>
+                  {sampleCategories.map((category) => (
+                    <DropdownMenuItem key={category.id} asChild>
+                      <Link 
+                        href={`/categories/${category.slug}`}
+                        className="flex items-center gap-2 w-full"
+                      >
+                        <span>{category.icon}</span>
+                        <span>{category.name}</span>
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </nav>
 
-          {/* Actions */}
-          <div className="flex items-center gap-2 md:gap-3">
             <Button variant="outline" size="sm" asChild className="hidden sm:flex">
               <Link href="/prompts/submit">Submit Prompt</Link>
             </Button>

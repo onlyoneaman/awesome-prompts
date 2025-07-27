@@ -139,21 +139,25 @@ export default async function PromptPage({ params, searchParams }: Props) {
     <div className="container mx-auto px-4 py-4 md:py-8">
       {/* Navigation & Breadcrumb */}
       <div className="mb-4 md:mb-6">
-        {/* Back Navigation - Centered on mobile */}
-        <div className="flex justify-center md:justify-start mb-4">
+        {/* Mobile: Centered back button only */}
+        <div className="flex justify-center md:hidden mb-4">
           <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} />
         </div>
         
-        {/* Breadcrumb - Hidden on mobile to avoid redundancy */}
-        <nav className="hidden md:flex items-center gap-2 text-sm text-gray-500">
-          <Link href="/prompts" className="hover:text-gray-700 whitespace-nowrap">Prompts</Link>
-          <span className="text-gray-300">/</span>
-          <Link href={`/categories/${prompt.categories[0]}`} className="hover:text-gray-700 whitespace-nowrap">
-            {prompt.categories[0]}
-          </Link>
-          <span className="text-gray-300">/</span>
-          <span className="text-gray-900 truncate">{prompt.title}</span>
-        </nav>
+        {/* Desktop: Back button on left, breadcrumb on right */}
+        <div className="hidden md:flex items-center justify-between">
+          <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} />
+          
+          <nav className="flex items-center gap-2 text-sm text-gray-500">
+            <Link href="/prompts" className="hover:text-gray-700 whitespace-nowrap">Prompts</Link>
+            <span className="text-gray-300">/</span>
+            <Link href={`/categories/${prompt.categories[0]}`} className="hover:text-gray-700 whitespace-nowrap">
+              {prompt.categories[0]}
+            </Link>
+            <span className="text-gray-300">/</span>
+            <span className="text-gray-900 truncate">{prompt.title}</span>
+          </nav>
+        </div>
       </div>
 
       {/* Main Content */}
