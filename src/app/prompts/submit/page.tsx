@@ -1,10 +1,29 @@
 "use client";
 
 import { useState } from "react";
+import axios from "axios";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuCheckboxItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import Link from "next/link";
-import { Info, Github, FileText } from "lucide-react";
+import { Info, Github, ChevronDown } from "lucide-react";
 import { sampleCategories, generatePromptSlug } from "@/lib/prompts";
 
 export default function SubmitPromptPage() {
@@ -19,6 +38,7 @@ export default function SubmitPromptPage() {
     author: "",
     author_website: "",
     author_email: "",
+    author_phone: "",
     author_twitter: "",
     author_github: ""
   });
@@ -26,7 +46,7 @@ export default function SubmitPromptPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -60,18 +80,32 @@ export default function SubmitPromptPage() {
         views: 0
       };
 
-      // Here you would normally send to your API
-      console.log('Prompt submitted:', promptData);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      // API call to log the event
+      await axios.post('https://bella.amankumar.ai/experiments/v1/log_event', {
+        event: "prompt_submission",
+        duration: "",
+        request_data: promptData,
+        response_data: {},
+        user_id: ""
+      });
+
+      console.log('Prompt submitted successfully:', promptData);
       setSubmitStatus("success");
-    } catch {
+    } catch (error) {
+      console.error('Error submitting prompt:', error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const getCategoriesDisplayText = () => {
+    if (formData.categories.length === 0) return "Select categories...";
+    if (formData.categories.length === 1) {
+      const category = sampleCategories.find(c => c.slug === formData.categories[0]);
+      return category ? `${category.icon} ${category.name}` : formData.categories[0];
+    }
+    return `${formData.categories.length} categories selected`;
   };
 
   if (submitStatus === "success") {
@@ -83,7 +117,7 @@ export default function SubmitPromptPage() {
                 <CardHeader>
                   <CardTitle className="text-green-600">✅ Prompt Submitted Successfully!</CardTitle>
                   <CardDescription>
-                    Thank you for contributing to our community. Your prompt will be reviewed and added to our collection soon.
+                    Thank you for contributing! We&apos;ll review your prompt and get back to you within 2 business days (often much sooner).
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -109,7 +143,7 @@ export default function SubmitPromptPage() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold mb-4 text-gray-900">
-                Submit Your Prompt
+                Share Your Prompt
               </h1>
               <p className="text-xl text-gray-600">
                 Contribute to the open source community by sharing your best AI prompts.
@@ -117,50 +151,35 @@ export default function SubmitPromptPage() {
             </div>
 
             {/* Share Options */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="mb-8">
               <Card className="border-2 border-blue-200 bg-blue-50">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <FileText className="w-5 h-5" />
-                    Submit via Form
-                  </CardTitle>
-                  <CardDescription>
-                    Quick and easy submission through our web form. We&apos;ll review and add it to the repository.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button className="w-full">Continue with Form</Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-2 border-green-200 bg-green-50">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <Github className="w-5 h-5" />
-                    Create Pull Request
-                  </CardTitle>
-                  <CardDescription>
-                    Contribute directly to the GitHub repository. Perfect for developers who want full control.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="outline" className="w-full" asChild>
-                    <Link 
-                      href="https://github.com/onlyoneaman/awesome-prompts/blob/main/CONTRIBUTING.md" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      View Contribution Guide
-                    </Link>
-                  </Button>
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <Github className="w-5 h-5 text-blue-600" />
+                      <div>
+                        <h3 className="font-semibold text-blue-900">Prefer to raise a PR?</h3>
+                        <p className="text-sm text-blue-700">Contribute directly to the GitHub repository</p>
+                      </div>
+                    </div>
+                    <Button variant="outline" size="sm" asChild>
+                      <Link 
+                        href="https://github.com/onlyoneaman/awesome-prompts/blob/main/CONTRIBUTING.md" 
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View Guide
+                      </Link>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </div>
 
-            {/* Form */}
+            {/* Form - Always visible */}
             <Card>
               <CardHeader>
-                <CardTitle>Submit Your Prompt</CardTitle>
+                <CardTitle>Prompt Details</CardTitle>
                 <CardDescription>
                   Fill out the form below to share your prompt with the community.
                 </CardDescription>
@@ -168,134 +187,155 @@ export default function SubmitPromptPage() {
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Title */}
-                  <div>
-                    <label htmlFor="title" className="block text-sm font-medium mb-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="title">
                       Prompt Title *
-                    </label>
-                    <input
-                      type="text"
+                    </Label>
+                    <Input
                       id="title"
                       name="title"
                       value={formData.title}
                       onChange={handleInputChange}
                       required
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="e.g., Marketing Copy Generator"
                     />
                   </div>
 
                   {/* Description */}
-                  <div>
-                    <label htmlFor="description" className="block text-sm font-medium mb-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="description">
                       Description *
-                    </label>
-                    <textarea
+                    </Label>
+                    <Textarea
                       id="description"
                       name="description"
                       value={formData.description}
                       onChange={handleInputChange}
                       required
                       rows={3}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Brief description of what this prompt does and how it helps users..."
                     />
                   </div>
 
                   {/* Actual Prompt Text */}
-                  <div>
-                    <label htmlFor="actual_text" className="block text-sm font-medium mb-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="actual_text">
                       Prompt Text *
-                    </label>
-                    <textarea
+                    </Label>
+                    <Textarea
                       id="actual_text"
                       name="actual_text"
                       value={formData.actual_text}
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm"
+                      className="font-mono text-sm"
                       placeholder="Enter your prompt text here. Use [BRACKETS] for user-replaceable variables..."
                     />
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-500">
                       Use [BRACKETS] for placeholders that users should replace (e.g., [TOPIC], [AUDIENCE], [TONE])
                     </p>
                   </div>
 
-                  {/* Categories */}
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
+                  {/* Categories - Multi-select Dropdown */}
+                  <div className="space-y-2">
+                    <Label>
                       Categories * (Select all that apply)
-                    </label>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                      {sampleCategories.map((category) => (
-                        <label key={category.id} className="flex items-center space-x-2 cursor-pointer">
-                          <input
-                            type="checkbox"
+                    </Label>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="outline"
+                          className="w-full justify-between"
+                          type="button"
+                        >
+                          {getCategoriesDisplayText()}
+                          <ChevronDown className="ml-2 h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-80">
+                        <DropdownMenuLabel>Select Categories</DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        {sampleCategories.map((category) => (
+                          <DropdownMenuCheckboxItem
+                            key={category.id}
                             checked={formData.categories.includes(category.slug)}
-                            onChange={() => handleCategoryChange(category.slug)}
-                            className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                          />
-                          <span className="text-sm flex items-center gap-1">
-                            <span>{category.icon}</span>
-                            {category.name}
-                          </span>
-                        </label>
-                      ))}
-                    </div>
+                            onCheckedChange={() => handleCategoryChange(category.slug)}
+                          >
+                            <span className="flex items-center gap-2">
+                              <span>{category.icon}</span>
+                              {category.name}
+                            </span>
+                          </DropdownMenuCheckboxItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                    {formData.categories.length > 0 && (
+                      <div className="mt-2 flex flex-wrap gap-1">
+                        {formData.categories.map((categorySlug) => {
+                          const category = sampleCategories.find(c => c.slug === categorySlug);
+                          return category ? (
+                            <span
+                              key={categorySlug}
+                              className="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-md"
+                            >
+                              {category.icon} {category.name}
+                            </span>
+                          ) : null;
+                        })}
+                      </div>
+                    )}
                   </div>
 
                   {/* Tags */}
-                  <div>
-                    <label htmlFor="tags" className="block text-sm font-medium mb-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="tags">
                       Tags
-                    </label>
-                    <input
-                      type="text"
+                    </Label>
+                    <Input
                       id="tags"
                       name="tags"
                       value={formData.tags}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="e.g., copywriting, email, sales, conversion (comma-separated)"
                     />
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-gray-500">
                       Separate multiple tags with commas
                     </p>
                   </div>
 
                   {/* Difficulty Level */}
-                  <div>
-                    <label htmlFor="difficulty" className="block text-sm font-medium mb-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="difficulty">
                       Difficulty Level
-                    </label>
-                    <select
-                      id="difficulty"
-                      name="difficulty"
+                    </Label>
+                    <Select
                       value={formData.difficulty}
-                      onChange={(e) => setFormData(prev => ({ 
-                        ...prev, 
-                        difficulty: e.target.value as "beginner" | "intermediate" | "advanced"
-                      }))}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      onValueChange={(value: "beginner" | "intermediate" | "advanced") => 
+                        setFormData(prev => ({ ...prev, difficulty: value }))
+                      }
                     >
-                      <option value="beginner">Beginner</option>
-                      <option value="intermediate">Intermediate</option>
-                      <option value="advanced">Advanced</option>
-                    </select>
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Select difficulty level" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="beginner">Beginner</SelectItem>
+                        <SelectItem value="intermediate">Intermediate</SelectItem>
+                        <SelectItem value="advanced">Advanced</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
                   {/* Use Cases */}
-                  <div>
-                    <label htmlFor="use_cases" className="block text-sm font-medium mb-2">
+                  <div className="space-y-2">
+                    <Label htmlFor="use_cases">
                       Use Cases (comma-separated)
-                    </label>
-                    <input
-                      type="text"
+                    </Label>
+                    <Input
                       id="use_cases"
                       name="use_cases"
                       value={formData.use_cases}
                       onChange={handleInputChange}
-                      className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="e.g., Email marketing, content creation, social media"
                     />
                   </div>
@@ -308,84 +348,91 @@ export default function SubmitPromptPage() {
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {/* Author Name */}
-                      <div>
-                        <label htmlFor="author" className="block text-sm font-medium mb-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="author">
                           Your Name
-                        </label>
-                        <input
-                          type="text"
+                        </Label>
+                        <Input
                           id="author"
                           name="author"
                           value={formData.author}
                           onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="Your name for attribution"
                         />
                       </div>
 
                       {/* Website */}
-                      <div>
-                        <label htmlFor="author_website" className="block text-sm font-medium mb-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="author_website">
                           Website / Portfolio
-                        </label>
-                        <input
+                        </Label>
+                        <Input
                           type="url"
                           id="author_website"
                           name="author_website"
                           value={formData.author_website}
                           onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="https://yourwebsite.com"
                         />
                       </div>
 
                       {/* Email */}
-                      <div>
-                        <label htmlFor="author_email" className="block text-sm font-medium mb-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="author_email">
                           Email
-                        </label>
-                        <input
+                        </Label>
+                        <Input
                           type="email"
                           id="author_email"
                           name="author_email"
                           value={formData.author_email}
                           onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="your@email.com"
                         />
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="text-xs text-gray-500">
                           We&apos;ll only use this to contact you about your submission
                         </p>
                       </div>
 
+                      {/* Phone */}
+                      <div className="space-y-2">
+                        <Label htmlFor="author_phone">
+                          Phone (Optional)
+                        </Label>
+                        <Input
+                          type="tel"
+                          id="author_phone"
+                          name="author_phone"
+                          value={formData.author_phone}
+                          onChange={handleInputChange}
+                          placeholder="+1 (555) 123-4567"
+                        />
+                      </div>
+
                       {/* Twitter */}
-                      <div>
-                        <label htmlFor="author_twitter" className="block text-sm font-medium mb-2">
+                      <div className="space-y-2">
+                        <Label htmlFor="author_twitter">
                           Twitter
-                        </label>
-                        <input
-                          type="text"
+                        </Label>
+                        <Input
                           id="author_twitter"
                           name="author_twitter"
                           value={formData.author_twitter}
                           onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="@yourusername"
                         />
                       </div>
 
                       {/* GitHub */}
-                      <div className="md:col-span-2">
-                        <label htmlFor="author_github" className="block text-sm font-medium mb-2">
+                      <div className="md:col-span-2 space-y-2">
+                        <Label htmlFor="author_github">
                           GitHub
-                        </label>
-                        <input
-                          type="text"
+                        </Label>
+                        <Input
                           id="author_github"
                           name="author_github"
                           value={formData.author_github}
                           onChange={handleInputChange}
-                          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                           placeholder="yourusername"
                         />
                       </div>
@@ -399,7 +446,7 @@ export default function SubmitPromptPage() {
                       disabled={isSubmitting || !formData.title || !formData.description || !formData.actual_text || formData.categories.length === 0}
                       className="w-full"
                     >
-                      {isSubmitting ? "Submitting..." : "Submit Prompt"}
+                      {isSubmitting ? "Submitting..." : "Share Prompt"}
                     </Button>
                   </div>
                 </form>
@@ -419,7 +466,7 @@ export default function SubmitPromptPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Info className="w-5 h-5" />
-                  Submission Guidelines
+                  Guidelines
                 </CardTitle>
               </CardHeader>
               <CardContent>
