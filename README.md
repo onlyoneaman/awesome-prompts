@@ -21,7 +21,7 @@ Awesome Prompts is an open-source library of carefully curated AI prompts design
 
 ## 🚀 Live Demo
 
-Visit [awesome-prompts.vercel.app](https://awesome-prompts.vercel.app) to explore the collection.
+Visit [prompts.amankumar.ai](https://prompts.amankumar.ai) to explore the collection.
 
 ## 📂 Project Structure
 
@@ -89,7 +89,7 @@ npm start
 We welcome contributions! There are several ways to contribute:
 
 ### 📝 Submit a Prompt via Form
-1. Visit the [Submit Prompt](https://awesome-prompts.vercel.app/prompts/submit) page
+1. Visit the [Submit Prompt](https://prompts.amankumar.ai/prompts/submit) page
 2. Fill out the form with your prompt details
 3. Our team will review and add it to the collection
 
