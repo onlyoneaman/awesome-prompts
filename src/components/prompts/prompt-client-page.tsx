@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Markdown from 'react-markdown';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -80,9 +79,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
             <CopyButton text={prompt.actual_text} />
           </div>
           <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
-            <Markdown>
-              {prompt.actual_text}
-            </Markdown>
+            {prompt.actual_text}
           </div>
         </div>
       </CardContent>
