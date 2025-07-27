@@ -47,6 +47,149 @@ function getDifficultyStars(difficulty: string | undefined): React.JSX.Element {
   );
 }
 
+// Main Prompt Card Component
+function PromptMainCard({ prompt }: { prompt: Prompt }) {
+  return (
+    <Card>
+      <CardHeader>
+        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+          <div className="flex-1">
+            <CardTitle className="text-xl md:text-2xl mb-2 leading-tight">{prompt.title}</CardTitle>
+            <p className="text-gray-600 mb-4 text-sm md:text-base">{prompt.description}</p>
+          </div>
+          
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2 self-start">
+            <Button variant="outline" size="sm" className="flex-shrink-0">
+              <Share2 className="w-4 h-4" />
+            </Button>
+            <Button variant="outline" size="sm" className="flex-shrink-0">
+              <Heart className="w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+      </CardHeader>
+
+      <CardContent className="space-y-4">
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <h4 className="font-semibold">
+              {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
+            </h4>
+            <CopyButton text={prompt.actual_text} />
+          </div>
+          <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
+            <Markdown>
+              {prompt.actual_text}
+            </Markdown>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+// More Details Component
+function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null }) {
+  return (
+    <Card className="mt-6">
+      <CardHeader>
+        <CardTitle className="text-lg">More Details</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-6">
+          {/* Prompt Stats */}
+          <div>
+            <div className="flex flex-wrap gap-2 text-sm">
+              {prompt.type && prompt.type !== 'text' && (
+                <Badge variant="default" className="text-xs capitalize">
+                  {prompt.type} prompt
+                </Badge>
+              )}
+              <Badge variant="secondary" className="text-xs">
+                {prompt.created_at.toLocaleDateString()}
+              </Badge>
+              {(prompt.views ?? 0) > 0 && (
+                <Badge variant="secondary" className="text-xs">
+                  👁️ {prompt.views}
+                </Badge>
+              )}
+              {(prompt.likes ?? 0) > 0 && (
+                <Badge variant="secondary" className="text-xs">
+                  ❤️ {prompt.likes}
+                </Badge>
+              )}
+              {prompt.difficulty && (
+                <Badge variant='secondary'>
+                  {getDifficultyStars(prompt.difficulty)}
+                </Badge>
+              )}
+            </div>
+          </div>
+
+          {/* Author Info */}
+          {author && (
+            <div>
+              <Link 
+                href={`/authors/${author.slug}`}
+                className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
+              >
+                <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
+                  {author.name.charAt(0).toUpperCase()}
+                </div>
+                <div className="min-w-0">
+                  <p className="font-medium text-gray-900 truncate">{author.name}</p>
+                  <p className="text-sm text-gray-500">View Profile</p>
+                </div>
+              </Link>
+            </div>
+          )}
+
+          {/* Use Cases */}
+          {prompt.use_cases && prompt.use_cases.length > 0 && (
+            <div>
+              <h4 className="font-semibold mb-3">Use Cases</h4>
+              <div className="flex flex-wrap gap-1">
+                {prompt.use_cases.map((useCase, index) => (
+                  <Badge key={index} variant="outline" className="text-xs">
+                    {useCase}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Categories */}
+          <div>
+            <h4 className="font-semibold mb-3">Categories</h4>
+            <div className="flex flex-wrap gap-1">
+              {prompt.categories.map((category) => (
+                <Link key={category} href={`/categories/${category}`}>
+                  <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
+                    {category}
+                  </Badge>
+                </Link>
+              ))}
+            </div>
+          </div>
+          
+          {/* Tags */}
+          <div>
+            <h4 className="font-semibold mb-3">Tags</h4>
+            <div className="flex flex-wrap gap-1">
+              {prompt.tags.map((tag) => (
+                <Badge key={tag} variant="secondary" className="text-xs">
+                  #{tag}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export default function PromptClientPage({ prompt, author, referrerCategory }: PromptClientPageProps) {
   // Gallery state for image prompts
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -185,136 +328,8 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
 
             {/* Prompt Content */}
             <div>
-              <Card>
-                <CardHeader>
-                  <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl md:text-2xl mb-2 leading-tight">{prompt.title}</CardTitle>
-                      <p className="text-gray-600 mb-4 text-sm md:text-base">{prompt.description}</p>
-                    </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex items-center gap-2 self-start">
-                      <Button variant="outline" size="sm" className="flex-shrink-0">
-                        <Share2 className="w-4 h-4" />
-                        <span className="hidden sm:ml-2 sm:inline">Share</span>
-                      </Button>
-                      <Button variant="outline" size="sm" className="flex-shrink-0">
-                        <Heart className="w-4 h-4" />
-                        <span className="hidden sm:ml-2 sm:inline">Like</span>
-                      </Button>
-                    </div>
-                  </div>
-                </CardHeader>
-
-                <CardContent className="space-y-4">
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold">Image Prompt:</h4>
-                      <CopyButton text={prompt.actual_text} />
-                    </div>
-                    <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
-                      <Markdown>
-                        {prompt.actual_text}
-                      </Markdown>
-                    </div>
-                  </div>
-
-                  {/* Prompt Info - Moved here for image prompts */}
-                  <div>
-                    <div className="flex flex-wrap gap-2 text-sm">
-                      {prompt.type && prompt.type !== 'text' && (
-                        <Badge variant="default" className="text-xs capitalize">
-                          {prompt.type} prompt
-                        </Badge>
-                      )}
-                      <Badge variant="secondary" className="text-xs">
-                        {prompt.created_at.toLocaleDateString()}
-                      </Badge>
-                      <Badge variant="secondary" className="text-xs">
-                        👁️ {prompt.views || 0}
-                      </Badge>
-                      <Badge variant="secondary" className="text-xs">
-                        ❤️ {prompt.likes || 0}
-                      </Badge>
-                      {prompt.difficulty && (
-                        <Badge variant='secondary'>
-                          {getDifficultyStars(prompt.difficulty)}
-                        </Badge>
-                      )}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Prompt Details Card - Below the prompt card in image layout */}
-              <Card className="mt-6">
-                <CardHeader>
-                  <CardTitle className="text-lg">Prompt Details</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-6">
-                    {/* Author Info */}
-                    {author && (
-                      <div>
-                        <h4 className="font-semibold mb-3">Author</h4>
-                        <Link 
-                          href={`/authors/${author.slug}`}
-                          className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
-                        >
-                          <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
-                            {author.name.charAt(0).toUpperCase()}
-                          </div>
-                          <div className="min-w-0">
-                            <p className="font-medium text-gray-900 truncate">{author.name}</p>
-                            <p className="text-sm text-gray-500">View Profile</p>
-                          </div>
-                        </Link>
-                      </div>
-                    )}
-
-                    {/* Use Cases */}
-                    {prompt.use_cases && prompt.use_cases.length > 0 && (
-                      <div>
-                        <h4 className="font-semibold mb-3">Use Cases</h4>
-                        <div className="flex flex-wrap gap-1">
-                          {prompt.use_cases.map((useCase, index) => (
-                            <Badge key={index} variant="outline" className="text-xs">
-                              {useCase}
-                            </Badge>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Categories */}
-                    <div>
-                      <h4 className="font-semibold mb-3">Categories</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {prompt.categories.map((category) => (
-                          <Link key={category} href={`/categories/${category}`}>
-                            <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
-                              {category}
-                            </Badge>
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    {/* Tags */}
-                    <div>
-                      <h4 className="font-semibold mb-3">Tags</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {prompt.tags.map((tag) => (
-                          <Badge key={tag} variant="secondary" className="text-xs">
-                            #{tag}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <PromptMainCard prompt={prompt} />
+              <MoreDetails prompt={prompt} author={author} />
             </div>
           </div>
         </div>
@@ -323,114 +338,15 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                  <div className="flex-1">
-                    <CardTitle className="text-xl md:text-2xl mb-2 leading-tight">{prompt.title}</CardTitle>
-                    <p className="text-gray-600 mb-4 text-sm md:text-base">{prompt.description}</p>
-                  </div>
-                  
-                  {/* Action Buttons */}
-                  <div className="flex items-center gap-2 self-start">
-                    <Button variant="outline" size="sm" className="flex-shrink-0">
-                      <Share2 className="w-4 h-4" />
-                      <span className="hidden sm:ml-2 sm:inline">Share</span>
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex-shrink-0">
-                      <Heart className="w-4 h-4" />
-                      <span className="hidden sm:ml-2 sm:inline">Like</span>
-                    </Button>
-                  </div>
-                </div>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-semibold">Prompt:</h4>
-                    <CopyButton text={prompt.actual_text} />
-                  </div>
-                  <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
-                    <Markdown>
-                      {prompt.actual_text}
-                    </Markdown>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <PromptMainCard prompt={prompt} />
           </div>
 
           {/* Sidebar */}
           <div className="lg:order-last">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Prompt Details</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                  {/* Author Info */}
-                  {author && (
-                    <div>
-                      <h4 className="font-semibold mb-3">Author</h4>
-                      <Link 
-                        href={`/authors/${author.slug}`}
-                        className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
-                      >
-                        <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
-                          {author.name.charAt(0).toUpperCase()}
-                        </div>
-                        <div className="min-w-0">
-                          <p className="font-medium text-gray-900 truncate">{author.name}</p>
-                          <p className="text-sm text-gray-500">View Profile</p>
-                        </div>
-                      </Link>
-                    </div>
-                  )}
-
-                  {/* Use Cases */}
-                  {prompt.use_cases && prompt.use_cases.length > 0 && (
-                    <div>
-                      <h4 className="font-semibold mb-3">Use Cases</h4>
-                      <div className="flex flex-wrap gap-1">
-                        {prompt.use_cases.map((useCase, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {useCase}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Categories */}
-                  <div>
-                    <h4 className="font-semibold mb-3">Categories</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {prompt.categories.map((category) => (
-                        <Link key={category} href={`/categories/${category}`}>
-                          <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
-                            {category}
-                          </Badge>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Tags */}
-                  <div>
-                    <h4 className="font-semibold mb-3">Tags</h4>
-                    <div className="flex flex-wrap gap-1">
-                      {prompt.tags.map((tag) => (
-                        <Badge key={tag} variant="secondary" className="text-xs">
-                          #{tag}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <MoreDetails prompt={prompt} author={author} />
           </div>
-        )}
-      </div>
-    );
-  } 
+        </div>
+      )}
+    </div>
+  );
+} 
