@@ -4,9 +4,15 @@ import { getPromptBySlug, getAllPrompts } from "@/lib/content.server";
 import { getAuthorBySlug } from "@/lib/authors.server";
 import PromptClientPage from "@/components/prompts/prompt-client-page";
 
+// Remove edge runtime - use Node.js runtime for filesystem access
+// export const runtime = 'edge';
+
+// Required for static export
+export const dynamic = 'force-static'
+
 interface Props {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+  // searchParams removed for static export compatibility
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -81,16 +87,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export async function generateStaticParams() {
   const prompts = getAllPrompts();
-  return prompts.map((prompt) => ({
+  return prompts.map(prompt => ({
     slug: prompt.slug,
   }));
 }
 
-export default async function PromptPage({ params, searchParams }: Props) {
+export default async function PromptPage({ params }: Props) {
   const { slug } = await params;
-  const search = await searchParams;
-  const referrerCategory = typeof search.referrer_category === 'string' ? search.referrer_category : undefined;
-  const referrerAuthor = typeof search.referrer_author === 'string' ? search.referrer_author : undefined;
+  
+  // For static export, we can't await searchParams, so we'll pass undefined
+  // The client component will handle URL params on the client side
+  const referrerCategory = undefined;
+  const referrerAuthor = undefined;
   
   const prompt = getPromptBySlug(slug);
 

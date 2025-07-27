@@ -8,6 +8,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
+// Remove edge runtime - use Node.js runtime for filesystem access
+// export const runtime = 'edge';
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -105,7 +108,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return sampleCategories.map((category) => ({
+  return sampleCategories.map(category => ({
     slug: category.slug,
   }));
 }
