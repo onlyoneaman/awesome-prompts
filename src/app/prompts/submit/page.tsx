@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 import { Info, Github, FileText } from "lucide-react";
-import { sampleCategories, generatePromptSlug } from "@/lib/content";
+import { sampleCategories, generatePromptSlug } from "@/lib/prompts";
 
 export default function SubmitPromptPage() {
   const [formData, setFormData] = useState({

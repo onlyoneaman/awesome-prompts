@@ -96,9 +96,10 @@ Each prompt should include:
    ```
 
 3. **Add Your Prompt**
-   - Open `src/lib/prompts.ts`
-   - Add your prompt to the `samplePrompts` array
-   - Ensure it follows the structure above
+   - Create a new markdown file in `src/content/prompts/` named `your-prompt-slug.md`
+   - Use the frontmatter structure shown above to define metadata
+   - Add your prompt content after the frontmatter section
+   - Ensure it follows the markdown format of existing prompts
 
 4. **Test Locally**
    ```bash

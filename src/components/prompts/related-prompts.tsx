@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Prompt } from "@/types/prompt";
 import { getNavigationContext, findSimilarPrompts, getPromptsByCategory } from "@/lib/utils";
-import { getCategoryBySlug } from "@/lib/content";
+import { getCategoryBySlug } from "@/lib/prompts";
 
 interface RelatedPromptsProps {
   currentPrompt: Prompt;

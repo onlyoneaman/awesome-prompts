@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { sampleCategories } from "@/lib/content";
+import { sampleCategories } from "@/lib/prompts";
 
 export const metadata: Metadata = {
   title: "Categories | Awesome Prompts",

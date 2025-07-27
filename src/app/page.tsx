@@ -2,12 +2,14 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PromptCard } from "@/components/prompts/prompt-card";
-import { samplePrompts, sampleCategories, sortPrompts } from "@/lib/prompts";
+import { getAllPrompts } from "@/lib/content.server";
+import { sampleCategories, sortPrompts } from "@/lib/prompts";
 import { Search, ArrowRight } from "lucide-react";
 
 export default function Home() {
   // Get a few prompts for homepage preview
-  const sortedPrompts = sortPrompts(samplePrompts, 'created_at', 'desc');
+  const allPrompts = getAllPrompts();
+  const sortedPrompts = sortPrompts(allPrompts, 'created_at', 'desc');
   const previewPrompts = sortedPrompts.slice(0, 6);
 
   return (

@@ -1,7 +1,8 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPromptsByCategory } from "@/lib/content.server";
-import { getCategoryBySlug, sampleCategories, sortPrompts } from "@/lib/content";
+import { getCategoryBySlug, sampleCategories } from "@/lib/prompts";
+import { sortPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";

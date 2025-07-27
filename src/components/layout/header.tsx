@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { sampleCategories } from "@/lib/content";
+import { sampleCategories } from "@/lib/prompts";
 import { ChevronDown } from "lucide-react";
 
 export function Header() {

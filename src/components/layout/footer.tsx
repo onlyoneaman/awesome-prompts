@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
-import { sampleCategories } from "@/lib/content";
+import { sampleCategories } from "@/lib/prompts";
 
 export function Footer() {
   return (

@@ -123,24 +123,6 @@ export default async function PromptPage({ params, searchParams }: Props) {
                 <div className="flex-1">
                   <CardTitle className="text-2xl mb-2">{prompt.title}</CardTitle>
                   <p className="text-gray-600 mb-4">{prompt.description}</p>
-                  
-                  {/* Meta Info */}
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <div className="flex items-center gap-1">
-                      <Heart className="w-4 h-4" />
-                      <span>{prompt.likes || 0}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Eye className="w-4 h-4" />
-                      <span>{prompt.views || 0}</span>
-                    </div>
-                    {prompt.difficulty && (
-                      <div className="flex items-center gap-1">
-                        {getDifficultyStars(prompt.difficulty)}
-                        <span className="capitalize">{prompt.difficulty}</span>
-                      </div>
-                    )}
-                  </div>
                 </div>
                 
                 {/* Action Buttons */}
@@ -158,7 +140,7 @@ export default async function PromptPage({ params, searchParams }: Props) {
             <CardContent className="space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-semibold">Prompt Text:</h4>
+                  <h4 className="font-semibold">Prompt:</h4>
                   <CopyButton text={prompt.actual_text} />
                 </div>
                 <div className="bg-gray-50 p-4 rounded-lg">
@@ -168,9 +150,58 @@ export default async function PromptPage({ params, searchParams }: Props) {
                 </div>
               </div>
               
+
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Sidebar */}
+        <div>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Prompt Details</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              {/* Author Info */}
+              {author && (
+                <div>
+                  <Link 
+                    href={`/authors/${author.slug}`}
+                    className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600">
+                      {author.name.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900">{author.name}</p>
+                      <p className="text-sm text-gray-500">View Profile</p>
+                    </div>
+                  </Link>
+                </div>
+              )}
+
+              {/* Prompt Info */}
+              <div>
+                {/* <h4 className="font-semibold mb-3">Info</h4> */}
+                <div className="space-y-3 text-sm">
+                  <div className="flex gap-2">
+                    <Badge variant="secondary" className="text-xs">
+                      {prompt.created_at.toLocaleDateString()}
+                    </Badge>
+                    <Badge variant="secondary" className="text-xs">
+                      👁️ {prompt.views || 0} views
+                    </Badge>
+                    <Badge variant="secondary" className="text-xs">
+                      ❤️ {prompt.likes || 0} likes
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+
+              {/* Use Cases */}
               {prompt.use_cases && prompt.use_cases.length > 0 && (
                 <div>
-                  <h4 className="font-semibold mb-2">Use Cases:</h4>
+                  <h4 className="font-semibold mb-3">Use Cases</h4>
                   <div className="flex flex-wrap gap-1">
                     {prompt.use_cases.map((useCase, index) => (
                       <Badge key={index} variant="outline" className="text-xs">
@@ -180,104 +211,44 @@ export default async function PromptPage({ params, searchParams }: Props) {
                   </div>
                 </div>
               )}
-            </CardContent>
-          </Card>
-        </div>
 
-        {/* Sidebar */}
-        <div className="space-y-6">
-          {/* Author Info */}
-          {author && (
-            <Card>
-              <CardContent className="p-4">
-                <Link 
-                  href={`/authors/${author.slug}`}
-                  className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
-                >
-                  <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600">
-                    {author.name.charAt(0).toUpperCase()}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900">{author.name}</h4>
-                    <p className="text-sm text-gray-500">View Profile</p>
-                  </div>
-                </Link>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* Prompt Info */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Prompt Info</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Created:</span>
-                  <span>{prompt.created_at.toLocaleDateString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Updated:</span>
-                  <span>{prompt.updated_at.toLocaleDateString()}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Views:</span>
-                  <span>{prompt.views || 0}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Likes:</span>
-                  <span>{prompt.likes || 0}</span>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Categories & Tags */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Categories & Tags</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Categories</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {prompt.categories.map((category) => (
-                      <Link key={category} href={`/categories/${category}`}>
-                        <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
-                          {category}
-                        </Badge>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-2">Tags</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {prompt.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        #{tag}
+              {/* Categories */}
+              <div>
+                <h4 className="font-semibold mb-2">Categories</h4>
+                <div className="flex flex-wrap gap-1">
+                  {prompt.categories.map((category) => (
+                    <Link key={category} href={`/categories/${category}`}>
+                      <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
+                        {category}
                       </Badge>
-                    ))}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Tags */}
+              <div>
+                <h4 className="font-semibold mb-2">Tags</h4>
+                <div className="flex flex-wrap gap-1">
+                  {prompt.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary" className="text-xs">
+                      #{tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              {/* Rating */}
+              {prompt.difficulty && (
+                <div>
+                  <h4 className="font-semibold mb-2">Rating</h4>
+                  <div className="flex items-center">
+                    {getDifficultyStars(prompt.difficulty)}
                   </div>
                 </div>
-
-                {prompt.difficulty && (
-                  <div>
-                    <h4 className="font-semibold mb-2">Difficulty</h4>
-                    <div className="flex items-center gap-2">
-                      {getDifficultyStars(prompt.difficulty)}
-                      <span className="text-sm text-gray-600 capitalize">{prompt.difficulty}</span>
-                    </div>
-                  </div>
-                )}
-              </div>
+              )}
             </CardContent>
           </Card>
-
-
         </div>
       </div>
     </div>

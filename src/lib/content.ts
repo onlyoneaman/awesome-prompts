@@ -1,4 +1,4 @@
-import { Prompt, PromptCategory, PromptFilters, PromptSortBy, SortOrder } from '@/types/prompt';
+import { Prompt, PromptFilters, PromptSortBy, SortOrder } from '@/types/prompt';
 
 export function filterPrompts(
   prompts: Prompt[], 
@@ -106,66 +106,4 @@ export function generatePromptSlug(title: string): string {
     .trim();
 }
 
-// Keep the sample categories from the original prompts.ts
-export const sampleCategories: PromptCategory[] = [
-  {
-    id: "writing",
-    name: "Writing",
-    description: "Prompts for creative writing, copywriting, and content creation",
-    slug: "writing",
-    color: "#3B82F6",
-    icon: "✍️"
-  },
-  {
-    id: "programming",
-    name: "Programming",
-    description: "Technical prompts for software development and coding",
-    slug: "programming",
-    color: "#10B981",
-    icon: "💻"
-  },
-  {
-    id: "marketing",
-    name: "Marketing",
-    description: "Prompts for marketing, advertising, and business growth",
-    slug: "marketing",
-    color: "#F59E0B",
-    icon: "📈"
-  },
-  {
-    id: "creativity",
-    name: "Creativity",
-    description: "Prompts to spark creative thinking and innovation",
-    slug: "creativity",
-    color: "#8B5CF6",
-    icon: "🎨"
-  },
-  {
-    id: "business",
-    name: "Business",
-    description: "Professional prompts for business and productivity",
-    slug: "business",
-    color: "#EF4444",
-    icon: "💼"
-  },
-  {
-    id: "technical",
-    name: "Technical",
-    description: "Advanced technical and analytical prompts",
-    slug: "technical",
-    color: "#6B7280",
-    icon: "⚙️"
-  },
-  {
-    id: "psychology",
-    name: "Psychology",
-    description: "Prompts for psychological insights, behavior analysis, and mental wellness",
-    slug: "psychology",
-    color: "#EC4899",
-    icon: "🧠"
-  }
-];
-
-export function getCategoryBySlug(slug: string): PromptCategory | undefined {
-  return sampleCategories.find(category => category.slug === slug);
-} 
+ 
