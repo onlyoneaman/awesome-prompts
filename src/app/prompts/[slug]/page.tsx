@@ -94,44 +94,47 @@ export default async function PromptPage({ params, searchParams }: Props) {
   const author = prompt.author ? getAuthorBySlug(prompt.author) : null;
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-4 md:py-8">
       {/* Navigation & Breadcrumb */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between mb-4">
+      <div className="mb-4 md:mb-6">
+        {/* Back Navigation - Centered on mobile */}
+        <div className="flex justify-center md:justify-start mb-4">
           <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} />
-          
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/prompts" className="hover:text-gray-700">Prompts</Link>
-            <span>/</span>
-            <Link href={`/categories/${prompt.categories[0]}`} className="hover:text-gray-700">
-              {prompt.categories[0]}
-            </Link>
-            <span>/</span>
-            <span className="text-gray-900">{prompt.title}</span>
-          </nav>
         </div>
+        
+        {/* Breadcrumb - Hidden on mobile to avoid redundancy */}
+        <nav className="hidden md:flex items-center gap-2 text-sm text-gray-500">
+          <Link href="/prompts" className="hover:text-gray-700 whitespace-nowrap">Prompts</Link>
+          <span className="text-gray-300">/</span>
+          <Link href={`/categories/${prompt.categories[0]}`} className="hover:text-gray-700 whitespace-nowrap">
+            {prompt.categories[0]}
+          </Link>
+          <span className="text-gray-300">/</span>
+          <span className="text-gray-900 truncate">{prompt.title}</span>
+        </nav>
       </div>
 
       {/* Main Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
         {/* Main Content */}
         <div className="lg:col-span-2">
           <Card>
             <CardHeader>
-              <div className="flex items-start justify-between">
+              <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                 <div className="flex-1">
-                  <CardTitle className="text-2xl mb-2">{prompt.title}</CardTitle>
-                  <p className="text-gray-600 mb-4">{prompt.description}</p>
+                  <CardTitle className="text-xl md:text-2xl mb-2 leading-tight">{prompt.title}</CardTitle>
+                  <p className="text-gray-600 mb-4 text-sm md:text-base">{prompt.description}</p>
                 </div>
                 
                 {/* Action Buttons */}
-                <div className="flex items-center gap-2">
-                  <Button variant="outline" size="sm">
+                <div className="flex items-center gap-2 self-start">
+                  <Button variant="outline" size="sm" className="flex-shrink-0">
                     <Share2 className="w-4 h-4" />
+                    <span className="hidden sm:ml-2 sm:inline">Share</span>
                   </Button>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" className="flex-shrink-0">
                     <Heart className="w-4 h-4" />
+                    <span className="hidden sm:ml-2 sm:inline">Like</span>
                   </Button>
                 </div>
               </div>
@@ -143,20 +146,18 @@ export default async function PromptPage({ params, searchParams }: Props) {
                   <h4 className="font-semibold">Prompt:</h4>
                   <CopyButton text={prompt.actual_text} />
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <pre className="whitespace-pre-wrap text-sm font-mono">
+                <div className="bg-gray-50 p-4 rounded-lg overflow-hidden">
+                  <pre className="whitespace-pre-wrap text-sm font-mono break-words overflow-x-auto">
                     {prompt.actual_text}
                   </pre>
                 </div>
               </div>
-              
-
             </CardContent>
           </Card>
         </div>
 
         {/* Sidebar */}
-        <div>
+        <div className="lg:order-last">
           <Card>
             <CardHeader>
               <CardTitle className="text-lg">Prompt Details</CardTitle>
@@ -169,11 +170,11 @@ export default async function PromptPage({ params, searchParams }: Props) {
                     href={`/authors/${author.slug}`}
                     className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
                   >
-                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600">
+                    <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
                       {author.name.charAt(0).toUpperCase()}
                     </div>
-                    <div>
-                      <p className="font-medium text-gray-900">{author.name}</p>
+                    <div className="min-w-0">
+                      <p className="font-medium text-gray-900 truncate">{author.name}</p>
                       <p className="text-sm text-gray-500">View Profile</p>
                     </div>
                   </Link>
@@ -182,19 +183,16 @@ export default async function PromptPage({ params, searchParams }: Props) {
 
               {/* Prompt Info */}
               <div>
-                {/* <h4 className="font-semibold mb-3">Info</h4> */}
-                <div className="space-y-3 text-sm">
-                  <div className="flex gap-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {prompt.created_at.toLocaleDateString()}
-                    </Badge>
-                    <Badge variant="secondary" className="text-xs">
-                      👁️ {prompt.views || 0}
-                    </Badge>
-                    <Badge variant="secondary" className="text-xs">
-                      ❤️ {prompt.likes || 0}
-                    </Badge>
-                  </div>
+                <div className="flex flex-wrap gap-2 text-sm">
+                  <Badge variant="secondary" className="text-xs">
+                    {prompt.created_at.toLocaleDateString()}
+                  </Badge>
+                  <Badge variant="secondary" className="text-xs">
+                    👁️ {prompt.views || 0}
+                  </Badge>
+                  <Badge variant="secondary" className="text-xs">
+                    ❤️ {prompt.likes || 0}
+                  </Badge>
                 </div>
               </div>
 

@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { 
@@ -7,21 +9,28 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { sampleCategories } from "@/lib/prompts";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export function Header() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="text-2xl font-bold text-gray-900">
+            <div className="text-xl md:text-2xl font-bold text-gray-900 truncate">
               Awesome Prompts
             </div>
           </Link>
 
-          {/* Navigation */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <Link 
               href="/" 
@@ -66,24 +75,82 @@ export function Header() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-
-
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
-            <Button variant="outline" size="sm" asChild>
+          <div className="flex items-center gap-2 md:gap-3">
+            <Button variant="outline" size="sm" asChild className="hidden sm:flex">
               <Link href="/prompts/submit">Submit Prompt</Link>
             </Button>
             
+            <Button variant="outline" size="sm" asChild className="sm:hidden">
+              <Link href="/prompts/submit">Submit</Link>
+            </Button>
+            
             {/* Mobile menu button */}
-            <Button variant="ghost" size="sm" className="md:hidden">
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+            <Button 
+              variant="ghost" 
+              size="sm" 
+              className="md:hidden"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </Button>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden mt-4 pb-4 border-t pt-4">
+            <nav className="flex flex-col space-y-4">
+              <Link 
+                href="/" 
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              
+              <Link 
+                href="/prompts" 
+                className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Prompts
+              </Link>
+
+              {/* Mobile Categories */}
+              <div className="space-y-2">
+                <Link 
+                  href="/categories"
+                  className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2 block"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  📂 Browse All Categories
+                </Link>
+                
+                <div className="pl-4 space-y-2 border-l-2 border-gray-100">
+                  {sampleCategories.map((category) => (
+                    <Link 
+                      key={category.id}
+                      href={`/categories/${category.slug}`}
+                      className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors py-1"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span>{category.icon}</span>
+                      <span>{category.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
