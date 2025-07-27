@@ -24,6 +24,12 @@ export function Footer() {
                 All Prompts
               </Link>
               <Link 
+                href="/categories" 
+                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              >
+                All Categories
+              </Link>
+              <Link 
                 href="/authors" 
                 className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
               >
@@ -40,8 +46,13 @@ export function Footer() {
 
           {/* Categories */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Categories</h3>
-            <div className="space-y-2">
+            <Link 
+              href="/categories"
+              className="font-semibold text-gray-900"
+            >
+              Categories
+            </Link>
+            <div className="space-y-2 mt-2">
               {sampleCategories.map((category) => (
                 <Link 
                   key={category.slug}
@@ -66,15 +77,7 @@ export function Footer() {
                 className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <Github className="w-4 h-4" />
-                GitHub Repository
-              </Link>
-              <Link 
-                href="https://github.com/onlyoneaman/awesome-prompts/blob/main/LICENSE" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
-              >
-                MIT License
+                GitHub
               </Link>
             </div>
           </div>
@@ -92,7 +95,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
               >
-                Aman Kumar
+                Aman
                 <ExternalLink className="w-3 h-3" />
               </Link>
               <div className="text-xs text-gray-500 mt-4">
