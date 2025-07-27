@@ -74,7 +74,7 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
 
   // Minimal card view for listings
   return (
-    <Link href={`/prompt/${prompt.slug}`}>
+    <Link href={`/prompts/${prompt.slug}`}>
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">
