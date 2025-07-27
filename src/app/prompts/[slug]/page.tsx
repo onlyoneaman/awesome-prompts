@@ -50,25 +50,67 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   if (!prompt) {
     return {
-      title: "Prompt Not Found",
-      description: "The requested prompt could not be found.",
+      title: "Prompt Not Found | Awesome Prompts",
+      description: "The requested AI prompt could not be found. Browse our collection of premium prompts for ChatGPT, Claude, and other AI tools.",
     };
   }
 
+  // Get author information for metadata
+  const author = prompt.author ? getAuthorBySlug(prompt.author) : null;
+  
+  // Generate rich keywords from categories, tags, and use cases
+  const keywords = [
+    ...prompt.categories.map(cat => `${cat} prompts`),
+    ...prompt.tags,
+    ...(prompt.use_cases || []),
+    "AI prompts",
+    "ChatGPT prompts",
+    "Claude prompts",
+    "AI tools",
+    ...(prompt.difficulty ? [`${prompt.difficulty} prompts`] : [])
+  ];
+
+  const categoryContext = prompt.categories[0] ? ` | ${prompt.categories[0].charAt(0).toUpperCase() + prompt.categories[0].slice(1)} AI Prompt` : '';
+  const title = `${prompt.title}${categoryContext} | Awesome Prompts`;
+
+  // Enhanced description with context
+  const categoryText = prompt.categories.length > 0 ? ` Perfect for ${prompt.categories.join(', ')} tasks` : '';
+  const useCaseText = prompt.use_cases && prompt.use_cases.length > 0 ? ` Ideal for ${prompt.use_cases.slice(0, 2).join(' and ')}` : '';
+  const description = `${prompt.description}${categoryText}.${useCaseText}. Get premium AI prompts for ChatGPT, Claude, and more.`;
+
   return {
-    title: `${prompt.title} | Awesome Prompts`,
-    description: prompt.description,
+    title,
+    description,
+    keywords: keywords.slice(0, 20), // Limit to 20 most relevant keywords
+    authors: author ? [{ name: author.name }] : undefined,
+    creator: author?.name,
+    publisher: "Awesome Prompts",
     openGraph: {
       title: prompt.title,
       description: prompt.description,
       type: "article",
       tags: prompt.tags,
+      authors: author ? [author.name] : undefined,
+      publishedTime: prompt.created_at.toISOString(),
+      modifiedTime: prompt.updated_at.toISOString(),
+      section: prompt.categories[0],
     },
     twitter: {
       card: "summary_large_image",
-      title: prompt.title,
+      title: `${prompt.title} | ${prompt.categories[0]?.charAt(0).toUpperCase() + prompt.categories[0]?.slice(1)} AI Prompt`,
       description: prompt.description,
+      creator: author?.twitter || "@awesome_prompts",
     },
+    alternates: {
+      canonical: `/prompts/${slug}`,
+    },
+    other: {
+      "prompt:difficulty": prompt.difficulty || "",
+      "prompt:categories": prompt.categories.join(","),
+      "prompt:tags": prompt.tags.join(","),
+      "prompt:use_cases": prompt.use_cases?.join(",") || "",
+      "prompt:featured": prompt.featured ? "true" : "false",
+    }
   };
 }
 

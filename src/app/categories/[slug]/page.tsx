@@ -18,20 +18,88 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   if (!category) {
     return {
-      title: "Category Not Found",
+      title: "Category Not Found | Awesome Prompts",
+      description: "The requested category could not be found. Browse our collection of AI prompt categories for ChatGPT, Claude, and other AI tools.",
     };
   }
 
   const prompts = getPromptsByCategory(slug);
+  const sortedPrompts = sortPrompts(prompts, 'created_at', 'desc');
+  
+  // Calculate engagement metrics
+  const totalViews = sortedPrompts.reduce((sum, prompt) => sum + (prompt.views || 0), 0);
+  const featuredCount = sortedPrompts.filter(prompt => prompt.featured).length;
+  const difficulties = [...new Set(sortedPrompts.map(p => p.difficulty).filter(Boolean))];
+  const relatedCategories = [...new Set(sortedPrompts.flatMap(p => p.categories).filter(cat => cat !== slug))];
+  
+  // Generate comprehensive keywords
+  const keywords = [
+    `${category.name.toLowerCase()} prompts`,
+    `${category.name.toLowerCase()} AI prompts`,
+    `ChatGPT ${category.name.toLowerCase()}`,
+    `Claude ${category.name.toLowerCase()}`,
+    ...difficulties.map(d => `${d} ${category.name.toLowerCase()} prompts`),
+    ...relatedCategories.slice(0, 3).map(cat => `${cat} prompts`),
+    "AI tools",
+    "premium prompts",
+    "prompt engineering"
+  ].filter(Boolean);
+
+  // Enhanced title with context
+  const difficultyText = difficulties.length > 1 ? ` (${difficulties.join(', ')})` : '';
+  const title = `${category.name} AI Prompts | ${sortedPrompts.length} Premium ${category.name}${difficultyText} Prompts | Awesome Prompts`;
+
+  // Rich description with metrics and context
+  const viewsText = totalViews > 0 ? ` with ${totalViews.toLocaleString()}+ total views` : '';
+  const featuredText = featuredCount > 0 ? ` Including ${featuredCount} featured prompts` : '';
+  const relatedText = relatedCategories.length > 0 ? ` Also explore ${relatedCategories.slice(0, 2).join(' and ')} prompts` : '';
+  const description = `${category.description}. Discover ${sortedPrompts.length} curated ${category.name.toLowerCase()} prompts for ChatGPT, Claude, and other AI tools${viewsText}.${featuredText}.${relatedText}. Perfect for professionals and enthusiasts.`;
 
   return {
-    title: `${category.name} AI Prompts | ${prompts.length} Premium Prompts | Awesome Prompts`,
-    description: `${category.description}. Browse ${prompts.length} curated ${category.name.toLowerCase()} prompts for AI tools like ChatGPT, Claude, and more.`,
-    keywords: [category.name.toLowerCase(), "AI prompts", "ChatGPT prompts", "Claude prompts", ...category.name.toLowerCase().split(' ')],
+    title,
+    description,
+    keywords: keywords.slice(0, 15),
     openGraph: {
-      title: `${category.name} AI Prompts Collection`,
-      description: category.description,
+      title: `${category.name} AI Prompts Collection | ${sortedPrompts.length} Premium Prompts`,
+      description: `${category.description} Browse ${sortedPrompts.length} curated ${category.name.toLowerCase()} prompts for AI tools.`,
       type: "website",
+      images: [
+        {
+          url: `/api/og/category?name=${encodeURIComponent(category.name)}&count=${sortedPrompts.length}&icon=${encodeURIComponent(category.icon || '')}&color=${encodeURIComponent(category.color || '')}`,
+          width: 1200,
+          height: 630,
+          alt: `${category.name} AI Prompts Collection`,
+        }
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${sortedPrompts.length} ${category.name} AI Prompts`,
+      description: category.description,
+      images: [`/api/og/category?name=${encodeURIComponent(category.name)}&count=${sortedPrompts.length}`],
+    },
+    alternates: {
+      canonical: `/categories/${slug}`,
+    },
+    other: {
+      "category:name": category.name,
+      "category:slug": category.slug,
+      "category:prompt_count": sortedPrompts.length.toString(),
+      "category:featured_count": featuredCount.toString(),
+      "category:difficulties": difficulties.join(","),
+      "category:related": relatedCategories.slice(0, 5).join(","),
+      "category:total_views": totalViews.toString(),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     }
   };
 }
