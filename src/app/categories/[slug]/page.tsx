@@ -54,54 +54,55 @@ export default async function CategoryPage({ params }: Props) {
   const sortedPrompts = sortPrompts(prompts, 'created_at', 'desc');
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-4 md:py-8">
       {/* Navigation */}
-      <div className="mb-6">
-        <div className="flex items-center justify-between">
-          <Button variant="ghost" asChild>
-            <Link href="/categories" className="flex items-center gap-2">
+      <div className="mb-4 md:mb-6">
+        {/* Back Navigation - Centered on mobile */}
+        <div className="flex justify-center md:justify-start mb-4">
+          <Button variant="ghost" asChild className="hover:bg-gray-100">
+            <Link href="/categories" className="flex items-center gap-2 px-4 py-2">
               <ArrowLeft className="w-4 h-4" />
-              Back to Categories
+              <span className="text-sm md:text-base">Back to Categories</span>
             </Link>
           </Button>
-          
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/categories" className="hover:text-gray-700">Categories</Link>
-            <span>/</span>
-            <span className="text-gray-900">{category.name}</span>
-          </nav>
         </div>
+        
+        {/* Breadcrumb - Hidden on mobile to avoid redundancy */}
+        <nav className="hidden md:flex justify-center lg:justify-end items-center gap-2 text-sm text-gray-500">
+          <Link href="/categories" className="hover:text-gray-700">Categories</Link>
+          <span className="text-gray-300">/</span>
+          <span className="text-gray-900">{category.name}</span>
+        </nav>
       </div>
 
       {/* Category Header */}
-      <div className="text-center mb-12">
+      <div className="text-center mb-8 md:mb-12">
         <div 
-          className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-3xl"
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl md:text-3xl"
           style={{ backgroundColor: `${category.color}20`, color: category.color }}
         >
           {category.icon}
         </div>
-        <h1 className="text-4xl font-bold mb-4">{category.name}</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+        <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 px-4">{category.name}</h1>
+        <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto mb-4 md:mb-6 px-4 leading-relaxed">
           {category.description}
         </p>
-        <div className="text-lg text-gray-500">
+        {/* <div className="text-base md:text-lg text-gray-500">
           {sortedPrompts.length} prompt{sortedPrompts.length === 1 ? '' : 's'} available
-        </div>
+        </div> */}
       </div>
 
       {/* Prompts Grid */}
       {sortedPrompts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {sortedPrompts.map((prompt) => (
             <PromptCard key={prompt.id} prompt={prompt} referrerCategory={slug} />
           ))}
         </div>
       ) : (
-        <div className="text-center py-16">
-          <h3 className="text-2xl font-semibold mb-4">No prompts found in this category</h3>
-          <p className="text-gray-600 mb-6">
+        <div className="text-center py-12 md:py-16 px-4">
+          <h3 className="text-xl md:text-2xl font-semibold mb-4">No prompts found in this category</h3>
+          <p className="text-gray-600 mb-6 max-w-md mx-auto">
             Be the first to contribute a prompt to the {category.name.toLowerCase()} category!
           </p>
           <Button asChild>
@@ -113,28 +114,35 @@ export default async function CategoryPage({ params }: Props) {
       )}
 
       {/* Other Categories */}
-      <div className="mt-16">
-        <h2 className="text-2xl font-semibold mb-6">Explore Other Categories</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+      <div className="mt-12 md:mt-16">
+        <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-center md:text-left">Explore Other Categories</h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {sampleCategories
             .filter(cat => cat.slug !== slug)
+            .slice(0, 8) // Limit to 8 categories on mobile for better UX
             .map((otherCategory) => (
               <Link key={otherCategory.id} href={`/categories/${otherCategory.slug}`}>
-                <div className="p-4 rounded-lg border hover:shadow-md transition-shadow cursor-pointer text-center">
+                <div className="p-4 rounded-lg border hover:shadow-md transition-all duration-200 cursor-pointer text-center hover:border-gray-300 bg-white">
                   <div 
-                    className="w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2 text-lg"
+                    className="w-10 h-10 md:w-8 md:h-8 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-2 text-xl md:text-lg"
                     style={{ backgroundColor: `${otherCategory.color}20`, color: otherCategory.color }}
                   >
                     {otherCategory.icon}
                   </div>
-                  <h3 className="font-semibold text-sm">{otherCategory.name}</h3>
-                  <p className="text-xs text-gray-500 mt-1">
-                    {getPromptsByCategory(otherCategory.slug).length} prompts
-                  </p>
+                  <h3 className="font-semibold text-sm md:text-sm leading-tight">{otherCategory.name}</h3>
                 </div>
               </Link>
             ))
           }
+        </div>
+        
+        {/* Show all categories link on mobile */}
+        <div className="text-center mt-6 md:hidden">
+          <Button variant="outline" asChild>
+            <Link href="/categories">
+              View All Categories
+            </Link>
+          </Button>
         </div>
       </div>
     </div>

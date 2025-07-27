@@ -14,32 +14,32 @@ export const metadata: Metadata = {
 
 export default function CategoriesPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-4 md:py-8">
       {/* Header */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4">Browse Categories</h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+      <div className="text-center mb-8 md:mb-12">
+        <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 px-4">Browse Categories</h1>
+        <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4 leading-relaxed">
           Discover AI prompts organized by category. From creative writing to technical programming, 
           find the perfect prompts for your needs.
         </p>
       </div>
 
       {/* Categories Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
         {sampleCategories.map((category) => (
           <Link key={category.slug} href={`/categories/${category.slug}`}>
             <Card className="h-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer border hover:border-gray-300 group">
-              <CardHeader className="text-center pb-6">
+              <CardHeader className="text-center pb-4 md:pb-6">
                 <div 
-                  className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl transition-transform duration-300 group-hover:scale-110"
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 text-2xl md:text-3xl transition-transform duration-300 group-hover:scale-110"
                   style={{ backgroundColor: `${category.color}20`, color: category.color }}
                 >
                   {category.icon}
                 </div>
-                <CardTitle className="text-2xl mb-3 text-gray-900 group-hover:text-gray-700 transition-colors">
+                <CardTitle className="text-xl md:text-2xl mb-2 md:mb-3 text-gray-900 group-hover:text-gray-700 transition-colors leading-tight">
                   {category.name}
                 </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
+                <CardDescription className="text-gray-600 leading-relaxed text-sm md:text-base">
                   {category.description}
                 </CardDescription>
               </CardHeader>
