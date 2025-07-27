@@ -11,7 +11,7 @@ export interface Prompt {
   slug: string; // SEO-friendly URL slug
   featured?: boolean;
   difficulty?: 'beginner' | 'intermediate' | 'advanced';
-  use_case?: string;
+  use_cases?: string[];
   likes?: number;
   views?: number;
 }

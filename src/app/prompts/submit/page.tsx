@@ -15,7 +15,7 @@ export default function SubmitPromptPage() {
     categories: [] as string[],
     tags: "",
     difficulty: "beginner" as "beginner" | "intermediate" | "advanced",
-    use_case: "",
+    use_cases: "",
     author: "",
     author_website: "",
     author_email: "",
@@ -284,19 +284,19 @@ export default function SubmitPromptPage() {
                     </select>
                   </div>
 
-                  {/* Use Case */}
+                  {/* Use Cases */}
                   <div>
-                    <label htmlFor="use_case" className="block text-sm font-medium mb-2">
-                      Use Case
+                    <label htmlFor="use_cases" className="block text-sm font-medium mb-2">
+                      Use Cases (comma-separated)
                     </label>
                     <input
                       type="text"
-                      id="use_case"
-                      name="use_case"
-                      value={formData.use_case}
+                      id="use_cases"
+                      name="use_cases"
+                      value={formData.use_cases}
                       onChange={handleInputChange}
                       className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      placeholder="e.g., Creating compelling email subject lines for marketing campaigns"
+                      placeholder="e.g., Email marketing, content creation, social media"
                     />
                   </div>
 

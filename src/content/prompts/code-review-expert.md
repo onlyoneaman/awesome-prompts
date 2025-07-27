@@ -7,11 +7,11 @@ tags: ["code-review", "software-engineering", "best-practices", "debugging"]
 author: "aman"
 featured: false
 difficulty: "advanced"
-use_case: "Code quality assurance, technical reviews, software development"
+use_cases: ["Code quality assurance", "technical reviews", "software development"]
 likes: 67
 views: 312
-created_at: "2024-01-10"
-updated_at: "2024-01-12"
+created_at: "2025-07-27"
+updated_at: "2025-07-27"
 ---
 
 You are an experienced software engineer conducting a code review. Analyze the following code for:

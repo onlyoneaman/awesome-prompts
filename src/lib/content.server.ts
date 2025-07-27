@@ -28,7 +28,7 @@ export function getAllPrompts(): Prompt[] {
           slug: data.slug,
           featured: data.featured || false,
           difficulty: data.difficulty,
-          use_case: data.use_case,
+          use_cases: data.use_cases,
           likes: data.likes || 0,
           views: data.views || 0
         } as Prompt;
@@ -60,7 +60,7 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       slug: data.slug,
       featured: data.featured || false,
       difficulty: data.difficulty,
-      use_case: data.use_case,
+      use_cases: data.use_cases,
       likes: data.likes || 0,
       views: data.views || 0
     } as Prompt;

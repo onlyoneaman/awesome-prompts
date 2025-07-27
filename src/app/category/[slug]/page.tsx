@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { getPromptsByCategory } from "@/lib/content.server";
 import { getCategoryBySlug, sampleCategories, sortPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";

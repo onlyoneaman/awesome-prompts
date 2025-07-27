@@ -15,7 +15,7 @@ export const samplePrompts: Prompt[] = [
     slug: "creative-writing-assistant",
     featured: true,
     difficulty: "intermediate",
-    use_case: "Content creation, creative writing, storytelling",
+    use_cases: ["Content creation", "creative writing", "storytelling"],
     likes: 45,
     views: 230
   },
@@ -32,7 +32,7 @@ export const samplePrompts: Prompt[] = [
     slug: "code-review-expert",
     featured: false,
     difficulty: "advanced",
-    use_case: "Code quality assurance, technical reviews, software development",
+    use_cases: ["Code quality assurance", "technical reviews", "software development"],
     likes: 67,
     views: 312
   },
@@ -49,7 +49,7 @@ export const samplePrompts: Prompt[] = [
     slug: "marketing-copy-generator",
     featured: true,
     difficulty: "beginner",
-    use_case: "Marketing campaigns, advertising, content creation",
+    use_cases: ["Marketing campaigns", "advertising", "content creation"],
     likes: 89,
     views: 445
   }

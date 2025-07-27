@@ -57,10 +57,16 @@ export function PromptCard({ prompt, showFullText = false }: PromptCardProps) {
             </div>
           </div>
           
-          {prompt.use_case && (
+          {prompt.use_cases && prompt.use_cases.length > 0 && (
             <div>
-              <h4 className="font-semibold mb-2">Use Case:</h4>
-              <p className="text-sm text-gray-600">{prompt.use_case}</p>
+              <h4 className="font-semibold mb-2">Use Cases:</h4>
+              <div className="flex flex-wrap gap-1">
+                {prompt.use_cases.map((useCase, index) => (
+                  <Badge key={index} variant="outline" className="text-xs">
+                    {useCase}
+                  </Badge>
+                ))}
+              </div>
             </div>
           )}
           

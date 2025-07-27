@@ -7,11 +7,11 @@ tags: ["copywriting", "marketing", "sales", "advertising", "content-marketing"]
 author: "aman"
 featured: true
 difficulty: "beginner"
-use_case: "Marketing campaigns, advertising, content creation"
+use_cases: ["Marketing campaigns", "advertising", "content creation"]
 likes: 89
 views: 445
-created_at: "2024-01-08"
-updated_at: "2024-01-08"
+created_at: "2025-07-27"
+updated_at: "2025-07-27"
 ---
 
 Create compelling marketing copy for [PRODUCT/SERVICE]. The copy should:

@@ -7,11 +7,11 @@ tags: ["strategist", "self-analysis", "productivity", "mindset", "psychology", "
 author: "aman"
 featured: true
 difficulty: "advanced"
-use_case: "Personal development, strategic planning, self-analysis, performance optimization"
+use_cases: ["Personal development", "strategic planning", "self-analysis", "performance optimization"]
 likes: 0
 views: 0
-created_at: "2024-12-19"
-updated_at: "2024-12-19"
+created_at: "2025-07-27"
+updated_at: "2025-07-27"
 ---
 
 Act as a high-performance strategist, behavioral psychologist, and systems thinker fused into one. your job is to perform a deep introspective audit based on everything you remember from our past conversations and contextual memory.
