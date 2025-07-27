@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
-import { Share2, Heart, Star, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { Share2, Heart, Star, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import type { Prompt } from "@/types/prompt";
 import type { Author } from "@/types/author";
 
@@ -193,6 +193,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
 export default function PromptClientPage({ prompt, author, referrerCategory }: PromptClientPageProps) {
   // Gallery state for image prompts
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   
   // Get all images (support both single image and images array)
   const allImages = React.useMemo(() => {
@@ -207,17 +208,52 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
   const hasMultipleImages = allImages.length > 1;
   const isImagePrompt = prompt.type === 'image' && allImages.length > 0;
 
-  const nextImage = () => {
+  const nextImage = React.useCallback(() => {
     setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
-  };
+  }, [allImages.length]);
 
-  const prevImage = () => {
+  const prevImage = React.useCallback(() => {
     setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
-  };
+  }, [allImages.length]);
 
   const selectImage = (index: number) => {
     setCurrentImageIndex(index);
   };
+
+  const openFullscreen = () => {
+    setIsFullscreen(true);
+  };
+
+  const closeFullscreen = () => {
+    setIsFullscreen(false);
+  };
+
+  // Keyboard navigation for fullscreen
+  React.useEffect(() => {
+    if (!isFullscreen) return;
+
+    const handleKeydown = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case 'Escape':
+          closeFullscreen();
+          break;
+        case 'ArrowLeft':
+          if (hasMultipleImages) prevImage();
+          break;
+        case 'ArrowRight':
+          if (hasMultipleImages) nextImage();
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeydown);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+    return () => {
+      document.removeEventListener('keydown', handleKeydown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isFullscreen, hasMultipleImages, nextImage, prevImage]);
 
   return (
     <div className="container mx-auto px-4 py-4 md:py-8">
@@ -285,6 +321,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
 
                   {/* Fullscreen Button */}
                   <button
+                    onClick={openFullscreen}
                     className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                     aria-label="View fullscreen"
                   >
@@ -345,6 +382,65 @@ export default function PromptClientPage({ prompt, author, referrerCategory }: P
           <div className="lg:order-last">
             <MoreDetails prompt={prompt} author={author} />
           </div>
+        </div>
+      )}
+
+      {/* Fullscreen Modal */}
+      {isFullscreen && isImagePrompt && (
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
+          {/* Close Button */}
+          <button
+            onClick={closeFullscreen}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            aria-label="Close fullscreen"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          {/* Navigation Arrows */}
+          {hasMultipleImages && (
+            <>
+              <button
+                onClick={prevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
+                aria-label="Previous image"
+              >
+                <ChevronLeft className="w-8 h-8" />
+              </button>
+              <button
+                onClick={nextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
+                aria-label="Next image"
+              >
+                <ChevronRight className="w-8 h-8" />
+              </button>
+            </>
+          )}
+
+          {/* Main Image */}
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <div className="relative max-w-full max-h-full">
+              <img
+                src={allImages[currentImageIndex]}
+                alt={`${prompt.title} - Image ${currentImageIndex + 1}`}
+                className="h-[95vh] w-auto"
+              />
+            </div>
+          </div>
+
+          {/* Image Counter */}
+          {hasMultipleImages && (
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded-full">
+              {currentImageIndex + 1} of {allImages.length}
+            </div>
+          )}
+
+          {/* Background click to close */}
+          <div 
+            className="absolute inset-0 -z-10"
+            onClick={closeFullscreen}
+            aria-label="Close fullscreen"
+          />
         </div>
       )}
     </div>
