@@ -189,10 +189,10 @@ export default async function PromptPage({ params, searchParams }: Props) {
                       {prompt.created_at.toLocaleDateString()}
                     </Badge>
                     <Badge variant="secondary" className="text-xs">
-                      👁️ {prompt.views || 0} views
+                      👁️ {prompt.views || 0}
                     </Badge>
                     <Badge variant="secondary" className="text-xs">
-                      ❤️ {prompt.likes || 0} likes
+                      ❤️ {prompt.likes || 0}
                     </Badge>
                   </div>
                 </div>
