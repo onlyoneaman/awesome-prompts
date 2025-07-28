@@ -4,7 +4,6 @@ description: "Acts like a senior consultant preparing a competitive market analy
 categories: ["strategy"]
 tags: ["strategist", "competitive analysis", "market research"]
 author: "aman"
-featured: true
 difficulty: "advanced"
 use_cases: ["strategic planning", "competitive analysis", "market research"]
 created_at: "2025-07-29"

@@ -7,7 +7,6 @@ images:
 categories: ["art", "nature", "creative"]
 tags: ["glass-art", "nature", "lungs", "wildflowers", "hyper-realistic", "surreal", "photography"]
 author: "aman"
-featured: true
 difficulty: "intermediate"
 use_cases: ["Digital art creation", "Concept visualization", "Nature photography", "Creative projects"]
 likes: 0
