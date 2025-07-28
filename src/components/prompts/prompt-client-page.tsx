@@ -141,7 +141,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
           </div>
           
           {/* Tags */}
-          <div>
+          {/* <div>
             <h4 className="font-semibold mb-3">Tags</h4>
             <div className="flex flex-wrap gap-1">
               {prompt.tags.map((tag) => (
@@ -150,7 +150,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                 </Badge>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </CardContent>
     </Card>
