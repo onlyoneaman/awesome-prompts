@@ -4,7 +4,7 @@ description: "A prompt that helps you analyze niche opportunities"
 categories: ["business", "marketing", "opportunities"]
 tags: ["business", "marketing", "opportunities"]
 author: "aman"
-difficulty: "intermediate"
+difficulty: "advanced"
 use_cases: ["business", "marketing", "opportunities"]
 created_at: "2025-07-30"
 updated_at: "2025-07-30"
