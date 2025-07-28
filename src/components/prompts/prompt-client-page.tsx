@@ -145,7 +145,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                 </div>
                 <div className="min-w-0">
                   <p className="font-medium text-gray-900 truncate">{author.name}</p>
-                  <p className="text-sm text-gray-500">View Profile</p>
+                  <p className="hidden text-sm text-gray-500">View Profile</p>
                 </div>
               </Link>
             </div>
@@ -166,7 +166,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
           )}
 
           {/* Categories */}
-          <div>
+          <div className="hidden">
             <h4 className="font-semibold mb-3">Categories</h4>
             <div className="flex flex-wrap gap-1">
               {prompt.categories.map((category) => (
@@ -180,7 +180,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
           </div>
           
           {/* Tags */}
-          {/* <div>
+          <div className="hidden">
             <h4 className="font-semibold mb-3">Tags</h4>
             <div className="flex flex-wrap gap-1">
               {prompt.tags.map((tag) => (
@@ -189,7 +189,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                 </Badge>
               ))}
             </div>
-          </div> */}
+          </div>
         </div>
       </CardContent>
     </Card>
