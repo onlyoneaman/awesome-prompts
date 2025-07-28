@@ -1,7 +1,6 @@
 ---
 title: "JSON Profile Generator"
 description: "An elite behavioral analyst that creates comprehensive user profiles from conversation patterns to optimize AI interactions."
-slug: "json-profile-generator"
 categories: ["psychology", "business", "productivity"]
 tags: ["behavioral-analysis", "user-profiling", "ai-optimization", "conversation-analysis", "personalization", "json"]
 author: "aman"

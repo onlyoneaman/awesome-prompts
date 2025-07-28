@@ -1,7 +1,6 @@
 ---
 title: "Internal Strategist"
 description: "A comprehensive personal development prompt that acts as a high-performance strategist, behavioral psychologist, and systems thinker to perform deep introspective audits and unlock your potential."
-slug: "internal-strategist"
 categories: ["productivity", "psychology", "strategy"]
 tags: ["strategist", "self-analysis", "productivity", "mindset", "psychology", "personal-development", "behavioral-change", "systems-thinking"]
 author: "aman"

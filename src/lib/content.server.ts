@@ -15,8 +15,11 @@ export function getAllPrompts(): Prompt[] {
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
         
+        // Use filename (without .md) as the canonical slug
+        const slug = name.replace('.md', '');
+        
         return {
-          id: data.slug || name.replace('.md', ''),
+          id: slug,
           title: data.title,
           description: data.description,
           actual_text: content.trim(),
@@ -28,7 +31,7 @@ export function getAllPrompts(): Prompt[] {
           created_at: new Date(data.created_at),
           updated_at: new Date(data.updated_at),
           author: data.author,
-          slug: data.slug,
+          slug: slug, // Always use filename-based slug
           featured: data.featured || false,
           difficulty: data.difficulty,
           use_cases: data.use_cases,
@@ -51,7 +54,7 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
     const { data, content } = matter(fileContents);
     
     return {
-      id: data.slug || slug,
+      id: slug,
       title: data.title,
       description: data.description,
       actual_text: content.trim(),
@@ -63,7 +66,7 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       created_at: new Date(data.created_at),
       updated_at: new Date(data.updated_at),
       author: data.author,
-      slug: data.slug,
+      slug: slug, // Always use filename-based slug
       featured: data.featured || false,
       difficulty: data.difficulty,
       use_cases: data.use_cases,

@@ -1,7 +1,6 @@
 ---
 title: "Breath of Nature"
 description: "An artistic image prompt featuring glass lungs filled with wildflowers and greenery on a white background. Perfect for surreal, nature-inspired visuals."
-slug: "breath-of-nature"
 type: "image"
 images: 
   - "/images/breath-of-nature.png"

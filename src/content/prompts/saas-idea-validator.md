@@ -1,7 +1,6 @@
 ---
 title: "SaaS Idea Validator"
 description: "A brutal no-fluff validator for indie SaaS ideas that exposes critical flaws and validates market potential before you waste months building."
-slug: "saas-idea-validator"
 categories: ["business", "strategy"]
 tags: ["saas", "validation", "startup", "business-analysis", "market-research", "indie-hacker"]
 author: "aman"

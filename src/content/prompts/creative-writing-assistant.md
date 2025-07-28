@@ -1,7 +1,6 @@
 ---
 title: "Creative Writing Assistant"
 description: "A comprehensive prompt for generating creative stories, poems, and narrative content with specific themes and styles."
-slug: "creative-writing-assistant"
 categories: ["writing", "creativity"]
 tags: ["creative-writing", "storytelling", "narrative", "fiction"]
 author: "aman"
