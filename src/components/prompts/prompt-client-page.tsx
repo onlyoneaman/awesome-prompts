@@ -12,6 +12,7 @@ import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-r
 import type { Prompt } from "@/types/prompt";
 import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
+import { toast } from "sonner";
 
 interface PromptClientPageProps {
   prompt: Prompt;
@@ -22,6 +23,13 @@ interface PromptClientPageProps {
 
 // Main Prompt Card Component
 function PromptMainCard({ prompt }: { prompt: Prompt }) {
+
+  const sharePrompt = () => {
+    const url = `${window.location.origin}/prompts/${prompt.slug}`;
+    navigator.clipboard.writeText(url);
+    toast.success('Prompt copied to clipboard');
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -33,10 +41,15 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
           
           {/* Action Buttons */}
           <div className="flex items-center gap-2 self-start">
-            <Button variant="outline" size="sm" className="flex-shrink-0">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="flex-shrink-0 cursor-pointer"
+              onClick={sharePrompt}
+            >
               <Share2 className="w-4 h-4" />
             </Button>
-            <Button variant="outline" size="sm" className="flex-shrink-0">
+            <Button variant="outline" size="sm" className="flex-shrink-0 hidden">
               <Heart className="w-4 h-4" />
             </Button>
           </div>
