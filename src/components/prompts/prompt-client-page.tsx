@@ -25,8 +25,8 @@ interface PromptClientPageProps {
 // Main Prompt Card Component
 function PromptMainCard({ prompt }: { prompt: Prompt }) {
 
-  const sharePrompt = () => {
-    const url = `${window.location.origin}/prompts/${prompt.slug}`;
+  const shareLink = () => {
+    const url = window.location.href;
     navigator.clipboard.writeText(url);
     toast.success('Prompt copied to clipboard');
   }
@@ -46,16 +46,17 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
             <p className="text-gray-600 mb-4 text-sm md:text-base">{prompt.description}</p>
           </div>
           
-          {/* Action Buttons */}
           <div className="flex items-center gap-2 self-start">
-            <Button 
-              variant="outline" 
-              size="sm" 
-              className="flex-shrink-0 cursor-pointer"
-              onClick={sharePrompt}
-            >
-              <Share2 className="w-4 h-4" />
-            </Button>
+            <AnimatedTooltip content="Share Link">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={shareLink}
+                className="flex items-center gap-1"
+              >
+                <Share2 className="w-4 h-4" />
+              </Button>
+            </AnimatedTooltip>
             <Button variant="outline" size="sm" className="flex-shrink-0 hidden">
               <Heart className="w-4 h-4" />
             </Button>
