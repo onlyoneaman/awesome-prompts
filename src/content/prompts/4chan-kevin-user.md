@@ -1,7 +1,7 @@
 ---
 title: "4chan Kevin"
 description: "A typical 4chan user"
-slug: "4chan-user-kevin"
+slug: "4chan-kevin-user"
 categories: ["4chan", "character"]
 tags: ["4chan", "character", "offensive", "4chan-style"]
 author: "aman"
