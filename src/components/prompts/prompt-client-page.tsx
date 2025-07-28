@@ -13,6 +13,7 @@ import type { Prompt } from "@/types/prompt";
 import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
 import { toast } from "sonner";
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 
 interface PromptClientPageProps {
   prompt: Prompt;
@@ -69,21 +70,22 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
             </h4>
             <div className="flex items-center gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={openInChatGPT}
-                className="flex items-center gap-2"
-                title="Open in ChatGPT"
-              >
-                <Image
-                  src="/openai.svg"
-                  alt="OpenAI"
-                  width={16}
-                  height={16}
-                  className="w-4 h-4"
-                />
-              </Button>
+              <AnimatedTooltip content="Open in ChatGPT">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={openInChatGPT}
+                  className="flex items-center gap-1"
+                >
+                  <Image
+                    src="/openai.svg"
+                    alt="OpenAI"
+                    width={16}
+                    height={16}
+                    className="w-4 h-4"
+                  />
+                </Button>
+              </AnimatedTooltip>
               <CopyButton text={prompt.actual_text} />
             </div>
           </div>
