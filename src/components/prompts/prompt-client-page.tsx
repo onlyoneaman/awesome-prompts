@@ -30,6 +30,12 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
     toast.success('Prompt copied to clipboard');
   }
 
+  const openInChatGPT = () => {
+    const encodedPrompt = encodeURIComponent(prompt.actual_text);
+    const chatgptUrl = `https://chatgpt.com/?prompt=${encodedPrompt}`;
+    window.open(chatgptUrl, '_blank');
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -62,7 +68,24 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
             <h4 className="font-semibold">
               {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
             </h4>
-            <CopyButton text={prompt.actual_text} />
+            <div className="flex items-center gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={openInChatGPT}
+                className="flex items-center gap-2"
+                title="Open in ChatGPT"
+              >
+                <Image
+                  src="/openai.svg"
+                  alt="OpenAI"
+                  width={16}
+                  height={16}
+                  className="w-4 h-4"
+                />
+              </Button>
+              <CopyButton text={prompt.actual_text} />
+            </div>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
             {prompt.actual_text}
