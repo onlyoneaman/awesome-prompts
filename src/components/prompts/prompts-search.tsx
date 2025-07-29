@@ -41,40 +41,40 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
     <>
       {/* Header with Search */}
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold mb-4 text-gray-900">
-          Prompt Library
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-          Explore optimized prompts for a breadth of business and personal tasks.
-        </p>
-        
-        {/* Search */}
-        <div className="max-w-2xl mx-auto">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search prompts by title, description, or tags..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
+          <h1 className="text-4xl font-bold mb-4 text-gray-900">
+            Prompt Library
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Explore optimized prompts for a breadth of business and personal tasks.
+          </p>
+          
+          {/* Search */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                placeholder="Search prompts by title, description, or tags..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              />
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
+            </div>
             {searchQuery && (
-              <button
-                onClick={clearSearch}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="mt-2 text-sm text-gray-600">
+                {filteredPrompts.length} result{filteredPrompts.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;
+              </div>
             )}
           </div>
-          {searchQuery && (
-            <div className="mt-2 text-sm text-gray-600">
-              {filteredPrompts.length} result{filteredPrompts.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;
-            </div>
-          )}
         </div>
-      </div>
 
       {/* Featured Prompts - Only show when not searching */}
       {!searchQuery && featuredPrompts.length > 0 && (
