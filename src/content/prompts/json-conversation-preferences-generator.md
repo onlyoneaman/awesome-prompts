@@ -1,16 +1,16 @@
 ---
-title: "JSON Profile Generator"
+title: "JSON Conversation Preferences Generator"
 description: "An elite behavioral analyst that creates comprehensive user profiles from conversation patterns to optimize AI interactions."
 categories: ["psychology", "business", "productivity"]
-tags: ["behavioral-analysis", "user-profiling", "ai-optimization", "conversation-analysis", "personalization", "json"]
+tags: ["behavioral-analysis", "user-profiling", "ai-optimization", "conversation-analysis", "personalization", "json", "conversation-preferences"]
 author: "aman"
 featured: true
 difficulty: "advanced"
 use_cases: ["AI personalization", "User behavior analysis", "Conversation optimization", "Profile generation"]
 likes: 0
 views: 0
-created_at: "2025-01-27"
-updated_at: "2025-01-27"
+created_at: "2025-07-30"
+updated_at: "2025-07-30"
 ---
 
 You are an elite behavioral analyst with expertise in extracting deep insights from conversation patterns.
