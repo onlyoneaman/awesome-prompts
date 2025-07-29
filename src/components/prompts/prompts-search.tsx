@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { filterPrompts, sortPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { Prompt } from "@/types/prompt";
+import { Input } from "@/components/ui/input";
 
 interface PromptsSearchProps {
   allPrompts: Prompt[];
@@ -15,6 +16,7 @@ interface PromptsSearchProps {
 
 export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);  
 
   // Filter and sort prompts based on search
   const filteredPrompts = useMemo(() => {
@@ -37,6 +39,12 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
     setSearchQuery("");
   };
 
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [inputRef])
+
   return (
     <>
       {/* Header with Search */}
@@ -52,12 +60,13 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
           <div className="max-w-2xl mx-auto">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
+              <Input
                 type="text"
                 placeholder="Search prompts by title, description, or tags..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                ref={inputRef}
+                className="w-full pl-10 pr-12 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-transparent"
               />
               {searchQuery && (
                 <button

@@ -6,6 +6,8 @@ import { getAllPrompts } from "@/lib/content.server";
 import { sampleCategories, sortPrompts } from "@/lib/prompts";
 import { Search, ArrowRight } from "lucide-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
+import { BackgroundBeams } from "@/components/ui/background-beams";
+import { Input } from "@/components/ui/input";
 
 export default function Home() {
   // Get a few prompts for homepage preview
@@ -14,9 +16,9 @@ export default function Home() {
   const previewPrompts = sortedPrompts.slice(0, 6);
 
   return (
-      <div className="bg-gray-50">
+      <div className="bg-gray-50 min-h-screen relative antialiased">
         {/* Hero Section */}
-        <section className="py-16 bg-white">
+        <section className="relative z-2 py-16">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-4 text-gray-900">
               <PointerHighlight containerClassName="inline-block">
@@ -32,10 +34,10 @@ export default function Home() {
               <Link href="/prompts">
                 <div className="relative cursor-pointer">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                  <input
+                  <Input
                     type="text"
                     placeholder="Search..."
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+                    className="w-full pl-10 pr-4 py-3 bg-white border border-gray-300 focus:border-transparent cursor-pointer"
                     readOnly
                   />
                 </div>
@@ -45,7 +47,7 @@ export default function Home() {
         </section>
 
         {/* Featured Prompts Preview */}
-        <section className="py-16 bg-gray-50">
+        <section className="relative z-2 py-16">
           <div className="container mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-gray-900">Popular Prompts</h2>
@@ -65,7 +67,7 @@ export default function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-16 bg-white">
+        <section className="relative z-2 py-16">
           <div className="container mx-auto px-4">
             <div className="mb-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Browse by Category</h2>
@@ -88,6 +90,8 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        <BackgroundBeams className="z-1" />
       </div>
   );
 }
