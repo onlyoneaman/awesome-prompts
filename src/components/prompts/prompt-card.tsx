@@ -33,10 +33,10 @@ export function PromptCard({ prompt, referrerCategory, referrerAuthor }: PromptC
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">
-            {prompt.type === 'image' && prompt.image ? (
+            {prompt.type === 'image' && prompt.images && prompt.images[0] ? (
               <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
                 <Image
-                  src={prompt.image}
+                  src={prompt.images[0]}
                   alt={prompt.title}
                   width={64}
                   height={64}

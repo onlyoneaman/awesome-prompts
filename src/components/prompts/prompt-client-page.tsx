@@ -201,15 +201,10 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   
-  // Get all images (support both single image and images array)
+  // Get all images
   const allImages = React.useMemo(() => {
-    if (prompt.images && prompt.images.length > 0) {
-      return prompt.images;
-    } else if (prompt.image) {
-      return [prompt.image];
-    }
-    return [];
-  }, [prompt.images, prompt.image]);
+    return prompt.images || [];
+  }, [prompt.images]);
 
   const hasMultipleImages = allImages.length > 1;
   const isImagePrompt = prompt.type === 'image' && allImages.length > 0;

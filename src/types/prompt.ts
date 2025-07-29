@@ -4,7 +4,6 @@ export interface Prompt {
   description: string;
   actual_text: string;
   type: 'text' | 'image' | 'video'; // New field to distinguish prompt types
-  image?: string; // Optional field for image prompts (path to image) - kept for backward compatibility
   images?: string[]; // New field for multiple images in gallery prompts
   categories: string[];
   tags: string[];

@@ -24,8 +24,7 @@ export function getAllPrompts(): Prompt[] {
           description: data.description,
           actual_text: content.trim(),
           type: data.type || 'text', // Default to 'text' if not specified
-          image: data.image, // Optional image field
-          images: data.images, // Optional images array for gallery prompts
+          images: data.images || (data.image ? [data.image] : undefined), // Convert single image to array or use images array
           categories: data.categories || [],
           tags: data.tags || [],
           created_at: new Date(data.created_at),
@@ -59,8 +58,7 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       description: data.description,
       actual_text: content.trim(),
       type: data.type || 'text', // Default to 'text' if not specified
-      image: data.image, // Optional image field
-      images: data.images, // Optional images array for gallery prompts
+      images: data.images || (data.image ? [data.image] : undefined), // Convert single image to array or use images array
       categories: data.categories || [],
       tags: data.tags || [],
       created_at: new Date(data.created_at),
