@@ -5,6 +5,7 @@ import { PromptCard } from "@/components/prompts/prompt-card";
 import { getAllPrompts } from "@/lib/content.server";
 import { sampleCategories, sortPrompts } from "@/lib/prompts";
 import { Search, ArrowRight } from "lucide-react";
+import { PointerHighlight } from "@/components/ui/pointer-highlight";
 
 export default function Home() {
   // Get a few prompts for homepage preview
@@ -18,7 +19,10 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-5xl font-bold mb-4 text-gray-900">
-              Prompt Library
+              <PointerHighlight containerClassName="inline-block">
+                Prompt
+              </PointerHighlight>
+              &nbsp;Library
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Explore optimized prompts for a breadth of business and personal tasks.
