@@ -14,6 +14,7 @@ import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
 import { toast } from "sonner";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+import MarkdownPreview from '@uiw/react-markdown-preview';
 
 interface PromptClientPageProps {
   prompt: Prompt;
@@ -90,9 +91,15 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               <CopyButton text={prompt.actual_text} />
             </div>
           </div>
-          <div className="bg-gray-50 p-4 rounded-lg overflow-hidden prose prose-sm max-w-none break-words overflow-x-auto">
-            {prompt.actual_text}
-          </div>
+          <MarkdownPreview 
+            source={prompt.actual_text}
+            style={{
+              padding: 12
+            }}
+            wrapperElement={{
+              "data-color-mode": "light"
+            }}
+          />
         </div>
       </CardContent>
     </Card>
