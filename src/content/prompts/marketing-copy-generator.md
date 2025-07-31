@@ -1,7 +1,7 @@
 ---
 title: "Marketing Copy Generator"
 description: "Create compelling marketing copy for various platforms and audiences with this versatile prompt."
-categories: ["marketing", "business"]
+categories: ["marketing", "business", "writing"]
 tags: ["copywriting", "marketing", "sales", "advertising", "content-marketing"]
 author: "aman"
 difficulty: "beginner"

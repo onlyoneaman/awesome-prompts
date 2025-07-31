@@ -1,13 +1,11 @@
 ---
 title: "SEO Keyword Research Expert"
 description: "Perform comprehensive SEO keyword research to enhance organic visibility and search engine ranking with targeted keyword strategies."
-categories: ["marketing", "seo"]
+categories: ["marketing", "seo", "business"]
 tags: ["seo", "keyword-research", "search-engine-optimization", "organic-traffic", "content-strategy", "digital-marketing"]
 author: "aman"
 difficulty: "intermediate"
 use_cases: ["Content optimization", "SEO strategy", "organic traffic growth", "search engine ranking"]
-likes: 0
-views: 0
 created_at: "2025-01-27"
 updated_at: "2025-01-27"
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Rigorous Thinking Mode"
 description: "A prompt that helps you think rigorously"
-categories: ["thinking", "rigorous"]
+categories: ["psychology"]
 tags: ["thinking", "rigorous"]
 author: "aman"
 difficulty: "intermediate"

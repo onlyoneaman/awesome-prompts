@@ -1,7 +1,7 @@
 ---
 title: "Code Review Expert"
 description: "A technical prompt for conducting thorough code reviews, identifying issues, and suggesting improvements."
-categories: ["programming", "technical"]
+categories: ["programming"]
 tags: ["code-review", "software-engineering", "best-practices", "debugging"]
 author: "aman"
 featured: false

@@ -7,8 +7,6 @@ author: "aman"
 featured: true
 difficulty: "advanced"
 use_cases: ["Personal development", "strategic planning", "self-analysis", "performance optimization"]
-likes: 0
-views: 0
 created_at: "2025-07-27"
 updated_at: "2025-07-27"
 ---

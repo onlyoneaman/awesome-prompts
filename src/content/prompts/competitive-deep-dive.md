@@ -1,7 +1,7 @@
 ---
 title: "Competitive Deep Dive"
 description: "Acts like a senior consultant preparing a competitive market analysis deck for a $10B strategy client."
-categories: ["strategy"]
+categories: ["strategy", "business"]
 tags: ["strategist", "competitive analysis", "market research"]
 author: "aman"
 difficulty: "advanced"

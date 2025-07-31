@@ -6,7 +6,7 @@ tags: ["strategist", "consultant", "strategy", "industry", "market", "competitio
 author: "aman"
 featured: true
 difficulty: "advanced"
-use_cases: ["Personal development", "strategic planning", "self-analysis", "performance optimization"]
+use_cases: ["strategic planning", "self-analysis", "performance optimization"]
 created_at: "2025-07-30"
 updated_at: "2025-07-30"
 ---

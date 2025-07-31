@@ -1,7 +1,7 @@
 ---
 title: "User Persona Blueprint"
 description: "A prompt that helps you create a user persona blueprint"
-categories: ["user", "persona", "blueprint"]
+categories: ["psychology"]
 tags: ["user", "persona", "blueprint"]
 author: "aman"
 difficulty: "advanced"

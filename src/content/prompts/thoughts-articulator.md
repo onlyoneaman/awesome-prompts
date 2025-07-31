@@ -1,8 +1,8 @@
 ---
 title: "Thoughts Articulator"
 description: "A master craftsman of thought articulation."
-categories: ["thought", "articulation"]
-tags: ["thought", "articulation"]
+categories: ["productivity", "psychology"]
+tags: ["thought", "articulation", "productivity"]
 author: "aman"
 difficulty: "advanced"
 use_cases: ["thought", "articulation", "self-discovery"]

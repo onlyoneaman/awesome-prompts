@@ -1,7 +1,7 @@
 ---
 title: "Viral Hook Creator"
 description: "A viral video strategist trained in neuroscience and copywriting."
-categories: ["viral", "video", "strategy"]
+categories: ["viral", "strategy", "writing"]
 tags: ["viral", "video", "strategy"]
 author: "aman"
 difficulty: "intermediate"

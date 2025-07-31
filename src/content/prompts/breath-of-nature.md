@@ -9,8 +9,6 @@ tags: ["glass-art", "nature", "lungs", "wildflowers", "hyper-realistic", "surrea
 author: "aman"
 difficulty: "intermediate"
 use_cases: ["Digital art creation", "Concept visualization", "Nature photography", "Creative projects"]
-likes: 0
-views: 0
 created_at: "2025-01-27"
 updated_at: "2025-01-27"
 ---

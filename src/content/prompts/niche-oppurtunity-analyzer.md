@@ -1,7 +1,7 @@
 ---
 title: "Niche Opportunity Analyzer"
 description: "A prompt that helps you analyze niche opportunities"
-categories: ["business", "marketing", "opportunities"]
+categories: ["business", "marketing"]
 tags: ["business", "marketing", "opportunities"]
 author: "aman"
 difficulty: "advanced"

@@ -1,8 +1,8 @@
 ---
 title: "Summarize Text"
 description: "Summarize text"
-categories: ["summarize", "text"]
-tags: ["summarize", "text"]
+categories: ["writing", "productivity"]
+tags: ["summarize", "text", "productivity"]
 author: "aman"
 difficulty: "intermediate"
 use_cases: ["summarize", "text"]

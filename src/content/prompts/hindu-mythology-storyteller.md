@@ -1,7 +1,7 @@
 ---
 title: "Hindu Mythology Storyteller"
 description: "A master Indian storyteller that creates audio-first retellings of Hindu mythology with vivid scenes, age-appropriate narration, and structured JSON output."
-categories: ["storytelling", "education", "culture"]
+categories: ["storytelling", "education", "culture", "writing"]
 tags: ["hindu-mythology", "audio-stories", "indian-culture", "educational-content", "json-structured", "age-appropriate"]
 author: "aman"
 difficulty: "advanced"

@@ -1,7 +1,7 @@
 ---
 title: "Know Your Hidden Narrative"
 description: "A prompt that helps you understand your hidden narrative"
-categories: ["psychology", "self-awareness"]
+categories: ["psychology"]
 tags: ["psychology", "self-awareness", "hidden-narrative"]
 author: "aman"
 difficulty: "intermediate"

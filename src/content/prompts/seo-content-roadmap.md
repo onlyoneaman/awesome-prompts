@@ -1,7 +1,7 @@
 ---
 title: "SEO Content Roadmap"
 description: "A prompt that helps you create a SEO content roadmap"
-categories: ["seo", "content", "roadmap"]
+categories: ["seo", "writing", "business"]
 tags: ["seo", "content", "roadmap"]
 author: "aman"
 difficulty: "intermediate"
