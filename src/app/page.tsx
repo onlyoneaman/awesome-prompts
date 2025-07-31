@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { getAllPrompts } from "@/lib/content.server";
-import { sampleCategories, sortPrompts } from "@/lib/prompts";
+import { topCategories, sortPrompts } from "@/lib/prompts";
 import { Search, ArrowRight } from "lucide-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
@@ -76,7 +76,7 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {sampleCategories.map((category) => (
+              {topCategories.map((category) => (
                 <Link key={category.id} href={`/categories/${category.slug}`}>
                   <Card className="h-full hover:shadow-md transition-shadow border border-gray-200">
                     <CardContent className="p-4 text-center">

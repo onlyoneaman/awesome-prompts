@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { sampleCategories } from "@/lib/prompts";
+import { topCategories } from "@/lib/prompts";
 
 export const metadata: Metadata = {
   title: "Categories | Awesome Prompts",
@@ -26,7 +26,7 @@ export default function CategoriesPage() {
 
       {/* Categories Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-        {sampleCategories.map((category) => (
+        {topCategories.map((category) => (
           <Link key={category.slug} href={`/categories/${category.slug}`}>
             <Card className="h-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer border hover:border-gray-300 group">
               <CardHeader className="text-center pb-4 md:pb-6">

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { getAllAuthors } from '@/lib/authors.server'
 import { getAllPrompts } from '@/lib/content.server'
-import { sampleCategories } from '@/lib/prompts'
+import { topCategories } from '@/lib/prompts'
 
 // Required for static export
 export const dynamic = 'force-static'
@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }))
 
   // Dynamic category routes
-  const categoryRoutes: MetadataRoute.Sitemap = sampleCategories.map((category) => ({
+  const categoryRoutes: MetadataRoute.Sitemap = topCategories.map((category) => ({
     url: `${baseUrl}/categories/${category.slug}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,

@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
 import { Info, Github, ChevronDown } from "lucide-react";
-import { sampleCategories, generatePromptSlug } from "@/lib/prompts";
+import { topCategories, generatePromptSlug } from "@/lib/prompts";
 
 export default function SubmitPromptPage() {
   const [formData, setFormData] = useState({
@@ -126,7 +126,7 @@ export default function SubmitPromptPage() {
   const getCategoriesDisplayText = () => {
     if (formData.categories.length === 0) return "Select categories...";
     if (formData.categories.length === 1) {
-      const category = sampleCategories.find(c => c.slug === formData.categories[0]);
+      const category = topCategories.find(c => c.slug === formData.categories[0]);
       return category ? `${category.icon} ${category.name}` : formData.categories[0];
     }
     return `${formData.categories.length} categories selected`;
@@ -253,7 +253,7 @@ export default function SubmitPromptPage() {
                       <DropdownMenuContent className="w-80">
                         <DropdownMenuLabel>Select Categories</DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        {sampleCategories.map((category) => (
+                        {topCategories.map((category) => (
                           <DropdownMenuCheckboxItem
                             key={category.id}
                             checked={formData.categories.includes(category.slug)}
@@ -270,7 +270,7 @@ export default function SubmitPromptPage() {
                     {formData.categories.length > 0 && (
                       <div className="mt-2 flex flex-wrap gap-1">
                         {formData.categories.map((categorySlug) => {
-                          const category = sampleCategories.find(c => c.slug === categorySlug);
+                          const category = topCategories.find(c => c.slug === categorySlug);
                           return category ? (
                             <span
                               key={categorySlug}
@@ -474,7 +474,7 @@ export default function SubmitPromptPage() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Popular Categories</h4>
                     <div className="flex flex-wrap gap-2">
-                      {sampleCategories.slice(0, 4).map((category) => (
+                      {topCategories.slice(0, 4).map((category) => (
                         <div key={category.id} className="flex items-center gap-2">
                           <span>{category.icon}</span>
                           <span className="text-sm">{category.name}</span>

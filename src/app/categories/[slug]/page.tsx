@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPromptsByCategory } from "@/lib/content.server";
-import { getCategoryBySlug, sampleCategories } from "@/lib/prompts";
+import { getCategoryBySlug, topCategories } from "@/lib/prompts";
 import { sortPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { Button } from "@/components/ui/button";
@@ -108,7 +108,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export async function generateStaticParams() {
-  return sampleCategories.map(category => ({
+  return topCategories.map(category => ({
     slug: category.slug,
   }));
 }
@@ -188,7 +188,7 @@ export default async function CategoryPage({ params }: Props) {
       <div className="mt-12 md:mt-16">
         <h2 className="text-xl md:text-2xl font-semibold mb-4 md:mb-6 text-center md:text-left">Explore Other Categories</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {sampleCategories
+          {topCategories
             .filter(cat => cat.slug !== slug)
             .slice(0, 8) // Limit to 8 categories on mobile for better UX
             .map((otherCategory) => (

@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { sampleCategories } from "@/lib/prompts";
+import { topCategories } from "@/lib/prompts";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -64,7 +64,7 @@ export function Header() {
                     </Link>
                   </DropdownMenuItem>
                   <div className="border-t my-1"></div>
-                  {sampleCategories.map((category) => (
+                  {topCategories.map((category) => (
                     <DropdownMenuItem key={category.id} asChild>
                       <Link 
                         href={`/categories/${category.slug}`}
@@ -135,7 +135,7 @@ export function Header() {
                 </Link>
                 
                 <div className="pl-4 space-y-2 border-l-2 border-gray-100">
-                  {sampleCategories.map((category) => (
+                  {topCategories.map((category) => (
                     <Link 
                       key={category.id}
                       href={`/categories/${category.slug}`}

@@ -19,43 +19,11 @@ export {
 
 // Category utility function (not re-exported since categories are defined here)
 export function getCategoryBySlug(slug: string): PromptCategory | undefined {
-  return sampleCategories.find(category => category.slug === slug);
+  return topCategories.find(category => category.slug === slug);
 }
 
 // Categories remain static as they define the site structure
-export const sampleCategories: PromptCategory[] = [
-  {
-    id: "writing",
-    name: "Writing",
-    description: "Prompts for creative writing, copywriting, and content creation",
-    slug: "writing",
-    color: "#3B82F6",
-    icon: "✍️"
-  },
-  {
-    id: "programming",
-    name: "Programming",
-    description: "Technical prompts for software development and coding",
-    slug: "programming",
-    color: "#10B981",
-    icon: "💻"
-  },
-  {
-    id: "marketing",
-    name: "Marketing",
-    description: "Prompts for marketing, advertising, and business growth",
-    slug: "marketing",
-    color: "#F59E0B",
-    icon: "📈"
-  },
-  {
-    id: "creativity",
-    name: "Creativity",
-    description: "Prompts to spark creative thinking and innovation",
-    slug: "creativity",
-    color: "#8B5CF6",
-    icon: "🎨"
-  },
+export const topCategories: PromptCategory[] = [
   {
     id: "business",
     name: "Business",
@@ -63,14 +31,6 @@ export const sampleCategories: PromptCategory[] = [
     slug: "business",
     color: "#EF4444",
     icon: "💼"
-  },
-  {
-    id: "technical",
-    name: "Technical",
-    description: "Advanced technical and analytical prompts",
-    slug: "technical",
-    color: "#6B7280",
-    icon: "⚙️"
   },
   {
     id: "psychology",
@@ -81,12 +41,12 @@ export const sampleCategories: PromptCategory[] = [
     icon: "🧠"
   },
   {
-    id: "productivity",
-    name: "Productivity",
-    description: "Prompts for improving productivity and personal efficiency",
-    slug: "productivity",
-    color: "#06B6D4",
-    icon: "⚡"
+    id: "writing",
+    name: "Writing",
+    description: "Prompts for creative writing, copywriting, and content creation",
+    slug: "writing",
+    color: "#3B82F6",
+    icon: "✍️"
   },
   {
     id: "strategy",
@@ -95,5 +55,45 @@ export const sampleCategories: PromptCategory[] = [
     slug: "strategy",
     color: "#8B5A2B",
     icon: "🎯"
+  },
+  {
+    id: "productivity",
+    name: "Productivity",
+    description: "Prompts for improving productivity and personal efficiency",
+    slug: "productivity",
+    color: "#06B6D4",
+    icon: "⚡"
+  },
+  {
+    id: "marketing",
+    name: "Marketing",
+    description: "Prompts for marketing, advertising, and business growth",
+    slug: "marketing",
+    color: "#F59E0B",
+    icon: "📈"
+  },
+  {
+    id: "programming",
+    name: "Programming",
+    description: "Technical prompts for software development and coding",
+    slug: "programming",
+    color: "#10B981",
+    icon: "💻"
+  },
+  {
+    id: "creativity",
+    name: "Creativity",
+    description: "Prompts to spark creative thinking and innovation",
+    slug: "creativity",
+    color: "#8B5CF6",
+    icon: "🎨"
+  },
+  {
+    id: "seo",
+    name: "SEO",
+    description: "Prompts for SEO, content strategy, and keyword research",
+    slug: "seo",
+    color: "#6B7280",
+    icon: "⚙️"
   }
 ]; 

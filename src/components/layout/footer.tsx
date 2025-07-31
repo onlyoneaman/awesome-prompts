@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
-import { sampleCategories } from "@/lib/prompts";
+import { topCategories } from "@/lib/prompts";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
@@ -67,7 +67,7 @@ export function Footer() {
               Categories
             </Link>
             <div className="space-y-2 mt-2">
-              {sampleCategories.map((category) => (
+              {topCategories.map((category) => (
                 <Link 
                   key={category.slug}
                   href={`/categories/${category.slug}`} 
