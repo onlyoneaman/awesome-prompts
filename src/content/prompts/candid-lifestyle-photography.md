@@ -14,6 +14,7 @@ created_at: "2025-08-02"
 updated_at: "2025-08-02"
 ---
 
+```json
 {
   "meta": {
     "styleName": "Candid Lifestyle Photography",
@@ -69,3 +70,4 @@ updated_at: "2025-08-02"
     "filmStock": "Modern digital sensor look"
   }
 }
+```
