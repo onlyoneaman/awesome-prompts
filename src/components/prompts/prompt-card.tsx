@@ -33,21 +33,50 @@ export function PromptCard({ prompt, referrerCategory, referrerAuthor }: PromptC
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">
-            {prompt.type === 'image' && prompt.images && prompt.images[0] ? (
-              <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
-                <Image
-                  src={prompt.images[0]}
-                  alt={prompt.title}
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ) : (
-              <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <span className="text-orange-600 text-lg">{getPromptTypeIcon(prompt.type)}</span>
-              </div>
-            )}
+            {(() => {
+              // Check for first available media (prioritize images, then videos)
+              const firstImage = prompt.images?.[0];
+              const firstVideo = prompt.videos?.[0];
+              const hasMedia = firstImage || firstVideo;
+
+              if (hasMedia) {
+                if (firstImage) {
+                  return (
+                    <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-100">
+                      <Image
+                        src={firstImage}
+                        alt={prompt.title}
+                        width={64}
+                        height={64}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                } else if (firstVideo) {
+                  return (
+                    <div className="flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden bg-gray-100 relative">
+                      <video
+                        src={firstVideo}
+                        className="w-full h-full object-cover"
+                        muted
+                        preload="metadata"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-white text-lg bg-black/50 rounded-full p-1">
+                          {getPromptTypeIcon(prompt.type)}
+                        </span>
+                      </div>
+                    </div>
+                  );
+                }
+              }
+
+              return (
+                <div className="flex-shrink-0 w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <span className="text-orange-600 text-lg">{getPromptTypeIcon(prompt.type)}</span>
+                </div>
+              );
+            })()}
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-1">
                 <CardTitle className="text-base font-semibold line-clamp-1 text-gray-900 hover:text-blue-600 transition-colors">

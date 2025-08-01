@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
 import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
-import type { Prompt } from "@/types/prompt";
+import type { Prompt, MediaItem } from "@/types/prompt";
 import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
 import { toast } from "sonner";
@@ -204,28 +204,42 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
 }
 
 export default function PromptClientPage({ prompt, author, referrerCategory, referrerAuthor }: PromptClientPageProps) {
-  // Gallery state for image prompts
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  // Gallery state for media prompts
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   
-  // Get all images
-  const allImages = React.useMemo(() => {
-    return prompt.images || [];
-  }, [prompt.images]);
+  // Get all media items (unified images and videos)
+  const allMedia = React.useMemo(() => {
+    const media: MediaItem[] = [];
+    
+    // Add images
+    if (prompt.images) {
+      prompt.images.forEach(src => media.push({ src, type: 'image' }));
+    }
+    
+    // Add videos
+    if (prompt.videos) {
+      prompt.videos.forEach(src => media.push({ src, type: 'video' }));
+    }
+    
+    return media;
+  }, [prompt.images, prompt.videos]);
 
-  const hasMultipleImages = allImages.length > 1;
-  const isImagePrompt = prompt.type === 'image' && allImages.length > 0;
+  const hasMultipleMedia = allMedia.length > 1;
+  const hasMedia = allMedia.length > 0;
+  const isMediaPrompt = (prompt.type === 'image' || prompt.type === 'video') && hasMedia;
+  const currentMedia = allMedia[currentMediaIndex];
 
-  const nextImage = React.useCallback(() => {
-    setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
-  }, [allImages.length]);
+  const nextMedia = React.useCallback(() => {
+    setCurrentMediaIndex((prev) => (prev + 1) % allMedia.length);
+  }, [allMedia.length]);
 
-  const prevImage = React.useCallback(() => {
-    setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
-  }, [allImages.length]);
+  const prevMedia = React.useCallback(() => {
+    setCurrentMediaIndex((prev) => (prev - 1 + allMedia.length) % allMedia.length);
+  }, [allMedia.length]);
 
-  const selectImage = (index: number) => {
-    setCurrentImageIndex(index);
+  const selectMedia = (index: number) => {
+    setCurrentMediaIndex(index);
   };
 
   const openFullscreen = () => {
@@ -246,10 +260,10 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
           closeFullscreen();
           break;
         case 'ArrowLeft':
-          if (hasMultipleImages) prevImage();
+          if (hasMultipleMedia) prevMedia();
           break;
         case 'ArrowRight':
-          if (hasMultipleImages) nextImage();
+          if (hasMultipleMedia) nextMedia();
           break;
       }
     };
@@ -261,7 +275,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
       document.removeEventListener('keydown', handleKeydown);
       document.body.style.overflow = 'unset';
     };
-  }, [isFullscreen, hasMultipleImages, nextImage, prevImage]);
+  }, [isFullscreen, hasMultipleMedia, nextMedia, prevMedia]);
 
   return (
     <div className="container mx-auto px-4 py-4 md:py-8">
@@ -289,38 +303,47 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
       </div>
 
       {/* Main Content */}
-      {isImagePrompt ? (
-        // Gallery Layout for Image Prompts
+      {isMediaPrompt ? (
+        // Gallery Layout for Media Prompts (Images and Videos)
         <div className="space-y-6">
           {/* Gallery and Prompt Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {/* Gallery Section */}
+            {/* Media Gallery Section */}
             <div className="space-y-4">
-              {/* Main Image Display */}
+              {/* Main Media Display */}
               <div className="relative bg-gray-50 rounded-lg overflow-hidden group">
-                <div className="aspect-square relative">
-                  <Image
-                    src={allImages[currentImageIndex]}
-                    alt={`${prompt.title} - Image ${currentImageIndex + 1}`}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                <div className={`relative ${currentMedia?.type === 'video' ? 'aspect-video' : 'aspect-square'}`}>
+                  {currentMedia?.type === 'image' ? (
+                    <Image
+                      src={currentMedia.src}
+                      alt={`${prompt.title} - Image ${currentMediaIndex + 1}`}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  ) : (
+                    <video
+                      src={currentMedia?.src}
+                      className="w-full h-full object-contain"
+                      controls
+                      preload="metadata"
+                    />
+                  )}
                   
                   {/* Navigation Arrows */}
-                  {hasMultipleImages && (
+                  {hasMultipleMedia && (
                     <>
                       <button
-                        onClick={prevImage}
+                        onClick={prevMedia}
                         className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                        aria-label="Previous image"
+                        aria-label="Previous media"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
-                        onClick={nextImage}
+                        onClick={nextMedia}
                         className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-                        aria-label="Next image"
+                        aria-label="Next media"
                       >
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -338,35 +361,44 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
                 </div>
               </div>
 
-              {/* Thumbnail Gallery */}
-              {hasMultipleImages && (
+              {/* Media Thumbnail Gallery */}
+              {hasMultipleMedia && (
                 <div className="flex gap-2 overflow-x-auto pb-2">
-                  {allImages.map((imageSrc, index) => (
+                  {allMedia.map((media, index) => (
                     <button
                       key={index}
-                      onClick={() => selectImage(index)}
+                      onClick={() => selectMedia(index)}
                       className={`relative flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-                        index === currentImageIndex
+                        index === currentMediaIndex
                           ? 'border-primary ring-2 ring-primary/20'
                           : 'border-gray-200 hover:border-gray-300'
                       }`}
                     >
-                      <Image
-                        src={imageSrc}
-                        alt={`${prompt.title} - Thumbnail ${index + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="64px"
-                      />
+                      {media.type === 'image' ? (
+                        <Image
+                          src={media.src}
+                          alt={`${prompt.title} - Thumbnail ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="64px"
+                        />
+                      ) : (
+                        <video
+                          src={media.src}
+                          className="w-full h-full object-cover"
+                          muted
+                          preload="metadata"
+                        />
+                      )}
                     </button>
                   ))}
                 </div>
               )}
 
-              {/* Image Counter */}
-              {hasMultipleImages && (
+              {/* Media Counter */}
+              {hasMultipleMedia && (
                 <div className="text-center text-sm text-gray-500">
-                  {currentImageIndex + 1} of {allImages.length}
+                  {currentMediaIndex + 1} of {allMedia.length}
                 </div>
               )}
             </div>
@@ -393,8 +425,8 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
         </div>
       )}
 
-      {/* Fullscreen Modal */}
-      {isFullscreen && isImagePrompt && (
+      {/* Unified Fullscreen Modal for Media */}
+      {isFullscreen && isMediaPrompt && currentMedia && (
         <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center">
           {/* Close Button */}
           <button
@@ -406,40 +438,53 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
           </button>
 
           {/* Navigation Arrows */}
-          {hasMultipleImages && (
+          {hasMultipleMedia && (
             <>
               <button
-                onClick={prevImage}
+                onClick={prevMedia}
                 className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
-                aria-label="Previous image"
+                aria-label="Previous media"
               >
                 <ChevronLeft className="w-8 h-8" />
               </button>
               <button
-                onClick={nextImage}
+                onClick={nextMedia}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
-                aria-label="Next image"
+                aria-label="Next media"
               >
                 <ChevronRight className="w-8 h-8" />
               </button>
             </>
           )}
 
-          {/* Main Image */}
+          {/* Main Media Display */}
           <div className="relative w-full h-full flex items-center justify-center p-4">
             <div className="relative max-w-full max-h-full">
-              <img
-                src={allImages[currentImageIndex]}
-                alt={`${prompt.title} - Image ${currentImageIndex + 1}`}
-                className="h-[95vh] w-auto"
-              />
+              {currentMedia.type === 'image' ? (
+                <Image
+                  src={currentMedia.src}
+                  alt={`${prompt.title} - Media ${currentMediaIndex + 1}`}
+                  width={0}
+                  height={0}
+                  className="h-[95vh] w-auto"
+                  sizes="100vw"
+                  style={{ width: 'auto', height: '95vh' }}
+                />
+              ) : (
+                <video
+                  src={currentMedia.src}
+                  className="h-[95vh] w-auto"
+                  controls
+                  autoPlay
+                />
+              )}
             </div>
           </div>
 
-          {/* Image Counter */}
-          {hasMultipleImages && (
+          {/* Media Counter */}
+          {hasMultipleMedia && (
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded-full">
-              {currentImageIndex + 1} of {allImages.length}
+              {currentMediaIndex + 1} of {allMedia.length}
             </div>
           )}
 

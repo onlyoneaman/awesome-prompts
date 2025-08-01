@@ -25,6 +25,7 @@ export function getAllPrompts(): Prompt[] {
           actual_text: content.trim(),
           type: data.type || 'text', // Default to 'text' if not specified
           images: data.images || (data.image ? [data.image] : undefined), // Convert single image to array or use images array
+          videos: data.videos || (data.video ? [data.video] : undefined), // Convert single video to array or use videos array
           categories: data.categories || [],
           tags: data.tags || [],
           created_at: new Date(data.created_at),
@@ -59,6 +60,7 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       actual_text: content.trim(),
       type: data.type || 'text', // Default to 'text' if not specified
       images: data.images || (data.image ? [data.image] : undefined), // Convert single image to array or use images array
+      videos: data.videos || (data.video ? [data.video] : undefined), // Convert single video to array or use videos array
       categories: data.categories || [],
       tags: data.tags || [],
       created_at: new Date(data.created_at),

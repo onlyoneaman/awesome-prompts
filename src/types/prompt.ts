@@ -1,3 +1,8 @@
+export interface MediaItem {
+  src: string;
+  type: 'image' | 'video';
+}
+
 export interface Prompt {
   id: string;
   title: string;
@@ -5,6 +10,7 @@ export interface Prompt {
   actual_text: string;
   type: 'text' | 'image' | 'video'; // New field to distinguish prompt types
   images?: string[]; // New field for multiple images in gallery prompts
+  videos?: string[]; // New field for multiple videos in gallery prompts
   categories: string[];
   tags: string[];
   created_at: Date;
