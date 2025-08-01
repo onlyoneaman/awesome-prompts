@@ -41,6 +41,22 @@ export const topCategories: PromptCategory[] = [
     icon: "🧠"
   },
   {
+    id: "images",
+    name: "Images",
+    description: "Prompts for image generation.",
+    slug: "images",
+    color: "#10B981",
+    icon: "🖼️"
+  },
+  {
+    id: "videos",
+    name: "Videos",
+    description: "Prompts for video generation.",
+    slug: "videos",
+    color: "#10B981",
+    icon: "🎥"
+  },
+  {
     id: "writing",
     name: "Writing",
     description: "Prompts for creative writing, copywriting, and content creation",
