@@ -1,14 +1,14 @@
 ---
 title: "Product Ad Video"
-description: "Ecommerce Product Ad Video with Mixed Media"
+description: "Ecommerce Product Ad Video"
 categories: ["videos", "marketing"]
-tags: ["video", "product", "ad", "mixed-media"]
+tags: ["video", "product", "ad"]
 author: "aman"
 difficulty: "intermediate"
 type: "video"
 videos: 
   - "/videos/product-ad-vid-1.mp4"
-use_cases: ["video", "mixed-media"]
+use_cases: ["video"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"
 ---
