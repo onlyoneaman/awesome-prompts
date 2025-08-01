@@ -111,5 +111,13 @@ export const topCategories: PromptCategory[] = [
     slug: "seo",
     color: "#6B7280",
     icon: "⚙️"
+  },
+  {
+    id: "learning",
+    name: "Learning",
+    description: "Prompts for learning and education",
+    slug: "learning",
+    color: "#10B981",
+    icon: "📚"
   }
 ]; 
