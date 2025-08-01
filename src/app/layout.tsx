@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Awesome Prompts | AI Prompts Library",
   description: "Discover curated AI prompts for ChatGPT, Claude, and other AI tools. Browse prompts for writing, programming, marketing, creativity, and more.",
-  keywords: ["AI prompts", "ChatGPT prompts", "Claude prompts", "AI tools", "prompt engineering"],
+  keywords: ["prompt", "prompts", "AI prompts", "ChatGPT prompts", "Claude prompts", "AI tools", "prompt engineering"],
   authors: [{ name: "Awesome Prompts Team" }],
   creator: "Awesome Prompts",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://promptsmint.com'),
