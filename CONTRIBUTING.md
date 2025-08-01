@@ -78,7 +78,7 @@ Each prompt should include:
 
 ### Method 1: Web Form (Recommended for Non-Developers)
 
-1. Visit [prompts.amankumar.ai/prompts/submit](https://prompts.amankumar.ai/prompts/submit)
+1. Visit [promptsmint.com/prompts/submit](https://promptsmint.com/prompts/submit)
 2. Fill out the submission form
 3. Our team will review and add approved prompts
 

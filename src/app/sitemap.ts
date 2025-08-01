@@ -7,7 +7,7 @@ import { topCategories } from '@/lib/prompts'
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prompts.amankumar.ai'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptsmint.com'
   
   // Get current date for lastModified
   const currentDate = new Date()

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   keywords: ["AI prompts", "ChatGPT prompts", "Claude prompts", "AI tools", "prompt engineering"],
   authors: [{ name: "Awesome Prompts Team" }],
   creator: "Awesome Prompts",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://prompts.amankumar.ai'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://promptsmint.com'),
   alternates: {
     canonical: '/',
   },
@@ -58,7 +58,7 @@ export default function RootLayout({
 }>) {
   const isProduction = process.env.NODE_ENV === 'production';
   const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://prompts.amankumar.ai';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptsmint.com';
   
   const jsonLd = {
     '@context': 'https://schema.org',
