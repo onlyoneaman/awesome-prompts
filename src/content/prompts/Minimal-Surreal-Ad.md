@@ -1,5 +1,5 @@
 ---
-title: "Minimal Surreal Ad"
+title: "minimal surreal Ad"
 description: "A Surreal Ad for a product"
 categories: ["images", "marketing"]
 tags: ["minimal", "surreal", "ad", "product"]
