@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/minimal-surreal-ad.png"
+  - "/images/m1.png"
 use_cases: ["minimal", "surreal", "ad", "product"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"
