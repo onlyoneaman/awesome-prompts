@@ -7,5 +7,9 @@ export const AUTHORS_DATA: Pick<Author, 'name' | 'slug'>[] = [
   {
     "name": "Aman",
     "slug": "aman"
+  },
+  {
+    "name": "Yashvi",
+    "slug": "yashvi"
   }
 ];

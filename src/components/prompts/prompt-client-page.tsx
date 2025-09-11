@@ -38,6 +38,12 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
     window.open(chatgptUrl, '_blank');
   }
 
+  const openInClaude = () => {
+    const encodedPrompt = encodeURIComponent(prompt.actual_text);
+    const claudeUrl = `https://claude.ai/new?q=${encodedPrompt}`;
+    window.open(claudeUrl, '_blank');
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -82,6 +88,22 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
                   <Image
                     src="/openai.svg"
                     alt="OpenAI"
+                    width={16}
+                    height={16}
+                    className="w-4 h-4"
+                  />
+                </Button>
+              </AnimatedTooltip>
+              <AnimatedTooltip content="Open in Claude">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={openInClaude}
+                  className="flex items-center gap-1"
+                >
+                  <Image
+                    src="/claude.png"
+                    alt="Claude"
                     width={16}
                     height={16}
                     className="w-4 h-4"
