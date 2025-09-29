@@ -47,13 +47,13 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
   return (
     <Card>
       <CardHeader>
-        <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+        <div className="flex flex-col gap-1 md:gap-4 md:flex-row md:items-start md:justify-between">
           <div className="flex-1">
-            <CardTitle className="text-xl md:text-2xl mb-2 leading-tight">{prompt.title}</CardTitle>
-            <p className="text-gray-600 mb-4 text-sm md:text-base">{prompt.description}</p>
+            <CardTitle className="text-xl md:text-2xl mb-1 md:mb-2 leading-tight">{prompt.title}</CardTitle>
+            <p className="text-gray-600 mb-2 md:mb-4 text-sm md:text-base">{prompt.description}</p>
           </div>
           
-          <div className="flex items-center gap-2 self-start">
+          <div className="flex items-center gap-1 md:gap-2 self-start">
             <AnimatedTooltip content="Share Link">
               <Button
                 variant="outline"
@@ -61,23 +61,23 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
                 onClick={shareLink}
                 className="flex items-center gap-1"
               >
-                <Share2 className="w-4 h-4" />
+                <Share2 size={16} />
               </Button>
             </AnimatedTooltip>
             <Button variant="outline" size="sm" className="flex-shrink-0 hidden">
-              <Heart className="w-4 h-4" />
+              <Heart size={16} />
             </Button>
           </div>
         </div>
       </CardHeader>
 
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-2 md:space-y-4">
         <div>
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex items-center justify-between mb-1 md:mb-2">
             <h4 className="font-semibold">
               {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
             </h4>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 md:gap-2">
               <AnimatedTooltip content="Open in ChatGPT">
                 <Button
                   variant="outline"
@@ -116,7 +116,9 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
           <MarkdownPreview 
             source={prompt.actual_text}
             style={{
-              padding: 12
+              padding: 12,
+              fontSize: window.innerWidth < 768 ? '14px' : '16px',
+              backgroundColor: '#f5f5f5'
             }}
             wrapperElement={{
               "data-color-mode": "light"
