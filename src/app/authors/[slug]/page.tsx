@@ -94,16 +94,16 @@ export default async function AuthorPage({ params }: Props) {
           )}
         </div>
         
-        <h1 className="text-4xl font-bold mb-4">{author.name}</h1>
+        <h1 className="text-xl md:text-3xl font-bold mb-4">{author.name}</h1>
         
         {author.bio && (
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-6">
+          <p className="text-sm md:text-xl text-gray-600 max-w-3xl mx-auto mb-6">
             {author.bio.split('\n')[0]}
           </p>
         )}
 
         <div className="flex justify-center items-center gap-4 mb-6">
-          <Badge variant="secondary" className="text-lg px-4 py-2">
+          <Badge variant="secondary" className="text-sm md:text-md px-4 py-2">
             {sortedPrompts.length} {sortedPrompts.length === 1 ? 'Prompt' : 'Prompts'}
           </Badge>
 
@@ -151,7 +151,7 @@ export default async function AuthorPage({ params }: Props) {
 
       {/* Prompts Section */}
       <div>
-        <h2 className="text-2xl font-semibold mb-6">
+        <h2 className="text-xl font-medium mb-4">
           Prompts by {author.name}
         </h2>
         
