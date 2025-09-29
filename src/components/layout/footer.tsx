@@ -106,19 +106,29 @@ export function Footer() {
           <div>
             <h3 className="font-semibold text-gray-900 mb-4">About</h3>
             <div className="space-y-2">
-              <div className="text-sm text-gray-600">
-                Made with ❤️ by
+              <div className="flex items-center gap-2 text-xs text-gray-600">
+                <span>Made with ❤️ by</span>
+                <Link
+                  href="https://amankumar.ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex hover:underline items-center gap-1 font-medium"
+                >
+                  Aman
+                  <ExternalLink size={12} />
+                </Link>
               </div>
-              <Link 
-                href="https://amankumar.ai" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-700 transition-colors"
-              >
-                Aman
-                <ExternalLink className="w-3 h-3" />
-              </Link>
-              <div className="text-xs text-gray-500 mt-4">
+              <div className="text-xs text-gray-500">
+                <Link
+                  href="https://x.com/onlyoneaman?ref=promptsmint.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex hover:underline items-center gap-1 font-medium"
+                >
+                  x.com
+                </Link>
+              </div>
+              <div className="text-xs text-gray-500">
                 © 2025 Awesome Prompts
               </div>
             </div>
