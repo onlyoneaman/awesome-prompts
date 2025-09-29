@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +25,22 @@ interface PromptClientPageProps {
 
 // Main Prompt Card Component
 function PromptMainCard({ prompt }: { prompt: Prompt }) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check on mount
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const shareLink = () => {
     const url = window.location.href;
@@ -117,7 +133,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
             source={prompt.actual_text}
             style={{
               padding: 12,
-              fontSize: window.innerWidth < 768 ? '14px' : '16px',
+              fontSize: isMobile ? '14px' : '16px',
               backgroundColor: '#f5f5f5'
             }}
             wrapperElement={{
