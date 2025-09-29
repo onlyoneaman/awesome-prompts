@@ -19,21 +19,28 @@ export function NavigationBack({ currentPromptCategories, className, referrerCat
   const [backLabel, setBackLabel] = useState("Back to Prompts");
 
   useEffect(() => {
-    // If referrerAuthor is provided via URL parameter, prioritize it
-    if (referrerAuthor) {
-      const author = getAuthorBySlug(referrerAuthor);
+    // Read URL parameters on client side
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlReferrerCategory = urlParams.get('referrer_category');
+    const urlReferrerAuthor = urlParams.get('referrer_author');
+
+    // If referrerAuthor is provided via URL parameter (props or URL), prioritize it
+    const finalReferrerAuthor = referrerAuthor || urlReferrerAuthor;
+    if (finalReferrerAuthor) {
+      const author = getAuthorBySlug(finalReferrerAuthor);
       if (author) {
-        setBackUrl(`/authors/${referrerAuthor}`);
+        setBackUrl(`/authors/${finalReferrerAuthor}`);
         setBackLabel(`Back to ${author.name}`);
         return;
       }
     }
 
-    // If referrerCategory is provided via URL parameter, prioritize it
-    if (referrerCategory) {
-      const category = getCategoryBySlug(referrerCategory);
+    // If referrerCategory is provided via URL parameter (props or URL), prioritize it
+    const finalReferrerCategory = referrerCategory || urlReferrerCategory;
+    if (finalReferrerCategory) {
+      const category = getCategoryBySlug(finalReferrerCategory);
       if (category) {
-        setBackUrl(`/categories/${referrerCategory}`);
+        setBackUrl(`/categories/${finalReferrerCategory}`);
         setBackLabel(`Back to ${category.name}`);
         return;
       }
