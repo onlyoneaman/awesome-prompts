@@ -79,9 +79,9 @@ export function Header() {
               </DropdownMenu>
             </nav>
 
-            <Button variant="outline" size="sm" asChild className="hidden sm:flex">
+            {/* <Button variant="outline" size="sm" asChild className="hidden sm:flex">
               <Link href="/prompts/submit">Submit Prompt</Link>
-            </Button>
+            </Button> */}
                       
             {/* Mobile menu button */}
             <Button 
@@ -112,7 +112,7 @@ export function Header() {
                 Home
               </Link>
 
-              <Button 
+              {/* <Button 
                 className="w-fit"
                 variant="outline" 
                 size="sm" 
@@ -120,7 +120,7 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Link href="/prompts/submit">Submit</Link>
-              </Button>
+              </Button> */}
               
               <Link 
                 href="/prompts" 
