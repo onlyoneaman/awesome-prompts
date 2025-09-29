@@ -29,7 +29,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
   const shareLink = () => {
     const url = window.location.href;
     navigator.clipboard.writeText(url);
-    toast.success('Prompt copied to clipboard');
+    toast.success('Link copied to clipboard');
   }
 
   const openInChatGPT = () => {
