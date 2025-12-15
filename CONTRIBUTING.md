@@ -1,6 +1,6 @@
-# 🤝 Contributing to Awesome Prompts
+# 🤝 Contributing to Promptsmint
 
-Thank you for your interest in contributing to Awesome Prompts! This document provides guidelines and instructions for contributing to our open-source collection of AI prompts.
+Thank you for your interest in contributing to Promptsmint! This document provides guidelines and instructions for contributing to our open-source collection of AI prompts.
 
 ## 🌟 Ways to Contribute
 
@@ -246,7 +246,7 @@ By participating in this project, you agree to:
 
 ## 🙏 Thank You
 
-Every contribution, no matter how small, helps make Awesome Prompts better for everyone. Thank you for being part of our community!
+Every contribution, no matter how small, helps make Promptsmint better for everyone. Thank you for being part of our community!
 
 ---
 

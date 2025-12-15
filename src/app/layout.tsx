@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Awesome Prompts | AI Prompts Library",
+  title: "Awesome Prompts | AI Prompts Library | Promptsmint",
   description: "Discover curated AI prompts for ChatGPT, Claude, and other AI tools. Browse prompts for writing, programming, marketing, creativity, and more.",
   keywords: ["prompt", "prompts", "AI prompts", "ChatGPT prompts", "Claude prompts", "AI tools", "prompt engineering"],
   authors: [{ name: "Awesome Prompts Team" }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: "Awesome Prompts | AI Prompts Library",
+    title: "Awesome Prompts | AI Prompts Library | Promptsmint",
     description: "Curated collection of AI prompts for various use cases",
     type: "website",
     siteName: "Awesome Prompts",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Awesome Prompts | AI Prompts Library",
+    title: "Awesome Prompts | AI Prompts Library | Promptsmint",
     description: "Curated collection of AI prompts for various use cases",
   },
   robots: {

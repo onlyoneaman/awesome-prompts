@@ -1,4 +1,4 @@
-# 🚀 Awesome Prompts
+# 🚀 Promptsmint
 
 > A curated collection of high-quality AI prompts for various use cases and industries.
 
@@ -6,9 +6,9 @@
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
-## 🌟 What is Awesome Prompts?
+## 🌟 What is Promptsmint?
 
-Awesome Prompts is an open-source library of carefully curated AI prompts designed to help you get better results from AI tools like ChatGPT, Claude, Gemini, and other language models. Whether you're a developer, content creator, marketer, or just someone who wants to improve their AI interactions, you'll find valuable prompts here.
+Promptsmint is an open-source library of carefully curated AI prompts designed to help you get better results from AI tools like ChatGPT, Claude, Gemini, and other language models. Whether you're a developer, content creator, marketer, or just someone who wants to improve their AI interactions, you'll find valuable prompts here.
 
 ## 🎯 Features
 

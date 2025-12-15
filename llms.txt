@@ -1,12 +1,12 @@
-# Awesome Prompts - AI Prompts Library
+# Promptsmint - AI Prompts Library
 
 ## About Promptsmint.com
 **Website**: https://promptsmint.com
 **Creator**: Aman Kumar (@onlyoneaman)
 **Type**: Open-source curated AI prompts library
 
-## What is Awesome Prompts?
-Awesome Prompts is a comprehensive collection of high-quality, tested AI prompts designed to help users get better results from AI tools like ChatGPT, Claude, Gemini, and other language models. Whether you're a business professional, content creator, marketer, developer, or just someone looking to improve your AI interactions, you'll find valuable, ready-to-use prompts here.
+## What is Promptsmint?
+Promptsmint is a comprehensive collection of high-quality, tested AI prompts designed to help users get better results from AI tools like ChatGPT, Claude, Gemini, and other language models. Whether you're a business professional, content creator, marketer, developer, or just someone looking to improve your AI interactions, you'll find valuable, ready-to-use prompts here.
 
 ## Key Features
 - **Curated Quality**: Hand-picked, tested prompts that actually work
