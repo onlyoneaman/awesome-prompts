@@ -48,21 +48,27 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
     toast.success('Link copied to clipboard');
   }
 
+  const encodePrompt = (prompt: string) => {
+    return encodeURIComponent(prompt);
+  };
+
   const openInChatGPT = () => {
-    const encodedPrompt = encodeURIComponent(prompt.actual_text);
+    const encodedPrompt = encodePrompt(prompt.actual_text);
     const chatgptUrl = `https://chatgpt.com/?prompt=${encodedPrompt}`;
     window.open(chatgptUrl, '_blank');
   }
 
   const openInClaude = () => {
-    const encodedPrompt = encodeURIComponent(prompt.actual_text);
+    const encodedPrompt = encodePrompt(prompt.actual_text);
     const claudeUrl = `https://claude.ai/new?q=${encodedPrompt}`;
     window.open(claudeUrl, '_blank');
   }
 
+  const buttonSize = isMobile ? "xs" : "sm";
+
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="pb-2">
         <div className="flex flex-col gap-1 md:gap-4 md:flex-row md:items-start md:justify-between">
           <div className="flex-1">
             <CardTitle className="text-xl md:text-2xl mb-1 md:mb-2 leading-tight">{prompt.title}</CardTitle>
@@ -70,16 +76,18 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
           </div>
           
           <div className="flex items-center gap-1 md:gap-2 self-start">
-            <AnimatedTooltip content="Share Link">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={shareLink}
-                className="flex items-center gap-1"
-              >
-                <Share2 size={16} />
-              </Button>
-            </AnimatedTooltip>
+            <div className="hidden md:block">
+              <AnimatedTooltip content="Share Link">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={shareLink}
+                  className="flex items-center gap-1"
+                >
+                  <Share2 size={16} />
+                </Button>
+              </AnimatedTooltip>
+            </div>
             <Button variant="outline" size="sm" className="flex-shrink-0 hidden">
               <Heart size={16} />
             </Button>
@@ -94,26 +102,37 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
             </h4>
             <div className="flex items-center gap-1 md:gap-2">
+              <div className="block md:hidden">
+                <AnimatedTooltip content="Share Link">
+                  <Button
+                    variant="outline"
+                    size={buttonSize}
+                    onClick={shareLink}
+                    className="flex items-center gap-1"
+                  >
+                    <Share2 size={16} />
+                  </Button>
+                </AnimatedTooltip>
+              </div>
               <AnimatedTooltip content="Open in ChatGPT">
                 <Button
                   variant="outline"
-                  size="sm"
+                  size={buttonSize}
                   onClick={openInChatGPT}
                   className="flex items-center gap-1"
                 >
                   <Image
                     src="/openai.svg"
                     alt="OpenAI"
-                    width={16}
-                    height={16}
-                    className="w-4 h-4"
+                    width={14}
+                    height={14}
                   />
                 </Button>
               </AnimatedTooltip>
               <AnimatedTooltip content="Open in Claude">
                 <Button
                   variant="outline"
-                  size="sm"
+                  size={buttonSize}
                   onClick={openInClaude}
                   className="flex items-center gap-1"
                 >
@@ -126,14 +145,14 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
                   />
                 </Button>
               </AnimatedTooltip>
-              <CopyButton text={prompt.actual_text} />
+              <CopyButton text={prompt.actual_text} size={buttonSize} />
             </div>
           </div>
           <MarkdownPreview 
             source={prompt.actual_text}
             style={{
               padding: 12,
-              fontSize: isMobile ? '14px' : '16px',
+              fontSize: isMobile ? '12px' : '16px',
               backgroundColor: '#f5f5f5'
             }}
             wrapperElement={{
@@ -187,9 +206,16 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                 href={`/authors/${author.slug}`}
                 className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
               >
-                <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
+                {/* <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
                   {author.name.charAt(0).toUpperCase()}
-                </div>
+                </div> */}
+                <Image
+                  src={author.profile_picture ?? ''}
+                  alt={author.name}
+                  width={40}
+                  height={40}
+                  className="w-10 h-10 rounded-full"
+                />
                 <div className="min-w-0">
                   <p className="font-medium text-gray-900 truncate">{author.name}</p>
                   <p className="hidden text-sm text-gray-500">View Profile</p>
@@ -322,7 +348,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
       {/* Navigation & Breadcrumb */}
       <div className="mb-4 md:mb-6">
         {/* Mobile: Centered back button only */}
-        <div className="flex justify-center md:hidden mb-4">
+        <div className="flex justify-center md:hidden mb-2 md:mb-4">
           <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} referrerAuthor={referrerAuthor} />
         </div>
         
@@ -352,7 +378,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
             <div className="space-y-4">
               {/* Main Media Display */}
               <div className="relative bg-gray-50 rounded-lg overflow-hidden group">
-                <div className={`relative ${currentMedia?.type === 'video' ? 'aspect-video' : 'aspect-square'}`}>
+                <div className={`relative max-h-[70vh] ${currentMedia?.type === 'video' ? 'aspect-video' : 'aspect-square'}`}>
                   {currentMedia?.type === 'image' ? (
                     <Image
                       src={currentMedia.src}
@@ -375,14 +401,14 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
                     <>
                       <button
                         onClick={prevMedia}
-                        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute cursor-pointer left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                         aria-label="Previous media"
                       >
                         <ChevronLeft className="w-5 h-5" />
                       </button>
                       <button
                         onClick={nextMedia}
-                        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="absolute cursor-pointer right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                         aria-label="Next media"
                       >
                         <ChevronRight className="w-5 h-5" />
@@ -393,7 +419,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
                   {/* Fullscreen Button */}
                   <button
                     onClick={openFullscreen}
-                    className="absolute top-2 right-2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute cursor-pointer top-2 right-2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
                     aria-label="View fullscreen"
                   >
                     <Maximize2 className="w-4 h-4" />
@@ -403,7 +429,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
 
               {/* Media Thumbnail Gallery */}
               {hasMultipleMedia && (
-                <div className="flex gap-2 overflow-x-auto pb-2">
+                <div className="flex items-center justify-center gap-2 overflow-x-auto pb-1 md:pb-2">
                   {allMedia.map((media, index) => (
                     <button
                       key={index}
@@ -436,11 +462,11 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
               )}
 
               {/* Media Counter */}
-              {hasMultipleMedia && (
+              {/* {hasMultipleMedia && (
                 <div className="text-center text-sm text-gray-500">
-                  {currentMediaIndex + 1} of {allMedia.length}
+                  {currentMediaIndex + 1} / {allMedia.length}
                 </div>
-              )}
+              )} */}
             </div>
 
             {/* Prompt Content */}
@@ -471,7 +497,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
           {/* Close Button */}
           <button
             onClick={closeFullscreen}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+            className="absolute cursor-pointer top-4 right-4 text-white hover:text-gray-300 z-10"
             aria-label="Close fullscreen"
           >
             <X className="w-8 h-8" />
@@ -482,14 +508,14 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
             <>
               <button
                 onClick={prevMedia}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
+                className="absolute cursor-pointer left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
                 aria-label="Previous media"
               >
                 <ChevronLeft className="w-8 h-8" />
               </button>
               <button
                 onClick={nextMedia}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
+                className="absolute cursor-pointer right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 z-10"
                 aria-label="Next media"
               >
                 <ChevronRight className="w-8 h-8" />
@@ -506,7 +532,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
                   alt={`${prompt.title} - Media ${currentMediaIndex + 1}`}
                   width={0}
                   height={0}
-                  className="h-[95vh] w-auto"
+                  className="h-[95vh] w-auto object-contain"
                   sizes="100vw"
                   style={{ width: 'auto', height: '95vh' }}
                 />
@@ -524,7 +550,7 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
           {/* Media Counter */}
           {hasMultipleMedia && (
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm bg-black/50 px-3 py-1 rounded-full">
-              {currentMediaIndex + 1} of {allMedia.length}
+              {currentMediaIndex + 1} / {allMedia.length}
             </div>
           )}
 
