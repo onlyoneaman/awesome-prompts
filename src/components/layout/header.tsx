@@ -26,7 +26,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="text-xl md:text-2xl font-bold text-gray-900 truncate">
-              Awesome Prompts
+              PromptsMint
             </div>
           </Link>
 
