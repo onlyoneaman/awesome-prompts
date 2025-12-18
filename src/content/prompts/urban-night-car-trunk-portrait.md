@@ -1,0 +1,46 @@
+---
+title: "Urban Night Car Trunk Portrait"
+description: "Create edgy urban night portraits with flash photography aesthetic. Perfect for car culture photography, street style portraits, and candid lifestyle shots. Generate dramatic nighttime portraits with vintage film grain and hard flash lighting."
+categories: ["portraits", "images"]
+tags: ["urban", "night", "car", "portrait", "flash", "photography", "lifestyle", "edgy", "street", "vintage", "film", "aesthetic", "yellow", "sports-car"]
+author: "aman"
+difficulty: "advanced"
+type: "image"
+images: 
+  - "/images/urban-night-car-trunk-portrait/urban-night-car-trunk-portrait-1.png"
+use_cases: ["urban photography", "car culture portraits", "night photography", "street style", "lifestyle portraits", "flash photography", "vintage film aesthetic"]
+created_at: "2025-12-18"
+updated_at: "2025-12-18"
+---
+
+{
+  "prompt_breakdown": {
+    "subject_parameters": {
+      "identity_constraint": "Preserve facial features from reference image",
+      "hair": "Long, ash-brown, textured wolf cut",
+      "expression": "Relaxed, dreamy, looking to the side"
+    },
+    "apparel": {
+      "top": "Sleeveless cropped black hoodie with high collar",
+      "bottom": "Faded black denim shorts, vintage distressed style, raw hem with frayed fibers",
+      "footwear": "Onitsuka Tiger Mexico 66 sneakers (Yellow and Black)"
+    },
+    "pose_and_action": {
+      "body_position": "Lying relaxed inside an open car trunk, legs bent and crossed",
+      "arms": "Right arm stretched upward, left hand holding a lit cigarette near mouth",
+      "action": "Smoking"
+    },
+    "environment_and_props": {
+      "primary_container": "Trunk of a bright yellow sports car",
+      "trunk_contents": "Transparent box, yellow bottle or black tube attached to the side",
+      "background": "Dark outdoor nighttime setting, faint building silhouette, partial wheel of another vehicle on the left"
+    },
+    "technical_specs": {
+      "angle": "High-angle shot (looking down)",
+      "lighting": "Hard direct flash (35mm analog style), dark ambient background",
+      "medium": "Flash photography, grainy film texture",
+      "atmosphere": "Edgy, mysterious, candid"
+    }
+  }
+}
+
