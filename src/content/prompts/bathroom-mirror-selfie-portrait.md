@@ -1,6 +1,6 @@
 ---
 title: "Bathroom Mirror Selfie Portrait"
-description: "Create stylish bathroom mirror selfies with clean girl aesthetic. Perfect for influencer photography, Instagram portraits, and lifestyle selfies. Generate modern mirror selfies with warm lighting and contemporary bathroom settings."
+description: "Create stylish bathroom mirror selfies with clean girl aesthetic. Perfect for influencer photography and Instagram portraits."
 categories: ["portraits", "images"]
 tags: ["selfie", "mirror", "bathroom", "portrait", "lifestyle", "influencer", "instagram", "clean-girl", "aesthetic", "photography", "camera", "gold-jewelry"]
 author: "aman"

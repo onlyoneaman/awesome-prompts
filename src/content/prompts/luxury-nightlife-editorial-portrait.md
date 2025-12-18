@@ -1,6 +1,6 @@
 ---
 title: "Luxury Nightlife Editorial Portrait"
-description: "Create high-fashion magazine editorial portraits with luxury nightlife aesthetic. Perfect for fashion photography, paparazzi-style shots, and glamorous editorial campaigns. Generate bold portraits with direct flash lighting and high contrast."
+description: "Create high-fashion magazine editorial portraits with luxury nightlife aesthetic. Perfect for fashion photography and paparazzi-style shots."
 categories: ["portraits", "images"]
 tags: ["fashion", "editorial", "luxury", "nightlife", "portrait", "flash", "photography", "glamorous", "paparazzi", "high-fashion", "lace", "stiletto", "interior"]
 author: "aman"

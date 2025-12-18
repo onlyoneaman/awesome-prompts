@@ -1,6 +1,6 @@
 ---
 title: "Urban Night Car Trunk Portrait"
-description: "Create edgy urban night portraits with flash photography aesthetic. Perfect for car culture photography, street style portraits, and candid lifestyle shots. Generate dramatic nighttime portraits with vintage film grain and hard flash lighting."
+description: "Create edgy urban night portraits with flash photography aesthetic. Perfect for car culture photography and street style portraits."
 categories: ["portraits", "images"]
 tags: ["urban", "night", "car", "portrait", "flash", "photography", "lifestyle", "edgy", "street", "vintage", "film", "aesthetic", "yellow", "sports-car"]
 author: "aman"
