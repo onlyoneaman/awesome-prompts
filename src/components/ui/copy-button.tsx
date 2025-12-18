@@ -4,15 +4,17 @@ import { useState } from "react";
 import { Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import posthog from "posthog-js";
 
 interface CopyButtonProps {
   text: string;
   variant?: "outline" | "ghost" | "default";
   size?: "xs" | "sm" | "default" | "lg";
   className?: string;
+  title?: string;
 }
 
-export function CopyButton({ text, variant = "outline", size = "sm", className }: CopyButtonProps) {
+export function CopyButton({ text, variant = "outline", size = "sm", className, title }: CopyButtonProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -20,6 +22,10 @@ export function CopyButton({ text, variant = "outline", size = "sm", className }
       await navigator.clipboard.writeText(text);
       setCopied(true);
       toast.success('Prompt copied to clipboard');
+      posthog.capture('prompt_copy_to_clipboard', {
+        text: text,
+        title: title,
+      });
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error("Failed to copy text: ", err);

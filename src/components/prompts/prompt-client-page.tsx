@@ -15,6 +15,7 @@ import { getDifficultyStars } from "@/lib/prompt-utils";
 import { toast } from "sonner";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import MarkdownPreview from '@uiw/react-markdown-preview';
+import posthog from "posthog-js";
 
 interface PromptClientPageProps {
   prompt: Prompt;
@@ -46,6 +47,10 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
     const url = window.location.href;
     navigator.clipboard.writeText(url);
     toast.success('Link copied to clipboard');
+    posthog.capture('prompt_share_link', {
+      url: url,
+      title: prompt.title,
+    });
   }
 
   const encodePrompt = (prompt: string) => {
@@ -56,12 +61,18 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
     const encodedPrompt = encodePrompt(prompt.actual_text);
     const chatgptUrl = `https://chatgpt.com/?prompt=${encodedPrompt}`;
     window.open(chatgptUrl, '_blank');
+    posthog.capture('prompt_open_in_chatgpt', {
+      title: prompt.title,
+    });
   }
 
   const openInClaude = () => {
     const encodedPrompt = encodePrompt(prompt.actual_text);
     const claudeUrl = `https://claude.ai/new?q=${encodedPrompt}`;
     window.open(claudeUrl, '_blank');
+    posthog.capture('prompt_open_in_claude', {
+      title: prompt.title,
+    });
   }
 
   const buttonSize = isMobile ? "xs" : "sm";
@@ -145,7 +156,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
                   />
                 </Button>
               </AnimatedTooltip>
-              <CopyButton text={prompt.actual_text} size={buttonSize} />
+              <CopyButton title={prompt.title} text={prompt.actual_text} size={buttonSize} />
             </div>
           </div>
           <MarkdownPreview 
@@ -309,6 +320,9 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
   };
 
   const openFullscreen = () => {
+    posthog.capture('open_fullscreen', {
+      title: prompt.title,
+    });
     setIsFullscreen(true);
   };
 
