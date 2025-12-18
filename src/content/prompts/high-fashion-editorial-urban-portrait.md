@@ -1,7 +1,7 @@
 ---
 title: "High Fashion Editorial Urban Portrait"
 description: "Create high-fashion editorial portraits with luxury campaign aesthetics. Perfect for fashion photography, runway-inspired imagery, and cinematic urban fashion shoots."
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["fashion", "editorial", "portrait", "urban", "luxury", "cinematic", "runway", "campaign", "high-fashion", "photography", "woman", "outdoor"]
 author: "aman"
 difficulty: "advanced"
