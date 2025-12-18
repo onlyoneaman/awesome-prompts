@@ -49,6 +49,14 @@ export const topCategories: PromptCategory[] = [
     icon: "🖼️"
   },
   {
+    id: "portraits",
+    name: "Portraits",
+    description: "Prompts for portrait photography and selfies",
+    slug: "portraits",
+    color: "#EC4899",
+    icon: "📸"
+  },
+  {
     id: "videos",
     name: "Videos",
     description: "Prompts for video generation.",
