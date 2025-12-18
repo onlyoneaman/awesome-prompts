@@ -1,7 +1,7 @@
 ---
 title: "Fashion Editorial Pic"
 description: "prompt to generate a photo with fashion editorial pic"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

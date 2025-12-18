@@ -8,6 +8,7 @@ import { Search, ArrowRight } from "lucide-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
 
 export default function Home() {
   // Get a few prompts for homepage preview
@@ -80,7 +81,19 @@ export default function Home() {
                 <Link key={category.id} href={`/categories/${category.slug}`}>
                   <Card className="h-full hover:shadow-md transition-shadow border border-gray-200">
                     <CardContent className="p-4 text-center">
-                      <div className="text-2xl mb-2">{category.icon}</div>
+                      <div className="text-2xl mb-2 flex items-center justify-center">
+                        {category.icon?.startsWith('/') ? (
+                          <Image 
+                            src={category.icon} 
+                            alt={category.name}
+                            width={32}
+                            height={32}
+                            className="w-8 h-8 object-cover rounded-full"
+                          />
+                        ) : (
+                          category.icon
+                        )}
+                      </div>
                       <h3 className="font-medium mb-1 text-gray-900">{category.name}</h3>
                       <p className="text-xs text-gray-500">{category.description}</p>
                     </CardContent>

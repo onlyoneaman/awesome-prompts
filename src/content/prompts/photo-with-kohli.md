@@ -1,7 +1,7 @@
 ---
 title: "Photo with Virat Kohli in Gym"
 description: "prompt to generate a photo with Virat Kohli in a modern fitness gym"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

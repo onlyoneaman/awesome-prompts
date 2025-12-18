@@ -1,7 +1,7 @@
 ---
 title: "Photo with Donald Trump"
 description: "prompt to generate a photo with Donald Trump"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

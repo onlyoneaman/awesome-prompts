@@ -46,7 +46,7 @@ export const topCategories: PromptCategory[] = [
     description: "Prompts for image generation.",
     slug: "images",
     color: "#10B981",
-    icon: "🖼️"
+    icon: "/images/high-fashion-editorial-urban-portrait/high-fashion-editorial-urban-portrait-1.png"
   },
   {
     id: "portraits",
@@ -54,7 +54,7 @@ export const topCategories: PromptCategory[] = [
     description: "Prompts for portrait photography and selfies",
     slug: "portraits",
     color: "#EC4899",
-    icon: "📸"
+    icon: "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1.png"
   },
   {
     id: "videos",

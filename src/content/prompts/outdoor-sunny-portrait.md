@@ -1,7 +1,7 @@
 ---
 title: "Outdoor Sunny Portrait"
 description: "prompt to generate a photo with outdoor sunny portrait"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

@@ -1,7 +1,7 @@
 ---
 title: "Photo with Cristiano Ronaldo In Ground"
 description: "prompt to generate a photo with Cristiano Ronaldo In Ground"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

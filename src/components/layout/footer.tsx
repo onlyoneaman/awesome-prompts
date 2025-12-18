@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Github, ExternalLink } from "lucide-react";
 import { topCategories } from "@/lib/prompts";
 
@@ -71,9 +72,19 @@ export function Footer() {
                 <Link 
                   key={category.slug}
                   href={`/categories/${category.slug}`} 
-                  className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  <span className="mr-2">{category.icon}</span>
+                  {category.icon?.startsWith('/') ? (
+                    <Image 
+                      src={category.icon} 
+                      alt={category.name}
+                      width={16}
+                      height={16}
+                      className="w-4 h-4 object-cover rounded-full"
+                    />
+                  ) : (
+                    <span>{category.icon}</span>
+                  )}
                   {category.name}
                 </Link>
               ))}

@@ -7,6 +7,7 @@ import { PromptCard } from "@/components/prompts/prompt-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 // Remove edge runtime - use Node.js runtime for filesystem access
 // export const runtime = 'edge';
@@ -149,10 +150,20 @@ export default async function CategoryPage({ params }: Props) {
       {/* Category Header */}
       <div className="text-center mb-8 md:mb-12">
         <div 
-          className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl md:text-3xl"
+          className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl md:text-3xl overflow-hidden"
           style={{ backgroundColor: `${category.color}20`, color: category.color }}
         >
-          {category.icon}
+          {category.icon?.startsWith('/') ? (
+            <Image 
+              src={category.icon} 
+              alt={category.name}
+              width={80}
+              height={80}
+              className="w-full h-full object-cover rounded-full"
+            />
+          ) : (
+            category.icon
+          )}
         </div>
         <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 px-4">{category.name}</h1>
         <p className="text-base md:text-xl text-gray-600 max-w-3xl mx-auto mb-4 md:mb-6 px-4 leading-relaxed">
@@ -195,10 +206,20 @@ export default async function CategoryPage({ params }: Props) {
               <Link key={otherCategory.id} href={`/categories/${otherCategory.slug}`}>
                 <div className="p-4 rounded-lg border hover:shadow-md transition-all duration-200 cursor-pointer text-center hover:border-gray-300 bg-white">
                   <div 
-                    className="w-10 h-10 md:w-8 md:h-8 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-2 text-xl md:text-lg"
+                    className="w-10 h-10 md:w-8 md:h-8 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-2 text-xl md:text-lg overflow-hidden"
                     style={{ backgroundColor: `${otherCategory.color}20`, color: otherCategory.color }}
                   >
-                    {otherCategory.icon}
+                    {otherCategory.icon?.startsWith('/') ? (
+                      <Image 
+                        src={otherCategory.icon} 
+                        alt={otherCategory.name}
+                        width={40}
+                        height={40}
+                        className="w-full h-full object-cover rounded-full"
+                      />
+                    ) : (
+                      otherCategory.icon
+                    )}
                   </div>
                   <h3 className="font-semibold text-sm md:text-sm leading-tight">{otherCategory.name}</h3>
                 </div>

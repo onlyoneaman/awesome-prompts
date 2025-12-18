@@ -1,7 +1,7 @@
 ---
 title: "Change Facial Expressions"
 description: "prompt to generate a photo with different facial expressions"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

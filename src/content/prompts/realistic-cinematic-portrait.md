@@ -1,7 +1,7 @@
 ---
 title: "Realistic Cinematic Portrait"
 description: "a realistic cinematic portrait of a woman"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["realistic", "cinematic", "portrait", "female", "aura"]
 author: "aman"
 difficulty: "advanced"

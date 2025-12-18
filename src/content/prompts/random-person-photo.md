@@ -1,7 +1,7 @@
 ---
 title: "Random Person Photo"
 description: "a random person photo"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image", "person"]
 author: "aman"
 difficulty: "intermediate"

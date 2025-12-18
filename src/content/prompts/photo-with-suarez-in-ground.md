@@ -1,7 +1,7 @@
 ---
 title: "Photo with Suarez In Ground"
 description: "prompt to generate a photo with Luis Suarez In Ground"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

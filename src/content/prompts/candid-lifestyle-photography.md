@@ -1,7 +1,7 @@
 ---
 title: "Candid Lifestyle Photography"
 description: "a attractive candid lifestyle photo of a woman fishing on a boat"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["candid", "lifestyle", "fishing", "boat"]
 author: "aman"
 difficulty: "intermediate"

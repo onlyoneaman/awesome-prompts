@@ -1,7 +1,7 @@
 ---
 title: "Photoreal Black-and-White Pic"
 description: "prompt to generate a photo with photoreal black-and-white pic"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

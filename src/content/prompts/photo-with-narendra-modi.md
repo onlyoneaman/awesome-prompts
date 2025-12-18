@@ -1,7 +1,7 @@
 ---
 title: "Photo with Narendra Modi"
 description: "prompt to generate a photo with Narendra Modi"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

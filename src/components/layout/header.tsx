@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu,
@@ -70,7 +71,17 @@ export function Header() {
                         href={`/categories/${category.slug}`}
                         className="flex items-center gap-2 w-full"
                       >
-                        <span>{category.icon}</span>
+                        {category.icon?.startsWith('/') ? (
+                          <Image 
+                            src={category.icon} 
+                            alt={category.name}
+                            width={16}
+                            height={16}
+                            className="w-4 h-4 object-cover rounded-full"
+                          />
+                        ) : (
+                          <span>{category.icon}</span>
+                        )}
                         <span>{category.name}</span>
                       </Link>
                     </DropdownMenuItem>
@@ -148,7 +159,17 @@ export function Header() {
                       className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors py-1"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <span>{category.icon}</span>
+                      {category.icon?.startsWith('/') ? (
+                        <Image 
+                          src={category.icon} 
+                          alt={category.name}
+                          width={16}
+                          height={16}
+                          className="w-4 h-4 object-cover rounded-full"
+                        />
+                      ) : (
+                        <span>{category.icon}</span>
+                      )}
                       <span>{category.name}</span>
                     </Link>
                   ))}

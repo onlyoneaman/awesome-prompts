@@ -1,7 +1,7 @@
 ---
 title: "Photo with Messi In Ground"
 description: "prompt to generate a photo with Lionel Messi In Ground"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

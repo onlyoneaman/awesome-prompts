@@ -1,7 +1,7 @@
 ---
 title: "The Red Gown The Black Classic"
 description: "prompt to generate a photo with the red gown the black classic"
-categories: ["images"]
+categories: ["portraits", "images"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

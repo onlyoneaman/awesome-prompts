@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { topCategories } from "@/lib/prompts";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Categories | Awesome Prompts",
@@ -31,10 +32,20 @@ export default function CategoriesPage() {
             <Card className="h-full hover:shadow-xl transition-all duration-300 hover:scale-[1.02] cursor-pointer border hover:border-gray-300 group">
               <CardHeader className="text-center pb-4 md:pb-6">
                 <div 
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 text-2xl md:text-3xl transition-transform duration-300 group-hover:scale-110"
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6 text-2xl md:text-3xl transition-transform duration-300 group-hover:scale-110 overflow-hidden"
                   style={{ backgroundColor: `${category.color}20`, color: category.color }}
                 >
-                  {category.icon}
+                  {category.icon?.startsWith('/') ? (
+                    <Image 
+                      src={category.icon} 
+                      alt={category.name}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover rounded-full"
+                    />
+                  ) : (
+                    category.icon
+                  )}
                 </div>
                 <CardTitle className="text-xl md:text-2xl mb-2 md:mb-3 text-gray-900 group-hover:text-gray-700 transition-colors leading-tight">
                   {category.name}
