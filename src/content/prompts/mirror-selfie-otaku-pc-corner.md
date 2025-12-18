@@ -1,6 +1,6 @@
 ---
 title: "Mirror Selfie Otaku PC Corner"
-description: "Create authentic mirror selfies with otaku aesthetic and gaming PC setups. Perfect for lifestyle photography, bedroom selfies, and anime-inspired room decor. Generate realistic selfie portraits with blue color schemes and modern gaming setups."
+description: "Create authentic mirror selfies with otaku style and blue gaming PC setups. Great for bedroom selfies and anime-themed rooms."
 categories: ["portraits", "images"]
 tags: ["selfie", "mirror", "otaku", "gaming", "pc", "bedroom", "lifestyle", "anime", "blue", "aesthetic", "portrait", "photography"]
 author: "aman"
@@ -8,6 +8,8 @@ difficulty: "advanced"
 type: "image"
 images: 
   - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1.png"
+  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-2.png"
+  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-3.png"
 use_cases: ["mirror selfies", "lifestyle photography", "bedroom portraits", "gaming setup photos", "otaku aesthetic", "anime-inspired rooms"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"
