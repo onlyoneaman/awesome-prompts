@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/candid-lifestyle-photography/GxM_WjobEAApoq9.jpeg"
-  - "/images/candid-lifestyle-photography/img_1_chatgpt.png"
+  - "/images/candid-lifestyle-photography/GxM_WjobEAApoq9-optimized.webp"
+  - "/images/candid-lifestyle-photography/img_1_chatgpt-optimized.webp"
 use_cases: ["candid", "lifestyle", "fishing", "boat"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"

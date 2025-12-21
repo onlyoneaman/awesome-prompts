@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/luxury-nightlife-editorial-portrait/luxury-nightlife-editorial-portrait-1.png"
+  - "/images/luxury-nightlife-editorial-portrait/luxury-nightlife-editorial-portrait-1-optimized.webp"
 use_cases: ["fashion editorials", "luxury brand photography", "nightlife photography", "paparazzi style", "magazine covers", "high-fashion portraits", "editorial campaigns"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

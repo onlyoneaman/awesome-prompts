@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/random-person-photo/img1.png"
-  - "/images/random-person-photo/img2.png"
+  - "/images/random-person-photo/img1-optimized.webp"
+  - "/images/random-person-photo/img2-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"

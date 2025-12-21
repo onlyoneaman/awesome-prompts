@@ -7,9 +7,9 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/change-expressions/ce1.jpeg"
-  - "/images/change-expressions/ce2.jpeg"
-  - "/images/change-expressions/ce3.jpeg"
+  - "/images/change-expressions/ce1-optimized.webp"
+  - "/images/change-expressions/ce2-optimized.webp"
+  - "/images/change-expressions/ce3-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-28"
 updated_at: "2025-09-28"

@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/m1.png"
+  - "/images/m1-optimized.webp"
 use_cases: ["minimal", "surreal", "ad", "product"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"

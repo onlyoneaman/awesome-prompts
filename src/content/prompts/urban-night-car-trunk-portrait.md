@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/urban-night-car-trunk-portrait/urban-night-car-trunk-portrait-1.png"
+  - "/images/urban-night-car-trunk-portrait/urban-night-car-trunk-portrait-1-optimized.webp"
 use_cases: ["urban photography", "car culture portraits", "night photography", "street style", "lifestyle portraits", "flash photography", "vintage film aesthetic"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/dramatic-thumbnail/dale-carnegie.png"
-  - "/images/dramatic-thumbnail/rich-dad-poor-dad.png"
+  - "/images/thumbnails/dale-carnegie-optimized.webp"
+  - "/images/thumbnails/rich-dad-poor-dad-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-08-20"
 updated_at: "2025-08-20"

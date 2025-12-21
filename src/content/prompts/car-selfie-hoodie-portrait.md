@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/car-selfie-hoodie-portrait/car-selfie-hoodie-portrait-2.png"
+  - "/images/car-selfie-hoodie-portrait/car-selfie-hoodie-portrait-2-optimized.webp"
 use_cases: ["car selfies", "lifestyle photography", "social media portraits", "casual portraits", "daylight photography", "clean girl aesthetic", "natural makeup looks"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

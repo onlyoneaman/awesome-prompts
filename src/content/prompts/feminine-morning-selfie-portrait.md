@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/feminine-morning-selfie-portrait/feminine-morning-selfie-portrait-chatgpt-1.png"
-  - "/images/feminine-morning-selfie-portrait/feminine-morning-selfie-portrait-gemini-1.png"
+  - "/images/feminine-morning-selfie-portrait/feminine-morning-selfie-portrait-chatgpt-1-optimized.webp"
+  - "/images/feminine-morning-selfie-portrait/feminine-morning-selfie-portrait-gemini-1-optimized.webp"
 use_cases: ["lifestyle photography", "influencer content", "casual portraits", "social media", "indoor photography", "morning aesthetic"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"

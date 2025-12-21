@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/fashion-editorial-pic/pic1.png"
-  - "/images/fashion-editorial-pic/pic2.png"
+  - "/images/fashion-editorial-pic/pic1-optimized.webp"
+  - "/images/fashion-editorial-pic/pic2-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-29"
 updated_at: "2025-09-29"

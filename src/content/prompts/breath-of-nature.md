@@ -3,7 +3,7 @@ title: "Breath of Nature"
 description: "An artistic image prompt featuring glass lungs filled with wildflowers and greenery on a white background. Perfect for surreal, nature-inspired visuals."
 type: "image"
 images: 
-  - "/images/breath-of-nature.png"
+  - "/images/breath-of-nature-optimized.webp"
 categories: ["art", "images", "creative"]
 tags: ["glass-art", "nature", "lungs", "wildflowers", "hyper-realistic", "surreal", "photography"]
 author: "aman"

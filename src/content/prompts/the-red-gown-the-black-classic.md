@@ -7,9 +7,9 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/the-red-gown-the-black-classic/the-red-gown-the-black-classic-1.jpeg"
-  - "/images/the-red-gown-the-black-classic/the-red-gown-the-black-classic-2.jpeg"
-  - "/images/the-red-gown-the-black-classic/the-red-gown-the-black-classic-3.png"
+  - "/images/the-red-gown-the-black-classic/the-red-gown-the-black-classic-1-optimized.webp"
+  - "/images/the-red-gown-the-black-classic/the-red-gown-the-black-classic-2-optimized.webp"
+  - "/images/the-red-gown-the-black-classic/the-red-gown-the-black-classic-3-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-29"
 updated_at: "2025-09-29"

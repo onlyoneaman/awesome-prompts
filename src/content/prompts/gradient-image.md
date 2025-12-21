@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "beginner"
 type: "image"
 images: 
-  - "/images/gradient-image/ChatGPT Image Aug 2, 2025, 02_08_58 AM.png"
+  - "/images/gradient-image/ChatGPT Image Aug 2, 2025, 02_08_58 AM-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"

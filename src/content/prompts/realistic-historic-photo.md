@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/realistic-historic-photo/realistic-historic-photo-chatgpt-1.png"
-  - "/images/realistic-historic-photo/realistic-historic-photo-gemini-1.png"
+  - "/images/realistic-historic-photo/realistic-historic-photo-chatgpt-1-optimized.webp"
+  - "/images/realistic-historic-photo/realistic-historic-photo-gemini-1-optimized.webp"
 use_cases: ["historical visualization", "educational content", "period-accurate imagery", "documentary photography", "historical reconstruction", "educational materials"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"

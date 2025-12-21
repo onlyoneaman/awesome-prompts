@@ -7,9 +7,9 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1.png"
-  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-2.png"
-  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-3.png"
+  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1-optimized.webp"
+  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-2-optimized.webp"
+  - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-3-optimized.webp"
 use_cases: ["mirror selfies", "lifestyle photography", "bedroom portraits", "gaming setup photos", "otaku aesthetic", "anime-inspired rooms"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

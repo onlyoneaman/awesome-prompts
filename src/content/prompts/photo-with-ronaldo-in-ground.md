@@ -7,9 +7,9 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/photo-with-ronaldo-in-ground/aman-ronaldo.png"
-  - "/images/photo-with-ronaldo-in-ground/messi-ronaldo.png"
-  - "/images/photo-with-ronaldo-in-ground/eg1.jpeg"
+  - "/images/photo-with-ronaldo-in-ground/aman-ronaldo-optimized.webp"
+  - "/images/photo-with-ronaldo-in-ground/messi-ronaldo-optimized.webp"
+  - "/images/photo-with-ronaldo-in-ground/eg1-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-10-04"
 updated_at: "2025-10-04"

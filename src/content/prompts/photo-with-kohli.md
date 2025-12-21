@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/photo-with-kohli/Gemini_Generated_Image_oglu8doglu8doglu.png"
+  - "/images/photo-with-kohli/Gemini_Generated_Image_oglu8doglu8doglu-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-12-08"
 updated_at: "2025-12-08"

@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/instagram-story-girls-night/instagram-story-girls-night-gemini-1.png"
+  - "/images/instagram-story-girls-night/instagram-story-girls-night-gemini-1-optimized.webp"
 use_cases: ["social media content", "nightclub photography", "Instagram Stories", "nightlife imagery", "party content", "influencer posts"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"

@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/bedroom-mirror-selfie-drink-portrait/bedroom-mirror-selfie-drink-portrait-1.png"
+  - "/images/bedroom-mirror-selfie-drink-portrait/bedroom-mirror-selfie-drink-portrait-1-optimized.webp"
 use_cases: ["mirror selfies", "lifestyle photography", "social media content", "bedroom portraits", "casual selfies", "influencer content", "everyday aesthetic"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

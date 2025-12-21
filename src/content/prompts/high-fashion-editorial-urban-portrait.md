@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/high-fashion-editorial-urban-portrait/high-fashion-editorial-urban-portrait-1.png"
+  - "/images/high-fashion-editorial-urban-portrait/high-fashion-editorial-urban-portrait-1-optimized.webp"
 use_cases: ["fashion photography", "editorial shoots", "luxury campaigns", "runway imagery", "fashion portraits", "urban fashion"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

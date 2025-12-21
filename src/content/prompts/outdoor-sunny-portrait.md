@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/outdoor-sunny-portrait/outdoor-sunny-portrait-1.jpeg"
-  - "/images/outdoor-sunny-portrait/outdoor-sunny-portrait-2.png"
+  - "/images/outdoor-sunny-portrait/outdoor-sunny-portrait-1-optimized.webp"
+  - "/images/outdoor-sunny-portrait/outdoor-sunny-portrait-2-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-29"
 updated_at: "2025-09-29"

@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/bathroom-mirror-selfie-portrait/bathroom-mirror-selfie-portrait-1.png"
+  - "/images/bathroom-mirror-selfie-portrait/bathroom-mirror-selfie-portrait-1-optimized.webp"
 use_cases: ["mirror selfies", "influencer photography", "Instagram portraits", "lifestyle photography", "bathroom selfies", "social media content", "clean girl aesthetic"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/photo-with-suarez-in-ground/Gemini_Generated_Image_o9zrwgo9zrwgo9zr.png"
+  - "/images/photo-with-suarez-in-ground/Gemini_Generated_Image_o9zrwgo9zrwgo9zr-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-12-08"
 updated_at: "2025-12-08"

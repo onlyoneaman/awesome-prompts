@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/y2k-luxury-car-portrait/y2k-luxury-car-portrait-chatgpt-1.png"
-  - "/images/y2k-luxury-car-portrait/y2k-luxury-car-portrait-gemini-1.png"
+  - "/images/y2k-luxury-car-portrait/y2k-luxury-car-portrait-chatgpt-1-optimized.webp"
+  - "/images/y2k-luxury-car-portrait/y2k-luxury-car-portrait-gemini-1-optimized.webp"
 use_cases: ["retro fashion photography", "luxury lifestyle imagery", "car culture content", "nostalgic portraits", "Y2K aesthetic", "editorial photography"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"

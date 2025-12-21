@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/photoreal-bnw/photoreal-pic1.png"
+  - "/images/photoreal-bnw/photoreal-pic1-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-29"
 updated_at: "2025-09-29"

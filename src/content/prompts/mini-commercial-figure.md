@@ -7,9 +7,9 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/mini-commercial-figures/pikachu-chatgpt.png"
-  - "/images/mini-commercial-figures/pikachu.png"
-  - "/images/mini-commercial-figures/barbie.png"
+  - "/images/mini-commercial-figures/pikachu-chatgpt-optimized.webp"
+  - "/images/mini-commercial-figures/pikachu-optimized.webp"
+  - "/images/mini-commercial-figures/barbie-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-19"
 updated_at: "2025-09-19"

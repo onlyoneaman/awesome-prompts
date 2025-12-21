@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/9-panels-infographics/mens-fashion-infographics.png"
-  - "/images/9-panels-infographics/shoes-infographics.png"
+  - "/images/9-panels-infographics/mens-fashion-infographics-optimized.webp"
+  - "/images/9-panels-infographics/shoes-infographics-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"

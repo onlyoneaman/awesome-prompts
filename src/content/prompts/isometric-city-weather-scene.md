@@ -7,9 +7,9 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/isometric-city-weather-scene/isometric-city-weather-scene-1.png"
-  - "/images/isometric-city-weather-scene/isometric-city-weather-scene-2.png"
-  - "/images/isometric-city-weather-scene/isometric-city-weather-scene-3.png"
+  - "/images/isometric-city-weather-scene/isometric-city-weather-scene-1-optimized.webp"
+  - "/images/isometric-city-weather-scene/isometric-city-weather-scene-2-optimized.webp"
+  - "/images/isometric-city-weather-scene/isometric-city-weather-scene-3-optimized.webp"
 use_cases: ["city illustrations", "weather app design", "architectural visualization", "isometric art", "city dioramas", "3D renders", "urban scenes"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

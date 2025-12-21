@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/photo-with-santa/photo-with-santa-gemini-1.png"
-  - "/images/photo-with-santa/photo-with-santa-gemini-2.png"
+  - "/images/photo-with-santa/photo-with-santa-gemini-1-optimized.webp"
+  - "/images/photo-with-santa/photo-with-santa-gemini-2-optimized.webp"
 use_cases: ["holiday cards", "family photos", "festive portraits", "christmas memories", "seasonal content", "holiday marketing"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"

@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/realistic-cinematic-portrait/img1_eg.png"
-  - "/images/realistic-cinematic-portrait/ChatGPT Image Aug 2, 2025, 02_05_56 AM.png"
+  - "/images/realistic-cinematic-portrait/img1_eg-optimized.webp"
+  - "/images/realistic-cinematic-portrait/ChatGPT Image Aug 2, 2025, 02_05_56 AM-optimized.webp"
 use_cases: ["realistic", "cinematic", "portrait", "female", "aura"]
 created_at: "2025-08-02"
 updated_at: "2025-08-02"

@@ -7,7 +7,7 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/public-figures/pic-with-narendra-modi-1.png"
+  - "/images/public-figures/pic-with-narendra-modi-1-optimized.webp"
 use_cases: ["image"]
 created_at: "2025-09-28"
 updated_at: "2025-09-28"

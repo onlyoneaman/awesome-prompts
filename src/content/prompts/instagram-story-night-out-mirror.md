@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/instagram-story-night-out-mirror/instagram-story-night-out-mirror-chatgpt-1.png"
-  - "/images/instagram-story-night-out-mirror/instagram-story-night-out-mirror-gemini-1.png"
+  - "/images/instagram-story-night-out-mirror/instagram-story-night-out-mirror-chatgpt-1-optimized.webp"
+  - "/images/instagram-story-night-out-mirror/instagram-story-night-out-mirror-gemini-1-optimized.webp"
 use_cases: ["social media content", "restaurant photography", "Instagram Stories", "nightlife imagery", "mirror selfies", "influencer posts"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"

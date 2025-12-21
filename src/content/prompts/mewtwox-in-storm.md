@@ -3,7 +3,7 @@ title: "Mewtwo X in Storm"
 description: "Mega Mewtwo X, a muscular humanoid Pokémon with glowing psychic veins."
 type: "image"
 images: 
-  - "/images/mewtwox-in-storm/Gemini_Generated_Image_l9gwvsl9gwvsl9gw.png"
+  - "/images/mewtwox-in-storm/Gemini_Generated_Image_l9gwvsl9gwvsl9gw-optimized.webp"
 categories: ["images", "pokemon"]
 tags: ["pokemon", "mewtwo", "image"]
 author: "aman"

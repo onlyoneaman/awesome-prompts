@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/gym-mirror-selfie-portrait/gym-mirror-selfie-portrait-1.png"
-  - "/images/gym-mirror-selfie-portrait/gym-mirror-selfie-portrait-2.png"
+  - "/images/gym-mirror-selfie-portrait/gym-mirror-selfie-portrait-1-optimized.webp"
+  - "/images/gym-mirror-selfie-portrait/gym-mirror-selfie-portrait-2-optimized.webp"
 use_cases: ["gym selfies", "fitness photography", "workout portraits", "athletic lifestyle", "mirror selfies", "gym content", "fitness influencer"]
 created_at: "2025-12-18"
 updated_at: "2025-12-18"

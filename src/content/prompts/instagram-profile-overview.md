@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/instagram-profile-overview/instagram-profile-overview-chatgpt-1.png"
-  - "/images/instagram-profile-overview/instagram-profile-overview-gemini-1.png"
+  - "/images/instagram-profile-overview/instagram-profile-overview-chatgpt-1-optimized.webp"
+  - "/images/instagram-profile-overview/instagram-profile-overview-gemini-1-optimized.webp"
 use_cases: ["social media content", "influencer profiles", "brand accounts", "portfolio showcases", "Instagram layouts", "profile design"]
 created_at: "2025-12-19"
 updated_at: "2025-12-19"
