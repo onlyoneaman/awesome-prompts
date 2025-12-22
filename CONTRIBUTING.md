@@ -74,6 +74,27 @@ Each prompt should include:
    - Gemini (Google)
    - Other major AI models when possible
 
+### Image Handling Guidelines
+
+When adding prompts with images:
+
+1. **Image Naming**: Use filenames that identify the provider/model when possible:
+   - ChatGPT images: `prompt-name-chatgpt-1.png`
+   - Gemini images: `prompt-name-gemini-1.png` or `prompt-name-gemini-1.jpg`
+   - Grok images: `prompt-name-grok-1.jpg`
+   - OpenAI images: `prompt-name-openai-1.png`
+   - Preserve original identifiers from filenames (e.g., `Gemini_Generated_Image_xyz` → `prompt-name-gemini-1.jpg`)
+
+2. **Image Optimization**:
+   - After moving images to the appropriate directory in `public/images/[prompt-slug]/`, run the `io` command in that directory to optimize images
+   - Always use the optimized `.webp` versions in the prompt file's `images` frontmatter field
+   - Reference format: `/images/[prompt-slug]/[image-name]-optimized.webp`
+
+3. **Image Organization**:
+   - Place all images for a prompt in `public/images/[prompt-slug]/`
+   - Keep original files alongside optimized versions
+   - Update prompt file to reference only optimized images
+
 ## 🚀 How to Submit
 
 ### Method 1: Web Form (Recommended for Non-Developers)
