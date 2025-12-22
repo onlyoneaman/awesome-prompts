@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "intermediate"
 type: "image"
 images: 
-  - "/images/macbook-photobooth-bedroom-portrait/macbook-photobooth-bedroom-portrait-chatgpt-1.png"
-  - "/images/macbook-photobooth-bedroom-portrait/macbook-photobooth-bedroom-portrait-gemini-1.png"
+  - "/images/macbook-photobooth-bedroom-portrait/macbook-photobooth-bedroom-portrait-chatgpt-1-optimized.webp"
+  - "/images/macbook-photobooth-bedroom-portrait/macbook-photobooth-bedroom-portrait-gemini-1-optimized.webp"
 use_cases: ["screen simulation photography", "photorealistic renders", "bedroom portraits", "candid lifestyle photography", "identity-preserved portraits"]
 created_at: "2025-12-22"
 updated_at: "2025-12-22"
