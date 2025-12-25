@@ -11,8 +11,8 @@ images:
   - "/images/vending-machine-nightlife-bikini-portrait/vending-machine-nightlife-bikini-portrait-grok-1-optimized.webp"
   - "/images/vending-machine-nightlife-bikini-portrait/vending-machine-nightlife-bikini-portrait-grok-2-optimized.webp"
 use_cases: ["nightlife photography", "street portraits", "social media content", "photorealistic renders", "flash photography", "urban portraits", "lifestyle photography"]
-created_at: "2025-01-27"
-updated_at: "2025-01-27"
+created_at: "2025-12-25"
+updated_at: "2025-12-25"
 ---
 
 ```json
