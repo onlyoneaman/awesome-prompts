@@ -105,7 +105,7 @@ Each prompt includes:
 ## Build Process
 1. **Pre-build**: Generate authors data (`scripts/generate-authors-data.js`)
 2. **Build**: Next.js static generation
-3. **Deploy**: Vercel (primary) or Cloudflare Pages
+3. **Deploy**: Cloudflare Pages
 
 ## Environment Variables
 - `NEXT_PUBLIC_SITE_URL`: Site URL for SEO

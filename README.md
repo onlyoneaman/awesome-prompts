@@ -48,7 +48,7 @@ awesome-prompts/
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Components**: [shadcn/ui](https://ui.shadcn.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Deployment**: [Vercel](https://vercel.com/)
+- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com/)
 
 ## 🏃‍♂️ Getting Started
 
