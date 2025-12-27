@@ -10,7 +10,7 @@ Promptsmint is a comprehensive collection of high-quality, tested AI prompts des
 
 ## Key Features
 - **Curated Quality**: Hand-picked, tested prompts that actually work
-- **Organized Categories**: 12 well-structured categories covering diverse use cases
+- **Organized Categories**: 17 well-structured categories covering diverse use cases
 - **Easy Search**: Find exactly what you need with powerful search and filtering
 - **Copy & Use**: Ready-to-copy prompts with clear instructions
 - **Community Driven**: Open for contributions and community submissions
@@ -22,6 +22,7 @@ Promptsmint is a comprehensive collection of high-quality, tested AI prompts des
 - **Business** (💼): Professional prompts for business and productivity
 - **Psychology** (🧠): Psychological insights, behavior analysis, mental wellness
 - **Images** (🖼️): Image generation prompts
+- **Portraits**: Portrait photography and selfies
 - **Videos** (🎥): Video generation prompts
 - **Writing** (✍️): Creative writing, copywriting, content creation
 - **Strategy** (🎯): Strategic thinking and planning
@@ -29,8 +30,27 @@ Promptsmint is a comprehensive collection of high-quality, tested AI prompts des
 - **Marketing** (📈): Marketing, advertising, business growth
 - **Programming** (💻): Software development and coding
 - **Creativity** (🎨): Creative thinking and innovation
+- **Illustration**: Creating illustrations and visual artwork
+- **Designer**: Design work and creative design projects
+- **Graphics**: Creating graphics and visual designs
+- **Product UI/UX**: Product design, UI/UX, user interface, and user experience
 - **SEO** (⚙️): SEO, content strategy, keyword research
 - **Learning** (📚): Education and learning
+
+### Category Selection Guidelines
+When adding categories to prompts, select categories that accurately represent the prompt's purpose:
+
+- **Designer**: Use for prompts related to design work, creative design projects, visual design, branding, and design thinking
+- **Product UI/UX**: Use for prompts related to product design, user interface design, user experience, wireframing, prototyping, and UX research
+- **Illustration**: Use for prompts that create illustrations, visual artwork, drawings, and artistic visuals
+- **Graphics**: Use for prompts that create graphics, visual designs, infographics, and graphic elements
+- **Images**: Use for all image generation prompts (this is the primary category for image prompts)
+- **Portraits**: Use specifically for portrait photography, selfies, and people-focused image prompts
+
+**Important**: Prompts can have multiple categories. For example:
+- A prompt for creating a logo design should include both `designer` and `graphics`
+- A prompt for UI mockups should include `product-uiux` and `designer`
+- A prompt for illustration work should include `illustration` and `images`
 
 ### Prompt Data Model
 Each prompt includes:

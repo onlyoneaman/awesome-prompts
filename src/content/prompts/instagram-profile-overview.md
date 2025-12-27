@@ -1,7 +1,7 @@
 ---
 title: "Instagram Profile Overview"
 description: "Create professional Instagram profile layouts with grid previews. Perfect for influencer profiles, brand accounts, and social media portfolio showcases with consistent aesthetic."
-categories: ["images"]
+categories: ["images", "product-uiux", "designer"]
 tags: ["instagram", "profile", "grid", "layout", "social media", "influencer", "portfolio", "ui", "interface", "aesthetic", "lifestyle", "brand"]
 author: "aman"
 difficulty: "advanced"

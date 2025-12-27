@@ -1,7 +1,7 @@
 ---
 title: "minimal surreal Ad"
 description: "A Surreal Ad for a product"
-categories: ["images", "marketing"]
+categories: ["images", "marketing", "graphics", "designer"]
 tags: ["minimal", "surreal", "ad", "product"]
 author: "aman"
 difficulty: "intermediate"

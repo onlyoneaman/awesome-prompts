@@ -1,7 +1,7 @@
 ---
 title: "Crayon Painting"
 description: "a crayon painting of an object"
-categories: ["images", "marketing"]
+categories: ["images", "marketing", "illustration"]
 tags: ["image", "crayon", "painting"]
 author: "aman"
 difficulty: "intermediate"

@@ -1,7 +1,7 @@
 ---
 title: "Create Infographic"
 description: "Simple prompt to create a nice infographic from provided content or reference. Transforms information into visually appealing, easy-to-understand graphics with clear design and layout."
-categories: ["images", "creativity"]
+categories: ["images", "creativity", "graphics", "designer"]
 tags: ["infographic", "design", "visualization", "graphic design", "information design", "data visualization", "beginner", "simple"]
 author: "aman"
 difficulty: "beginner"

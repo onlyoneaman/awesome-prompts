@@ -1,7 +1,7 @@
 ---
 title: "Dramatic Thumbnail"
 description: "a dramatic thumbnail of an author and book"
-categories: ["images", "marketing"]
+categories: ["images", "marketing", "graphics", "designer"]
 tags: ["image", "thumbnail", "dramatic"]
 author: "aman"
 difficulty: "intermediate"

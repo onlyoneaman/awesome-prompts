@@ -1,7 +1,7 @@
 ---
 title: "Mini Commercial Figure"
 description: "a mini commercial figure of a character"
-categories: ["images"]
+categories: ["images", "designer"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

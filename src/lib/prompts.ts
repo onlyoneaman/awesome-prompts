@@ -113,6 +113,38 @@ export const topCategories: PromptCategory[] = [
     icon: "🎨"
   },
   {
+    id: "illustration",
+    name: "Illustration",
+    description: "Prompts for creating illustrations and visual artwork",
+    slug: "illustration",
+    color: "#F97316",
+    icon: "🖼️"
+  },
+  {
+    id: "designer",
+    name: "Designer",
+    description: "Prompts for design work and creative design projects",
+    slug: "designer",
+    color: "#6366F1",
+    icon: "/images/category-icons/designer-icon-optimized.webp"
+  },
+  {
+    id: "graphics",
+    name: "Graphics",
+    description: "Prompts for creating graphics and visual designs",
+    slug: "graphics",
+    color: "#14B8A6",
+    icon: "🎨"
+  },
+  {
+    id: "product-uiux",
+    name: "Product UI/UX",
+    description: "Prompts for product design, UI/UX, user interface, and user experience",
+    slug: "product-uiux",
+    color: "#A855F7",
+    icon: "🎯"
+  },
+  {
     id: "seo",
     name: "SEO",
     description: "Prompts for SEO, content strategy, and keyword research",

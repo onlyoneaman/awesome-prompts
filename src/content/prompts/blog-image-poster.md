@@ -1,7 +1,7 @@
 ---
 title: "Blog Image Poster"
 description: "Create clean, horizontal blog image posters with title and illustrations. Perfect for blog headers, social media, and content marketing."
-categories: ["images", "marketing"]
+categories: ["images", "marketing", "graphics", "designer"]
 tags: ["blog", "poster", "horizontal", "illustration", "title", "header", "social-media", "content-marketing", "graphic-design", "minimal", "creative"]
 author: "aman"
 difficulty: "intermediate"

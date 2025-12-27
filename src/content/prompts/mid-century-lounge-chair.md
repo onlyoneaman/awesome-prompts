@@ -5,7 +5,7 @@ type: "image"
 images: 
   - "/images/mid-century-lounge-chair/ChatGPT Image Aug 2, 2025, 02_36_44 AM-optimized.webp"
   - "/images/mid-century-lounge-chair/Gemini_Generated_Image_emr5d2emr5d2emr5-optimized.webp"
-categories: ["marketing", "images", "creative"]
+categories: ["marketing", "images", "creativity", "designer"]
 tags: ["mid-century", "lounge", "chair", "furniture", "design", "art", "creative"]
 author: "aman"
 difficulty: "intermediate"

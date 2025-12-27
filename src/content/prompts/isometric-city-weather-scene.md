@@ -1,7 +1,7 @@
 ---
 title: "Isometric City Weather Scene"
 description: "Create isometric 3D city scenes with weather integration. Perfect for city illustrations, weather apps, and architectural visualization. Generate miniature diorama-style cityscapes with iconic landmarks."
-categories: ["images"]
+categories: ["images", "illustration"]
 tags: ["isometric", "city", "3d", "weather", "diorama", "miniature", "architecture", "landmarks", "illustration", "cartoon", "pbr", "atmospheric"]
 author: "aman"
 difficulty: "intermediate"

@@ -1,7 +1,7 @@
 ---
 title: "Create Illustration"
 description: "Simple beginner prompt to create an illustration based on a reference image. Use the reference image to guide the style and composition of your illustration."
-categories: ["images", "creativity"]
+categories: ["images", "creativity", "illustration"]
 tags: ["illustration", "reference image", "art", "drawing", "beginner", "simple"]
 author: "aman"
 difficulty: "beginner"

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -96,14 +98,7 @@ export function PromptCard({ prompt, referrerCategory, referrerAuthor }: PromptC
         </CardHeader>
         
         <CardContent className="pt-0">
-          <div className="flex items-center justify-between">
-            <div className="flex flex-wrap gap-1">
-              {prompt.categories.slice(0, 2).map((category) => (
-                <Badge key={category} variant="outline" className="text-xs">
-                  {category}
-                </Badge>
-              ))}
-            </div>
+          <div className="flex items-center justify-end">
             {prompt.difficulty && (
               <span className="text-sm">
                 {getDifficultyStars(prompt.difficulty)}

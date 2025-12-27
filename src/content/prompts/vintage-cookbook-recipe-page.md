@@ -1,7 +1,7 @@
 ---
 title: "Vintage Cookbook Recipe Page"
 description: "Create a cute recipe page with hand-drawn vintage cookbook illustrations. Features carefully drawn ingredients with labels, measures, and cooking implements surrounding the dish. Uses textured shading, warm pastel colors, and fine ink-like outlines for a homey, nostalgic vibe with handwritten recipe text."
-categories: ["images", "creativity"]
+categories: ["images", "creativity", "illustration"]
 tags: ["recipe", "cookbook", "vintage", "illustration", "hand-drawn", "food", "nostalgic", "pastel", "ink", "artistic", "educational"]
 author: "aman"
 difficulty: "intermediate"

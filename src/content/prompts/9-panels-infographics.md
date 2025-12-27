@@ -1,7 +1,7 @@
 ---
 title: "9 Panels Infographics"
 description: "a 9 panels infographics for a product"
-categories: ["images", "marketing"]
+categories: ["images", "marketing", "graphics", "designer"]
 tags: ["image", "infographics"]
 author: "aman"
 difficulty: "intermediate"

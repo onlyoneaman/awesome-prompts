@@ -1,7 +1,7 @@
 ---
 title: "Mechanical Character"
 description: "a mechanical Character"
-categories: ["images"]
+categories: ["images", "designer"]
 tags: ["image"]
 author: "aman"
 difficulty: "intermediate"

@@ -1,7 +1,7 @@
 ---
 title: "Plain Black T-Shirt Small Logo"
 description: "Photorealistic image of a person wearing a plain, matte black t-shirt with a very small, subtle logo printed on the upper right chest. Features minimal design, natural lighting, realistic fabric drape, and neutral pose with high realism."
-categories: ["images"]
+categories: ["images", "designer", "graphics"]
 tags: ["photorealistic", "t-shirt", "black", "minimal", "logo", "fabric", "fashion", "product photography", "neutral", "realistic"]
 author: "aman"
 difficulty: "intermediate"

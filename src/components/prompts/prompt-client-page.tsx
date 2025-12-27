@@ -12,6 +12,7 @@ import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-r
 import type { Prompt, MediaItem } from "@/types/prompt";
 import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
+import { getCategoryBySlug } from "@/lib/prompts";
 import { toast } from "sonner";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import MarkdownPreview from '@uiw/react-markdown-preview';
@@ -236,7 +237,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
           )}
 
           {/* Use Cases */}
-          {prompt.use_cases && prompt.use_cases.length > 0 && (
+          {/* {prompt.use_cases && prompt.use_cases.length > 0 && (
             <div>
               <h4 className="font-semibold mb-3">Use Cases</h4>
               <div className="flex flex-wrap gap-1">
@@ -247,21 +248,30 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                 ))}
               </div>
             </div>
-          )}
+          )} */}
 
           {/* Categories */}
-          <div className="hidden">
-            <h4 className="font-semibold mb-3">Categories</h4>
-            <div className="flex flex-wrap gap-1">
-              {prompt.categories.map((category) => (
-                <Link key={category} href={`/categories/${category}`}>
-                  <Badge variant="outline" className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer">
-                    {category}
-                  </Badge>
-                </Link>
-              ))}
+          {prompt.categories && prompt.categories.length > 0 && (
+            <div>
+              <h4 className="font-semibold mb-3">Categories</h4>
+              <div className="flex flex-wrap gap-1">
+                {prompt.categories.map((categorySlug) => {
+                  const category = getCategoryBySlug(categorySlug);
+                  return (
+                    <Link key={categorySlug} href={`/categories/${categorySlug}`}>
+                      <Badge 
+                        variant="outline" 
+                        className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
+                        style={category?.color ? { borderColor: category.color, color: category.color } : {}}
+                      >
+                        {category?.name || categorySlug}
+                      </Badge>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
           
           {/* Tags */}
           <div className="hidden">

@@ -37,6 +37,37 @@ All prompts should meet these criteria:
 - **Original Value**: Either original content or significant improvements
 - **Appropriate Category**: Fits well within existing categories
 
+### Category Selection Guidelines
+
+When adding categories to prompts, select categories that accurately represent the prompt's purpose. Prompts can have multiple categories:
+
+- **Designer**: Use for prompts related to design work, creative design projects, visual design, branding, and design thinking
+- **Product UI/UX**: Use for prompts related to product design, user interface design, user experience, wireframing, prototyping, and UX research
+- **Illustration**: Use for prompts that create illustrations, visual artwork, drawings, and artistic visuals
+- **Graphics**: Use for prompts that create graphics, visual designs, infographics, and graphic elements
+- **Images**: Use for all image generation prompts (this is the primary category for image prompts)
+- **Portraits**: Use specifically for portrait photography, selfies, and people-focused image prompts
+- **Creativity**: Use for prompts that spark creative thinking and innovation
+- **Business**: Use for professional prompts for business and productivity
+- **Marketing**: Use for marketing, advertising, and business growth prompts
+- **Programming**: Use for technical prompts for software development and coding
+- **Writing**: Use for creative writing, copywriting, and content creation
+- **Videos**: Use for video generation prompts
+- **Strategy**: Use for strategic thinking and planning prompts
+- **Productivity**: Use for improving productivity and personal efficiency
+- **SEO**: Use for SEO, content strategy, and keyword research
+- **Learning**: Use for learning and education prompts
+- **Psychology**: Use for psychological insights, behavior analysis, and mental wellness
+
+**Examples of proper categorization:**
+- A prompt for creating a logo design → `["images", "designer", "graphics"]`
+- A prompt for UI mockups → `["images", "product-uiux", "designer"]`
+- A prompt for illustration work → `["images", "illustration"]`
+- A prompt for portrait photography → `["images", "portraits"]`
+- A prompt for product design thinking → `["product-uiux", "designer", "creativity"]`
+
+**Important**: Always check existing categories in `src/lib/prompts.ts` and use the exact slug names when adding categories to prompts.
+
 ### Prompt Structure
 
 Each prompt should include:

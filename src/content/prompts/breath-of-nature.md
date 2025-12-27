@@ -4,7 +4,7 @@ description: "An artistic image prompt featuring glass lungs filled with wildflo
 type: "image"
 images: 
   - "/images/breath-of-nature-optimized.webp"
-categories: ["art", "images", "creative"]
+categories: ["images", "creativity", "illustration"]
 tags: ["glass-art", "nature", "lungs", "wildflowers", "hyper-realistic", "surreal", "photography"]
 author: "aman"
 difficulty: "intermediate"
