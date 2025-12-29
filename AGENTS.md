@@ -111,8 +111,6 @@ Each prompt includes:
 2. **Build**: Next.js static generation
 3. **Deploy**: Cloudflare Pages
 
-## Environment Variables
-- `NEXT_PUBLIC_SITE_URL`: Site URL for SEO
-- `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID`: Google Analytics tracking ID
-
 This project focuses on providing high-quality, curated AI prompts in an accessible, searchable format while maintaining excellent user experience and technical standards.
+
+- Refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details on how to contribute prompts to the project.
