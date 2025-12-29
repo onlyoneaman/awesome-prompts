@@ -7,13 +7,13 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-grok-1-optimized.webp"
-  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-grok-2-optimized.webp"
+  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-1-optimized.webp"
+  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-2-optimized.webp"
   - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-chatgpt-1-optimized.webp"
   - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-gemini-1-optimized.webp"
-use_cases: ["cinematic photography", "romantic scenes", "restaurant photography", "night photography", "filmic renders", "atmospheric scenes", "mood photography"]
-created_at: "2025-12-27"
-updated_at: "2025-12-27"
+use_cases: []
+created_at: "2025-12-29"
+updated_at: "2025-12-29"
 ---
 
 ```
