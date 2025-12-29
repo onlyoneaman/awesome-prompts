@@ -4,7 +4,7 @@ description: "Create realistic photos featuring subjects taking pictures with Ta
 categories: ["portraits", "images"]
 tags: ["photo", "tara sutaria", "bollywood", "celebrity", "public figure", "realistic", "photorealistic", "portrait", "actress"]
 author: "aman"
-difficulty: "intermediate"
+difficulty: "beginner"
 type: "image"
 images: 
   - "/images/photo-with-tara-sutaria/photo-with-tara-sutaria-gemini-1-optimized.webp"

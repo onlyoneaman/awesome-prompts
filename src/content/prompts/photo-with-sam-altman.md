@@ -4,7 +4,7 @@ description: "Create realistic photos featuring subjects taking pictures with Sa
 categories: ["portraits", "images"]
 tags: ["photo", "sam altman", "public figure", "realistic", "photorealistic", "portrait", "tech", "openai", "ceo"]
 author: "aman"
-difficulty: "intermediate"
+difficulty: "beginner"
 type: "image"
 images: 
   - "/images/photo-with-sam-altman/photo-with-sam-altman-gemini-1-optimized.webp"
