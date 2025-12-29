@@ -5,6 +5,10 @@
 **Creator**: Aman Kumar (@onlyoneaman)
 **Type**: Open-source curated AI prompts library
 
+“ the folder docs is your knowledge base.
+- any missing info u need, search there first.
+- anything useful you see, dump there "𝚊_𝚟𝚎𝚛𝚢_𝚍𝚎𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚟𝚎_𝚏𝚒𝚕𝚎_𝚗𝚊𝚖𝚎.𝚖𝚍”
+
 ## What is Promptsmint?
 Promptsmint is a comprehensive collection of high-quality, tested AI prompts designed to help users get better results from AI tools like ChatGPT, Claude, Gemini, and other language models. Whether you're a business professional, content creator, marketer, developer, or just someone looking to improve your AI interactions, you'll find valuable, ready-to-use prompts here.
 
