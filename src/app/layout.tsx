@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Awesome Prompts | AI Prompts Library | Promptsmint",
-  description: "Discover curated AI prompts for ChatGPT, Claude, and other AI tools. Browse prompts for writing, programming, marketing, creativity, and more.",
-  keywords: ["prompt", "prompts", "AI prompts", "ChatGPT prompts", "Claude prompts", "AI tools", "prompt engineering"],
+  description: "Discover curated AI prompts for ChatGPT, Nano Banana Pro, Gemini, Claude, and other AI tools. Browse prompts for writing, programming, marketing, creativity, and more.",
+  keywords: ["prompt", "prompts", "AI prompts", "ChatGPT prompts", "Nano Banana Pro prompts", "Gemini prompts", "Claude prompts", "AI tools", "prompt engineering"],
   authors: [{ name: "Awesome Prompts Team" }],
   creator: "Awesome Prompts",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://promptsmint.com'),
@@ -64,7 +64,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Awesome Prompts',
-    description: 'Curated collection of AI prompts for ChatGPT, Claude, and other AI tools',
+    description: 'Curated collection of AI prompts for ChatGPT, Nano Banana Pro, Gemini, Claude, and other AI tools',
     url: siteUrl,
     potentialAction: {
       '@type': 'SearchAction',

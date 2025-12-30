@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!category) {
     return {
       title: "Category Not Found | Awesome Prompts",
-      description: "The requested category could not be found. Browse our collection of AI prompt categories for ChatGPT, Claude, and other AI tools.",
+      description: "The requested category could not be found. Browse our collection of AI prompt categories for ChatGPT, Nano Banana Pro, Gemini, Claude, and other AI tools.",
     };
   }
 
@@ -41,6 +41,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     `${category.name.toLowerCase()} prompts`,
     `${category.name.toLowerCase()} AI prompts`,
     `ChatGPT ${category.name.toLowerCase()}`,
+    `Nano Banana Pro ${category.name.toLowerCase()}`,
+    `Gemini ${category.name.toLowerCase()}`,
     `Claude ${category.name.toLowerCase()}`,
     ...difficulties.map(d => `${d} ${category.name.toLowerCase()} prompts`),
     ...relatedCategories.slice(0, 3).map(cat => `${cat} prompts`),
@@ -57,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const viewsText = totalViews > 0 ? ` with ${totalViews.toLocaleString()}+ total views` : '';
   const featuredText = featuredCount > 0 ? ` Including ${featuredCount} featured prompts` : '';
   const relatedText = relatedCategories.length > 0 ? ` Also explore ${relatedCategories.slice(0, 2).join(' and ')} prompts` : '';
-  const description = `${category.description}. Discover ${sortedPrompts.length} curated ${category.name.toLowerCase()} prompts for ChatGPT, Claude, and other AI tools${viewsText}.${featuredText}.${relatedText}. Perfect for professionals and enthusiasts.`;
+  const description = `${category.description}. Discover ${sortedPrompts.length} curated ${category.name.toLowerCase()} prompts for ChatGPT, Nano Banana Pro, Gemini, Claude, and other AI tools${viewsText}.${featuredText}.${relatedText}. Perfect for professionals and enthusiasts.`;
 
   return {
     title,

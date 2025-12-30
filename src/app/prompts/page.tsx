@@ -4,8 +4,8 @@ import { PromptsSearch } from "@/components/prompts/prompts-search";
 
 export const metadata: Metadata = {
   title: "Browse AI Prompts | Awesome Prompts Library",
-  description: "Discover our curated collection of AI prompts for writing, programming, marketing, and more. Perfect for ChatGPT, Claude, and other AI tools.",
-  keywords: ["AI prompts", "ChatGPT prompts", "Claude prompts", "writing prompts", "programming prompts", "marketing prompts"],
+  description: "Discover our curated collection of AI prompts for writing, programming, marketing, and more. Perfect for ChatGPT, Nano Banana Pro, Gemini, Claude, and other AI tools.",
+  keywords: ["AI prompts", "ChatGPT prompts", "Nano Banana Pro prompts", "Gemini prompts", "Claude prompts", "writing prompts", "programming prompts", "marketing prompts"],
   openGraph: {
     title: "Browse AI Prompts | Awesome Prompts",
     description: "Explore our collection of AI prompts for various use cases and industries.",

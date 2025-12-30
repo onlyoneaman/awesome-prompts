@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!prompt) {
     return {
       title: "Prompt Not Found | Awesome Prompts",
-      description: "The requested AI prompt could not be found. Browse our collection of premium prompts for ChatGPT, Claude, and other AI tools.",
+      description: "The requested AI prompt could not be found. Browse our collection of premium prompts for ChatGPT, Nano Banana Pro, Gemini, Claude, and other AI tools.",
     };
   }
 
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Enhanced description with context
   const categoryText = prompt.categories.length > 0 ? ` Perfect for ${prompt.categories.join(', ')} tasks` : '';
   const useCaseText = prompt.use_cases && prompt.use_cases.length > 0 ? ` Ideal for ${prompt.use_cases.slice(0, 2).join(' and ')}` : '';
-  const description = `${prompt.description}${categoryText}.${useCaseText}. Get premium AI prompts for ChatGPT, Claude, and more.`;
+  const description = `${prompt.description}${categoryText}.${useCaseText}. Get premium AI prompts for ChatGPT, Nano Banana Pro, Gemini, Claude, and more.`;
 
   return {
     title,
