@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink, Twitter } from "lucide-react";
 import { topCategories } from "@/lib/prompts";
 import { links } from "@/lib/constants";
 
@@ -13,12 +13,12 @@ const navigationLinks = [
 ];
 
 const resourceLinks = [
-  {
-    href: links.GITHUB,
-    label: "GitHub",
-    icon: Github,
-    external: true,
-  },
+  // {
+  //   href: links.GITHUB,
+  //   label: "GitHub",
+  //   icon: Github,
+  //   external: true,
+  // },
   {
     href: "https://platform.openai.com/docs/examples",
     label: "OpenAI Prompt Examples",
@@ -43,7 +43,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-white">
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-3 gap-5 md:gap-8">
           {/* Navigation */}
           <div>
             <h3 className="font-semibold text-gray-900 mb-4">Navigation</h3>
@@ -52,7 +52,7 @@ export function Footer() {
                 <Link 
                   key={link.href}
                   href={link.href} 
-                  className="block text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  className="block text-sm text-gray-600 hover:underline hover:text-gray-900 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -68,12 +68,12 @@ export function Footer() {
             >
               Categories
             </Link>
-            <div className="space-y-2 mt-2">
+            <div className="space-y-1 md:space-y-2 mt-2">
               {topCategories.map((category) => (
                 <Link 
                   key={category.slug}
                   href={`${links.CATEGORY}/${category.slug}`} 
-                  className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  className="flex items-center gap-2 text-sm text-gray-600 hover:underline hover:text-gray-900 transition-colors"
                 >
                   {category.icon?.startsWith('/') ? (
                     <Image 
@@ -104,7 +104,7 @@ export function Footer() {
                     href={resource.href} 
                     target={resource.external ? "_blank" : undefined}
                     rel={resource.external ? "noopener noreferrer" : undefined}
-                    className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                    className="flex items-center gap-2 text-sm text-gray-600 hover:underline hover:text-gray-900 transition-colors"
                   >
                     <IconComponent className="w-4 h-4" />
                     {resource.label}
@@ -113,39 +113,22 @@ export function Footer() {
               })}
             </div>
           </div>
+        </div>
 
-          {/* About */}
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-4">About</h3>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-xs text-gray-600">
-                <span>Made with ❤️ by</span>
-                <Link
-                  href="https://amankumar.ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex hover:underline items-center gap-1 font-medium"
-                >
-                  Aman
-                  <ExternalLink size={12} />
-                </Link>
-              </div>
-              <div className="text-xs text-gray-500">
-                <Link
-                  href="https://x.com/onlyoneaman?ref=promptsmint.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex hover:underline items-center gap-1 font-medium"
-                >
-                  x.com
-                </Link>
-              </div>
-              <div className="text-xs text-gray-500">
-                © 2025 Awesome Prompts
-              </div>
-            </div>
+        <div className="mt-6 border-t pt-6 flex flex-col items-center gap-1">
+          <div className="text-xs text-gray-500">
+            © 2025 Promptsmint
+          </div>
+          <p className="text-xs text-gray-500">
+            Made with ❤️ by <Link href="https://amankumar.ai" target="_blank" rel="noopener noreferrer" className="hover:underline">Aman</Link>
+          </p>
+          <div className="text-xs text-gray-500">
+            <Link href="https://x.com/onlyoneaman?ref=promptsmint.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+              x.com
+            </Link>
           </div>
         </div>
+
       </div>
     </footer>
   );
