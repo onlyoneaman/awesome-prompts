@@ -14,7 +14,4 @@ created_at: "2025-12-30"
 updated_at: "2025-12-30"
 ---
 
-```
 Create a image of this person taking a picture with tara sutaria. realistic
-```
-
