@@ -2,18 +2,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { Github, ExternalLink } from "lucide-react";
 import { topCategories } from "@/lib/prompts";
+import { links } from "@/lib/constants";
 
 const navigationLinks = [
   { href: "/", label: "Home" },
-  { href: "/prompts", label: "All Prompts" },
-  { href: "/categories", label: "All Categories" },
-  { href: "/authors", label: "Authors" },
-  { href: "/prompts/submit", label: "Submit Prompt" },
+  { href: links.PROMPT, label: "All Prompts" },
+  { href: links.CATEGORY, label: "All Categories" },
+  { href: links.AUTHOR, label: "Authors" },
+  { href: links.SUBMIT, label: "Submit Prompt" },
 ];
 
 const resourceLinks = [
   {
-    href: "https://github.com/onlyoneaman/awesome-prompts",
+    href: links.GITHUB,
     label: "GitHub",
     icon: Github,
     external: true,
@@ -62,7 +63,7 @@ export function Footer() {
           {/* Categories */}
           <div>
             <Link 
-              href="/categories"
+              href={links.CATEGORY}
               className="font-semibold text-gray-900"
             >
               Categories
@@ -71,7 +72,7 @@ export function Footer() {
               {topCategories.map((category) => (
                 <Link 
                   key={category.slug}
-                  href={`/categories/${category.slug}`} 
+                  href={`${links.CATEGORY}/${category.slug}`} 
                   className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   {category.icon?.startsWith('/') ? (

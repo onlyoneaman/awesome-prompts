@@ -15,7 +15,4 @@ created_at: "2025-12-27"
 updated_at: "2025-12-27"
 ---
 
-```
 A photorealistic image of a person wearing a plain, matte black t-shirt. The t-shirt is minimal, clean, and untextured, with no patterns or graphics. A very small, subtle logo is printed on the upper right chest area near the collarbone. The logo is crisp, sharp, and professionally printed into the fabric, but extremely small and unobtrusive—occupying only a tiny corner of the shirt and never dominating the design. The shirt remains predominantly plain black. Natural lighting, realistic fabric drape and folds, accurate proportions, high realism, neutral pose, no emphasis on gender or body shape.
-```
-

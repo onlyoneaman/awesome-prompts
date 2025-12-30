@@ -14,6 +14,7 @@ created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
 
+```json
 {
   "subject": {
     "description": "A close-up sensual portrait focused on the neck, collarbones, shoulders, and upper chest of a feminine adult, with the head tilted back so the face is mostly out of frame, emphasizing elegant neck lines and jewelry drape.",
@@ -134,4 +135,4 @@ updated_at: "2025-12-29"
     "explicit nudity"
   ]
 }
-
+```

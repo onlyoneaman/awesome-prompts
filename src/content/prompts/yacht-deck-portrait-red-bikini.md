@@ -18,6 +18,7 @@ created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
 
+```json
 {
   "lighting": {
     "source": "Direct, bright sunlight",
@@ -94,4 +95,4 @@ updated_at: "2025-12-29"
     "negative_prompt": "Blurry, grainy, artificial lighting, studio setting, text, watermark, painting, illustration, low resolution, overcast."
   }
 }
-
+```

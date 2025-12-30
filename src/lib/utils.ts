@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import { Prompt } from "@/types/prompt"
+import { links } from "./constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -23,17 +24,17 @@ export function getNavigationContext(referrer?: string | null) {
   }
   
   // Check if coming from categories listing page
-  if (referrer.includes('/categories') && referrer.endsWith('/categories')) {
+  if (referrer.includes(links.CATEGORY) && referrer.endsWith(links.CATEGORY)) {
     return { type: 'categories', category: null, author: null };
   }
   
   // Check if coming from authors listing page
-  if (referrer.includes('/authors') && referrer.endsWith('/authors')) {
+  if (referrer.includes(links.AUTHOR) && referrer.endsWith(links.AUTHOR)) {
     return { type: 'authors', category: null, author: null };
   }
   
   // Check if coming from prompts listing
-  if (referrer.includes('/prompts') && referrer.endsWith('/prompts')) {
+  if (referrer.includes(links.PROMPT) && referrer.endsWith(links.PROMPT)) {
     return { type: 'prompts', category: null, author: null };
   }
   

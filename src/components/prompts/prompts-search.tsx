@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { Prompt } from "@/types/prompt";
 import { Input } from "@/components/ui/input";
+import { links } from "@/lib/constants";
 
 interface PromptsSearchProps {
   allPrompts: Prompt[];
@@ -111,7 +112,7 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
               {filteredPrompts.length} prompt{filteredPrompts.length !== 1 ? 's' : ''} 
               {searchQuery ? ' found' : ' available'}
             </span>
-            <Link href="/categories">
+            <Link href={links.CATEGORY}>
               <Button variant="outline" size="sm">
                 Browse Categories
               </Button>
@@ -135,7 +136,7 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
               <Button onClick={clearSearch} variant="outline">
                 Clear Search
               </Button>
-              <Link href="/categories">
+              <Link href={links.CATEGORY}>
                 <Button>Browse Categories</Button>
               </Link>
             </div>
@@ -151,7 +152,7 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
             Join our community and contribute your best AI prompts to help others achieve better results.
           </p>
           <Button asChild>
-            <Link href="/prompts/submit">
+            <Link href={links.SUBMIT}>
               Submit Prompt
             </Link>
           </Button>

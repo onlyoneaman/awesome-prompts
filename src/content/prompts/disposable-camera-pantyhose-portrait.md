@@ -19,7 +19,4 @@ created_at: "2025-12-27"
 updated_at: "2025-12-27"
 ---
 
-```
 Photo taken with a disposable camera, woman with long wavy hair, sitting on a chair, wearing dark blue sheer glossy pantyhose, tight black top with thin spaghetti straps, legs crossed, elegant and sensual pose, barefoot, high detail on face and fabric textures
-```
-

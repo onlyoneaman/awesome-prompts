@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 import posthog from "posthog-js";
+import { links } from "@/lib/constants";
 
 interface PromptClientPageProps {
   prompt: Prompt;
@@ -165,7 +166,9 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
             style={{
               padding: 12,
               fontSize: isMobile ? '12px' : '16px',
-              backgroundColor: '#f5f5f5'
+              backgroundColor: '#f5f5f5',
+              maxHeight: '500px',
+              overflowY: 'auto',
             }}
             wrapperElement={{
               "data-color-mode": "light"
@@ -215,7 +218,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
           {author && (
             <div>
               <Link 
-                href={`/authors/${author.slug}`}
+                href={`${links.AUTHOR}/${author.slug}`}
                 className="flex items-center gap-3 hover:bg-gray-50 p-2 rounded-lg transition-colors"
               >
                 {/* <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-lg font-semibold text-gray-600 flex-shrink-0">
@@ -258,7 +261,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                 {prompt.categories.map((categorySlug) => {
                   const category = getCategoryBySlug(categorySlug);
                   return (
-                    <Link key={categorySlug} href={`/categories/${categorySlug}`}>
+                    <Link key={categorySlug} href={`${links.CATEGORY}/${categorySlug}`}>
                       <Badge 
                         variant="outline" 
                         className="hover:bg-primary hover:text-primary-foreground transition-colors cursor-pointer text-xs"
@@ -381,9 +384,9 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
           <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} referrerAuthor={referrerAuthor} />
           
           <nav className="flex items-center gap-2 text-sm text-gray-500">
-            <Link href="/prompts" className="hover:text-gray-700 whitespace-nowrap">Prompts</Link>
+            <Link href={links.PROMPT} className="hover:text-gray-700 whitespace-nowrap">Prompts</Link>
             <span className="text-gray-300">/</span>
-            <Link href={`/categories/${prompt.categories[0]}`} className="hover:text-gray-700 whitespace-nowrap">
+            <Link href={`${links.CATEGORY}/${prompt.categories[0]}`} className="hover:text-gray-700 whitespace-nowrap">
               {prompt.categories[0]}
             </Link>
             <span className="text-gray-300">/</span>

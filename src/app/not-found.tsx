@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Home, Search } from "lucide-react";
+import { links } from "@/lib/constants";
 
 export default function NotFound() {
   return (
@@ -21,13 +22,13 @@ export default function NotFound() {
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button asChild size="lg">
-              <Link href="/" className="flex items-center gap-2">
+              <Link href={links.HOME} className="flex items-center gap-2">
                 <Home className="w-5 h-5" />
                 Go Home
               </Link>
             </Button>
             <Button variant="outline" size="lg" asChild>
-              <Link href="/prompts" className="flex items-center gap-2">
+              <Link href={links.PROMPT} className="flex items-center gap-2">
                 <Search className="w-5 h-5" />
                 Browse Prompts
               </Link>
@@ -41,18 +42,18 @@ export default function NotFound() {
               <div>
                 <h4 className="font-semibold mb-2">Explore Popular Prompts</h4>
                 <ul className="text-gray-600 space-y-1">
-                  <li>• <Link href="/prompts" className="hover:text-blue-600">Browse all prompts</Link></li>
-                              <li>• <Link href="/categories/writing" className="hover:text-blue-600">Writing prompts</Link></li>
-            <li>• <Link href="/categories/programming" className="hover:text-blue-600">Programming prompts</Link></li>
-            <li>• <Link href="/categories/marketing" className="hover:text-blue-600">Marketing prompts</Link></li>
+                  <li>• <Link href={links.PROMPT} className="hover:text-blue-600">Browse all prompts</Link></li>
+                  <li>• <Link href={`${links.CATEGORY}/writing`} className="hover:text-blue-600">Writing prompts</Link></li>
+                  <li>• <Link href={`${links.CATEGORY}/programming`} className="hover:text-blue-600">Programming prompts</Link></li>
+                  <li>• <Link href={`${links.CATEGORY}/marketing`} className="hover:text-blue-600">Marketing prompts</Link></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-semibold mb-2">Contribute</h4>
                 <ul className="text-gray-600 space-y-1">
-                  <li>• <Link href="/prompts/submit" className="hover:text-blue-600">Submit a new prompt</Link></li>
-                  <li>• <Link href="https://github.com/onlyoneaman/awesome-prompts" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">View on GitHub</Link></li>
-                  <li>• <Link href="https://github.com/onlyoneaman/awesome-prompts/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">Contribution Guide</Link></li>
+                  <li>• <Link href={links.SUBMIT} className="hover:text-blue-600">Submit a new prompt</Link></li>
+                  <li>• <Link href={links.GITHUB} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">View on GitHub</Link></li>
+                  <li>• <Link href={`${links.GITHUB}/blob/main/CONTRIBUTING.md`} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600">Contribution Guide</Link></li>
                 </ul>
               </div>
             </div>

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { getNavigationContext } from "@/lib/utils";
 import { getCategoryBySlug, getAuthorBySlug } from "@/lib/prompts";
+import { links } from "@/lib/constants";
 
 interface NavigationBackProps {
   currentPromptCategories: string[];
@@ -15,7 +16,7 @@ interface NavigationBackProps {
 }
 
 export function NavigationBack({ currentPromptCategories, className, referrerCategory, referrerAuthor }: NavigationBackProps) {
-  const [backUrl, setBackUrl] = useState("/prompts");
+  const [backUrl, setBackUrl] = useState<string>(links.PROMPT);
   const [backLabel, setBackLabel] = useState("Back to Prompts");
 
   useEffect(() => {
@@ -29,7 +30,7 @@ export function NavigationBack({ currentPromptCategories, className, referrerCat
     if (finalReferrerAuthor) {
       const author = getAuthorBySlug(finalReferrerAuthor);
       if (author) {
-        setBackUrl(`/authors/${finalReferrerAuthor}`);
+        setBackUrl(`${links.AUTHOR}/${finalReferrerAuthor}`);
         setBackLabel(`Back to ${author.name}`);
         return;
       }
@@ -40,7 +41,7 @@ export function NavigationBack({ currentPromptCategories, className, referrerCat
     if (finalReferrerCategory) {
       const category = getCategoryBySlug(finalReferrerCategory);
       if (category) {
-        setBackUrl(`/categories/${finalReferrerCategory}`);
+        setBackUrl(`${links.CATEGORY}/${finalReferrerCategory}`);
         setBackLabel(`Back to ${category.name}`);
         return;
       }
@@ -53,30 +54,30 @@ export function NavigationBack({ currentPromptCategories, className, referrerCat
     if (context.type === 'author' && context.author) {
       const author = getAuthorBySlug(context.author);
       if (author) {
-        setBackUrl(`/authors/${context.author}`);
+        setBackUrl(`${links.AUTHOR}/${context.author}`);
         setBackLabel(`Back to ${author.name}`);
       }
     } else if (context.type === 'category' && context.category) {
       const category = getCategoryBySlug(context.category);
       if (category) {
-        setBackUrl(`/categories/${context.category}`);
+        setBackUrl(`${links.CATEGORY}/${context.category}`);
         setBackLabel(`Back to ${category.name}`);
       }
     } else if (context.type === 'prompts') {
-      setBackUrl("/prompts");
+      setBackUrl(links.PROMPT);
       setBackLabel("Back to All Prompts");
     } else if (context.type === 'home') {
-      setBackUrl("/");
+      setBackUrl(links.HOME);
       setBackLabel("Back to Home");
     } else if (context.type === 'categories') {
-      setBackUrl("/categories");
+      setBackUrl(links.CATEGORY);
       setBackLabel("Back to Categories");
     } else if (context.type === 'authors') {
-      setBackUrl("/authors");
+      setBackUrl(links.AUTHOR);
       setBackLabel("Back to Authors");
     } else {
       // Default to prompts listing for direct access
-      setBackUrl("/prompts");
+      setBackUrl(links.PROMPT);
       setBackLabel("Back to All Prompts");
     }
   }, [currentPromptCategories, referrerCategory, referrerAuthor]);

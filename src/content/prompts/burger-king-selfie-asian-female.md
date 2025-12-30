@@ -27,7 +27,6 @@ updated_at: "2025-12-27"
     "lens": "24mm",
     "style": "casual iPhone selfie realism, slightly imperfect, social media look"
   },
-
   "reference_usage": {
     "reference_image": "A reference photo WILL be provided alongside this prompt",
     "use_reference_for": [
@@ -43,7 +42,6 @@ updated_at: "2025-12-27"
     ],
     "instruction": "Use the reference image ONLY as a physical body proportion guide, not as a character or identity clone"
   },
-
   "scene": {
     "location": "Burger King restaurant interior",
     "time": "evening",
@@ -55,13 +53,11 @@ updated_at: "2025-12-27"
     ],
     "atmosphere": "casual, real-life moment, not staged"
   },
-
   "lighting": {
     "type": "natural restaurant lighting",
     "source": "overhead ceiling lights",
     "effect": "soft shadows, realistic skin texture, no studio lighting"
   },
-
   "camera_perspective": {
     "pov": "we ARE her phone",
     "angle": "slightly low to mid angle",
@@ -69,26 +65,22 @@ updated_at: "2025-12-27"
     "framing": "mid-torso to head",
     "feel": "handheld, casual, slightly imperfect"
   },
-
   "subject": {
     "gender": "female",
     "age": "early 20s (clearly adult)",
     "ethnicity": "East Asian",
     "skin_tone": "fair, smooth, natural",
-
     "face": {
       "eyes": "very big, round, expressive eyes",
       "expression": "soft confident gaze, relaxed lips",
       "makeup": "minimal makeup, light lip tint, natural glow",
       "vibe": "cute but subtly sexy, effortless"
     },
-
     "hair": {
       "color": "dark brown or black",
       "style": "loose, slightly messy natural hair",
       "details": "a few strands falling across face"
     },
-
     "body": {
       "type": "slim-curvy (MATCH REFERENCE IMAGE PHYSIQUE)",
       "torso": "flat stomach, visible waist line",
@@ -98,7 +90,6 @@ updated_at: "2025-12-27"
       "hips": "soft curve, feminine but not exaggerated",
       "overall": "natural sexy proportions similar to reference image"
     },
-
     "pose": {
       "position": "sitting at table",
       "upper_body": "leaning slightly toward camera",
@@ -108,7 +99,6 @@ updated_at: "2025-12-27"
       },
       "energy": "caught mid-selfie, relaxed and confident"
     },
-
     "outfit": {
       "top": {
         "type": "short fitted t-shirt",
@@ -127,7 +117,6 @@ updated_at: "2025-12-27"
       }
     }
   },
-
   "branding": {
     "burger_king_logo": "visible on packaging but not staged",
     "food_items": [
@@ -136,9 +125,7 @@ updated_at: "2025-12-27"
       "paper cup"
     ]
   },
-
   "vibe": "real iPhone selfie, cute-sexy everyday moment, social media friendly",
-
   "negative_prompt": "face cloning, same person likeness, professional studio photo, heavy retouching, exaggerated muscles, plastic body, nudity, explicit sexual posing, male presence"
 }
 ```

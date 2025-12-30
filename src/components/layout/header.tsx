@@ -12,6 +12,7 @@ import {
 import { topCategories } from "@/lib/prompts";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { links } from "@/lib/constants";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,7 +44,7 @@ export function Header() {
               </Link>
               
               <Link 
-                href="/prompts" 
+                href={links.PROMPT} 
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
               >
                 Prompts
@@ -57,7 +58,7 @@ export function Header() {
                 <DropdownMenuContent align="start" className="w-48">
                   <DropdownMenuItem asChild>
                     <Link 
-                      href="/categories"
+                      href={links.CATEGORY}
                       className="flex items-center gap-2 w-full font-medium"
                     >
                       <span>📂</span>
@@ -68,7 +69,7 @@ export function Header() {
                   {topCategories.map((category) => (
                     <DropdownMenuItem key={category.id} asChild>
                       <Link 
-                        href={`/categories/${category.slug}`}
+                        href={`${links.CATEGORY}/${category.slug}`}
                         className="flex items-center gap-2 w-full"
                       >
                         {category.icon?.startsWith('/') ? (
@@ -91,7 +92,7 @@ export function Header() {
             </nav>
 
             {/* <Button variant="outline" size="sm" asChild className="hidden sm:flex">
-              <Link href="/prompts/submit">Submit Prompt</Link>
+              <Link href={links.SUBMIT}>Submit Prompt</Link>
             </Button> */}
                       
             {/* Mobile menu button */}
@@ -116,7 +117,7 @@ export function Header() {
           <div className="md:hidden mt-4 pb-4 border-t pt-4">
             <nav className="flex flex-col space-y-4">
               <Link 
-                href="/" 
+                href={links.HOME} 
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -134,7 +135,7 @@ export function Header() {
               </Button> */}
               
               <Link 
-                href="/prompts" 
+                href={links.PROMPT} 
                 className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -144,7 +145,7 @@ export function Header() {
               {/* Mobile Categories */}
               <div className="space-y-2">
                 <Link 
-                  href="/categories"
+                  href={links.CATEGORY}
                   className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2 block"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -155,7 +156,7 @@ export function Header() {
                   {topCategories.map((category) => (
                     <Link 
                       key={category.id}
-                      href={`/categories/${category.slug}`}
+                      href={`${links.CATEGORY}/${category.slug}`}
                       className="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors py-1"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >

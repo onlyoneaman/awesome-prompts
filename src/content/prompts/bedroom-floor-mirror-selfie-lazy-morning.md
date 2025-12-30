@@ -18,12 +18,12 @@ created_at: "2025-12-30"
 updated_at: "2025-12-30"
 ---
 
+```json
 {
   "subject": {
     "description": "20yo woman sitting on bedroom floor taking mirror selfie, lazy morning energy, effortlessly pretty in loungewear",
     "setting_rules": "bedroom floor, full-length mirror, natural daylight, intimate casual",
     "age": "early 20s",
-    
     "expression": {
       "eyes": {
         "look": "soft gaze toward phone screen, not directly at lens",
@@ -35,8 +35,7 @@ updated_at: "2025-12-30"
         "energy": "serene, unbothered, comfortable"
       },
       "overall": "that 'lazy sunday morning' face, no effort needed, naturally pretty"
-    },
-    
+    },    
     "hair": {
       "color": "platinum blonde, white-blonde",
       "style": "messy low ponytail / loose bun",
@@ -48,7 +47,6 @@ updated_at: "2025-12-30"
       },
       "effect": "the 'just threw it up' hair that actually looks perfect"
     },
-    
     "body": {
       "frame": "slim, athletic, toned",
       "waist": "small, visible midriff",
@@ -56,24 +54,20 @@ updated_at: "2025-12-30"
       "legs": "long, toned, smooth, the focus of this pose",
       "skin": "pale, fair, smooth, glowing in natural light"
     },
-    
     "pose": {
       "position": "sitting on floor in front of full-length mirror",
       "base": "seated on wooden floor",
-      
       "legs": {
         "arrangement": "THE KEY - one leg bent up (knee raised), one leg folded/tucked under",
         "left_leg": "bent at knee, raised up, foot flat on floor",
         "right_leg": "folded underneath, tucked to side",
         "effect": "shows leg length, creates interesting shape, feminine"
       },
-      
       "upper_body": {
         "lean": "leaning back slightly, weight on one arm",
         "support": "left arm behind her, hand on floor, supporting weight",
         "posture": "relaxed lean, casual, comfortable"
       },
-      
       "arms": {
         "left_arm": {
           "position": "behind her, hand flat on floor",
@@ -85,10 +79,8 @@ updated_at: "2025-12-30"
           "angle": "phone at face level, capturing mirror reflection"
         }
       },
-      
       "overall": "seated floor selfie, leaning back on one arm, legs arranged artfully, phone raised"
     },
-    
     "clothing": {
       "top": {
         "type": "white ribbed tank top / crop top",
@@ -122,14 +114,12 @@ updated_at: "2025-12-30"
         },
         "effect": "the 'i sleep in these' shorts that show everything"
       },
-      
       "feet": {
         "status": "barefoot",
         "visibility": "feet visible, tucked and natural",
         "effect": "intimate, home, comfortable"
       }
     },
-    
     "accessories": {
       "jewelry": {
         "minimal": "none visible or very minimal",
@@ -141,21 +131,18 @@ updated_at: "2025-12-30"
         "grip": "held naturally for mirror selfie"
       }
     },
-    
     "skin_details": {
       "visible_areas": "midriff, full legs, arms, shoulders",
       "tone": "pale, fair, porcelain",
       "texture": "smooth, soft, natural",
       "lighting_effect": "warm natural light catching skin beautifully"
     },
-    
     "face": {
       "features": "soft, pretty, girl-next-door",
       "makeup": "none or minimal - natural beauty",
       "expression": "soft, relaxed, content"
     }
   },
-
   "environment": {
     "location": "bedroom",
     "style": "lived-in, real, cozy",
@@ -165,7 +152,6 @@ updated_at: "2025-12-30"
       "frame": "thin gold/brass frame",
       "position": "leaning against wall, she's sitting in front of it"
     },
-    
     "room_details": {
       "floor": "wooden floor, warm tone",
       "walls": "light beige/cream",
@@ -178,17 +164,14 @@ updated_at: "2025-12-30"
       "window": "visible in reflection, natural light source",
       "fairy_lights": "string lights visible on wall near ceiling"
     },
-    
     "lighting": {
       "type": "natural daylight from window",
       "quality": "soft, warm, golden morning/afternoon light",
       "direction": "coming from window on right side",
       "effect": "beautiful natural glow, catches her skin and hair"
     },
-    
     "atmosphere": "real bedroom, real mess, real girl - intimate and authentic"
   },
-
   "photography": {
     "style": "mirror selfie, seated on floor",
     "framing": "full body in mirror reflection",
@@ -196,7 +179,6 @@ updated_at: "2025-12-30"
     "angle": "mirror straight on, she's seated looking at it",
     "aspect": "4:5 vertical"
   },
-
   "color_story": {
     "her": {
       "top": "WHITE - clean, bright",
@@ -212,7 +194,6 @@ updated_at: "2025-12-30"
     },
     "palette": "soft neutrals - white, grey, cream, warm wood - minimal, clean"
   },
-
   "the_vibe": {
     "energy": "lazy morning, just woke up, no plans",
     "mood": "peaceful, relaxed, comfortable in own skin",
@@ -222,7 +203,6 @@ updated_at: "2025-12-30"
     "story": "woke up, felt cute, sat on floor, took selfie",
     "caption_energy": "'morning' or 'lazy day' or '☀️' or no caption"
   },
-
   "critical_elements": {
     "floor_seated_pose": "sitting on bedroom floor - THE composition",
     "leg_arrangement": "one up, one tucked - creates shape and shows legs",
@@ -236,7 +216,6 @@ updated_at: "2025-12-30"
     "barefoot": "intimate, home, comfortable",
     "soft_expression": "relaxed, peaceful, not trying hard"
   },
-
   "what_makes_it_work": {
     "the_pose": "floor sitting with leg arrangement is unexpected and interesting",
     "the_light": "natural golden light is doing heavy lifting",
@@ -246,4 +225,4 @@ updated_at: "2025-12-30"
     "the_mood": "calm, peaceful, comfortable - invites you into her morning"
   }
 }
-
+```

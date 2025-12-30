@@ -7,8 +7,8 @@ author: "aman"
 difficulty: "advanced"
 type: "image"
 images: 
-  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-1-optimized.webp"
-  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-2-optimized.webp"
+  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-grok-1-optimized.webp"
+  - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-grok-2-optimized.webp"
   - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-chatgpt-1-optimized.webp"
   - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-gemini-1-optimized.webp"
 use_cases: []

@@ -46,7 +46,7 @@ export const topCategories: PromptCategory[] = [
     description: "Prompts for image generation.",
     slug: "images",
     color: "#10B981",
-    icon: "/images/high-fashion-editorial-urban-portrait/high-fashion-editorial-urban-portrait-1.png"
+    icon: "/images/high-fashion-editorial-urban-portrait/high-fashion-editorial-urban-portrait-1-optimized.webp"
   },
   {
     id: "portraits",
@@ -54,7 +54,7 @@ export const topCategories: PromptCategory[] = [
     description: "Prompts for portrait photography and selfies",
     slug: "portraits",
     color: "#EC4899",
-    icon: "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1.png"
+    icon: "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1-optimized.webp"
   },
   {
     id: "videos",

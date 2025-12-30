@@ -18,6 +18,7 @@ created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
 
+```json
 {
   "prompt_data": {
     "subject": {
@@ -67,4 +68,4 @@ updated_at: "2025-12-29"
     ]
   }
 }
-
+```

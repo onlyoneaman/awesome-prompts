@@ -9,6 +9,7 @@ import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { links } from "@/lib/constants";
 
 export default function Home() {
   // Get a few prompts for homepage preview
@@ -32,7 +33,7 @@ export default function Home() {
             </p>
             
             <div className="max-w-2xl mx-auto mb-12">
-              <Link href="/prompts">
+              <Link href={links.PROMPT}>
                 <div className="relative cursor-pointer">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                   <Input
@@ -53,7 +54,7 @@ export default function Home() {
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-bold text-gray-900">Popular Prompts</h2>
               <Button variant="outline" asChild>
-                <Link href="/prompts" className="flex items-center gap-2">
+                <Link href={links.PROMPT} className="flex items-center gap-2">
                   View All
                   <ArrowRight className="w-4 h-4" />
                 </Link>
@@ -78,7 +79,7 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {topCategories.map((category) => (
-                <Link key={category.id} href={`/categories/${category.slug}`}>
+                <Link key={category.id} href={`${links.CATEGORY}/${category.slug}`}>
                   <Card className="h-full hover:shadow-md transition-shadow border border-gray-200">
                     <CardContent className="p-4 text-center">
                       <div className="text-2xl mb-2 flex items-center justify-center">

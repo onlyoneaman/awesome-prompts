@@ -15,6 +15,7 @@ created_at: "2025-12-30"
 updated_at: "2025-12-30"
 ---
 
+```json
 {
   "subject": {
     "description": "A young adult sitting on a yoga mat after a workout, wiping sweat with a small towel while holding a water bottle near their knee",
@@ -84,4 +85,4 @@ updated_at: "2025-12-30"
     "lighting": "bright overhead gym lighting, even coverage with mild shine on skin"
   }
 }
-
+```

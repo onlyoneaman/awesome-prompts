@@ -18,6 +18,7 @@ created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
 
+```json
 {
   "subject": {
     "gender": "female",
@@ -82,4 +83,4 @@ updated_at: "2025-12-29"
     "shadows": "soft shadows suggesting diffuse light source"
   }
 }
-
+```

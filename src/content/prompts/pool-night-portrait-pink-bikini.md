@@ -16,6 +16,7 @@ created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
 
+```json
 {
   "scene": {
     "environment": "Outdoor or semi-outdoor pool or hot tub area at night",
@@ -78,4 +79,4 @@ updated_at: "2025-12-29"
     ]
   }
 }
-
+```

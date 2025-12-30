@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Prompt } from "@/types/prompt";
 import { getNavigationContext, findSimilarPrompts, getPromptsByCategory } from "@/lib/utils";
 import { getCategoryBySlug } from "@/lib/prompts";
+import { links } from "@/lib/constants";
 
 interface RelatedPromptsProps {
   currentPrompt: Prompt;
@@ -59,7 +60,7 @@ export function RelatedPrompts({ currentPrompt, allPrompts }: RelatedPromptsProp
       {promptList.map((prompt) => (
         <div key={prompt.id} className="border-b last:border-b-0 pb-4 last:pb-0">
           <Link 
-            href={`/prompts/${prompt.slug}`}
+            href={`${links.PROMPT}/${prompt.slug}`}
             className="block hover:text-primary transition-colors"
           >
             <h4 className="font-semibold mb-1">{prompt.title}</h4>

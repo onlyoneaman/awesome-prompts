@@ -33,7 +33,6 @@ updated_at: "2025-12-26"
       "lip_color": "matte_dusty_pink",
       "lip_shape": "medium_fullness_natural_look"
     },
-
     "hair": {
       "color": "jet_black",
       "length": "long_past_chest",
@@ -43,12 +42,10 @@ updated_at: "2025-12-26"
       "side_sections": "long_face_framing_waves",
       "accessories": ["lilac_pink_ribbon_bows_left_and_right"]
     },
-
     "nails": {
       "style": "short_coquette",
       "color": "pastel_pink"
     },
-
     "pose": {
       "type": "mirror_selfie",
       "camera_angle": "slight_downward_diagonal",
@@ -58,7 +55,6 @@ updated_at: "2025-12-26"
       "left_arm": "resting_or_light_touch_on_furniture"
     }
   },
-
   "apparel": {
     "top": {
       "type": "lime_green_cropped_ribbed_cardigan",
@@ -69,24 +65,20 @@ updated_at: "2025-12-26"
       "sleeves": "long_with_slight_flare",
       "integrity": "top_stays_in_place_no_sliding_no_opening"
     },
-
     "undershirt": {
       "type": "white_fitted_tank_top",
       "material": "soft_ribbed_cotton",
       "coverage": "fully_covers_chest_under_cardigan"
     },
-
     "necklace": {
       "type": "minimalist_silver_chain",
       "pendant": "tiny_simple_shape"
     },
-
     "bottoms": {
       "type": "low_rise_black_denim_jeans",
       "details": "contrast_stitching_silver_button_belt_loops"
     }
   },
-
   "phone": {
     "model": "iPhone_15_Pro_Max",
     "held_in": "right_hand",
@@ -100,7 +92,6 @@ updated_at: "2025-12-26"
       "inserted_photo": "Elon_Musk_passport_photo"
     }
   },
-
   "environment": {
     "setting": "cozy_bedroom_soft_evening_vibe",
     "walls": {
@@ -115,25 +106,20 @@ updated_at: "2025-12-26"
         "garlands": "green_vines_with_pink_roses"
       }
     },
-
     "bed": {
       "sheets": "light_pink_with_line_pattern",
       "pillows": "matching_pink_sets",
       "plushies": ["small_brown_dog", "white_bear_with_pink_accents", "ribbed_pink_bunny"]
     },
-
     "room_items": ["pastel_handbag", "small_accessory_clutter"],
-
     "vibe": "dreamy_coquette_bedroom_lana_del_rey_inspired"
   },
-
   "lighting": {
     "type": "soft_indoor_front_light",
     "reflections": "none_on_face_or_clothing",
     "shadows": "very_soft",
     "effect": "natural_even_skin_tone"
   },
-
   "image_rendering": {
     "style": "natural_phone_snapshot",
     "device": "iPhone_15_Pro_Max",

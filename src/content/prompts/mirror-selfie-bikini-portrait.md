@@ -16,6 +16,7 @@ created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
 
+```json
 {
   "subject": {
     "description": "A young Taiwanese woman with fair skin and a messy updo of silver hair with purple tips, holding a black smartphone. She has full lips with dark pink lipstick and dark brown eyes. Her skin has a noticeable sheen from oil. She wears a white string bikini top with prominent, large red sequined rose appliques and green leaf embroidery, and matching white string bikini bottoms. Her body is a slim athletic neat hourglass with visible abdominal muscles. The chest volume is full and large, appearing natural and heavy.",
@@ -58,4 +59,4 @@ updated_at: "2025-12-29"
     "over-stylized realism"
   ]
 }
-
+```

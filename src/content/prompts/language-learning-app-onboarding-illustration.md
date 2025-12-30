@@ -16,7 +16,4 @@ created_at: "2025-12-27"
 updated_at: "2025-12-27"
 ---
 
-```
 A friendly 2D flat illustration for a language-learning mobile app onboarding screen. A cheerful cartoon child standing on a soft green path, smiling and holding a speech card that reads "Hello → Hola". Floating language-learning icons and symbols around the character (letters, chat bubbles, small flags). Soft fluffy clouds in the background, light blue sky. Pastel color palette inspired by Duolingo green. Minimal, clean, kid-friendly style with smooth rounded shapes. No UI elements, no background text, generous white space around the character. Modern educational illustration, high quality, flat vector look.
-```
-
