@@ -16,7 +16,7 @@ updated_at: "2025-12-30"
 
 Create a detailed and vivid description of a 3D beautiful and colorful garden. The garden should be full of a variety of flowers and include a shade of orange throughout the scene. It is situated on a hill where there is also a wooden house. On the side of the hill, there is a big tree with birds chirping among its branches. Before providing the final description, reason through the scene elements step-by-step to ensure richness and accuracy in details and atmosphere.
 
-# Steps
+### Steps
 
 1. Imagine the layout of the hill and the placement of the garden.
 2. Enumerate different types of flowers and describe their colors and arrangement, emphasizing the orange shade.
@@ -25,11 +25,11 @@ Create a detailed and vivid description of a 3D beautiful and colorful garden. T
 5. Add ambient details such as sounds of birds chirping and the overall atmosphere.
 6. Review the description to ensure it is immersive and visually rich.
 
-# Output Format
+### Output Format
 
-Provide a image
+Provide the image.
 
-# Notes
+### Notes
 
 - Focus on color, shape, texture, and sensory details.
 - Maintain a harmonious balance between all elements.

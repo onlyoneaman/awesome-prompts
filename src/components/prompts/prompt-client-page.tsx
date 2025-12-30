@@ -161,19 +161,21 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               <CopyButton title={prompt.title} text={prompt.actual_text} size={buttonSize} />
             </div>
           </div>
-          <MarkdownPreview 
-            source={prompt.actual_text}
-            style={{
-              padding: 12,
-              fontSize: isMobile ? '12px' : '16px',
-              backgroundColor: '#f5f5f5',
-              maxHeight: '500px',
-              overflowY: 'auto',
-            }}
-            wrapperElement={{
-              "data-color-mode": "light"
-            }}
-          />
+          <div className="markdown-prompt-content">
+            <MarkdownPreview 
+              source={prompt.actual_text}
+              style={{
+                padding: 12,
+                fontSize: isMobile ? '12px' : '16px',
+                backgroundColor: '#f5f5f5',
+                maxHeight: '500px',
+                overflowY: 'auto',
+              }}
+              wrapperElement={{
+                "data-color-mode": "light"
+              }}
+            />
+          </div>
         </div>
       </CardContent>
     </Card>
