@@ -85,7 +85,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
         <div className="flex flex-col gap-1 md:gap-4 md:flex-row md:items-start md:justify-between">
           <div className="flex-1">
             <CardTitle className="text-xl md:text-2xl mb-1 md:mb-2 leading-tight">{prompt.title}</CardTitle>
-            <p className="text-gray-600 mb-2 md:mb-4 text-sm md:text-base">{prompt.description}</p>
+            <p className="text-gray-600 mb-2 md:mb-4 text-xs md:text-sm">{prompt.description}</p>
           </div>
           
           <div className="flex items-center gap-1 md:gap-2 self-start">
@@ -385,9 +385,9 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
   }, [isFullscreen, hasMultipleMedia, nextMedia, prevMedia]);
 
   return (
-    <div className="container mx-auto px-4 py-4 md:py-8">
+    <div className="container mx-auto px-4 py-2 md:py-8">
       {/* Navigation & Breadcrumb */}
-      <div className="mb-4 md:mb-6">
+      <div className="mb-2 md:mb-6">
         {/* Mobile: Centered back button only */}
         <div className="flex justify-center md:hidden mb-2 md:mb-4">
           <NavigationBack currentPromptCategories={prompt.categories} referrerCategory={referrerCategory} referrerAuthor={referrerAuthor} />
