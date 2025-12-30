@@ -112,7 +112,8 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
         <div>
           <div className="flex items-center justify-between mb-1 md:mb-2">
             <h4 className="font-semibold">
-              {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'}
+              {/* {prompt.type === 'image' ? 'Image Prompt:' : 'Prompt:'} */}
+              {"Prompt"}
             </h4>
             <div className="flex items-center gap-1 md:gap-2">
               <div className="block md:hidden">
@@ -166,9 +167,9 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               source={prompt.actual_text}
               style={{
                 padding: 12,
-                fontSize: isMobile ? '12px' : '16px',
+                fontSize: isMobile ? '12px' : '14px',
                 backgroundColor: '#f5f5f5',
-                maxHeight: '500px',
+                maxHeight: isMobile ? '300px' : '500px',
                 overflowY: 'auto',
               }}
               wrapperElement={{
