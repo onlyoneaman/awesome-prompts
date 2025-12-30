@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
-import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
+import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X, Twitter } from "lucide-react";
 import type { Prompt, MediaItem } from "@/types/prompt";
 import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
@@ -233,8 +233,19 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                   height={40}
                   className="w-10 h-10 rounded-full"
                 />
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <p className="font-medium text-gray-900 truncate">{author.name}</p>
+                  {author.twitter && (
+                    <Link
+                      href={`https://twitter.com/${author.twitter.replace('@', '')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-blue-400 transition-colors mt-1"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Twitter size={14} />
+                    </Link>
+                  )}
                   <p className="hidden text-sm text-gray-500">View Profile</p>
                 </div>
               </Link>
