@@ -13,6 +13,7 @@ created_at: "2025-12-18"
 updated_at: "2025-12-18"
 ---
 
+```json
 {
   "prompt_breakdown": {
     "subject_parameters": {
@@ -43,4 +44,4 @@ updated_at: "2025-12-18"
     }
   }
 }
-
+```

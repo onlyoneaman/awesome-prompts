@@ -16,6 +16,7 @@ references:
   - "https://x.com/IamEmily2050/status/1970778635738198450"
 ---
 
+```json
 {
   "shot": "Full-body vertical portrait (9:16), subject in 3/4 profile toward camera, centered between wall and window.",
   "subject": {
@@ -44,3 +45,4 @@ references:
   "quality": "photo-real 4K detail; accurate fabric texture; subtle film grain",
   "negatives": "no explicit nudity, no see-through fabric, no nipples/areola, no genitals, no pornographic poses, no exaggerated anatomy, no other colors besides blue on underwear, no text/logos/watermarks, no minors"
 }
+```

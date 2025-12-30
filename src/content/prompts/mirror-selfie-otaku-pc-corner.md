@@ -15,9 +15,9 @@ created_at: "2025-12-18"
 updated_at: "2025-12-18"
 ---
 
+```json
 {
   "scene": "mirror_selfie_otaku_pc_corner_blue",
-
   "subject": {
     "gender_presentation": "female",
     "age_bracket": "mid_20s",
@@ -38,7 +38,6 @@ updated_at: "2025-12-18"
       "accessories": { "phone_case": "blue cute mascot case" }
     }
   },
-
   "environment": {
     "description": "bedroom PC corner seen in a wall mirror",
     "furnishings": [
@@ -55,13 +54,11 @@ updated_at: "2025-12-18"
     ],
     "color_swap": "replace all former pink accents in wardrobe and room with blue (baby blue → sky/periwinkle)."
   },
-
   "lighting": {
     "source": "daylight from large window camera-left through sheer curtain",
     "quality": "soft diffused",
     "white_balance_K": 5200
   },
-
   "camera": {
     "mode": "smartphone rear camera via mirror (no portrait/bokeh mode)",
     "focal_length_eq_mm": 26,
@@ -76,7 +73,6 @@ updated_at: "2025-12-18"
       "composition_notes": "keep subject centered; avoid wide-edge stretching by stepping back and cropping square"
     }
   },
-
   "negatives": [
     "pink/magenta accents anywhere",
     "beauty-filter/airbrushed skin; poreless look",
@@ -86,4 +82,4 @@ updated_at: "2025-12-18"
     "fake portrait-mode blur, CGI/illustration look"
   ]
 }
-
+```
