@@ -119,6 +119,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               <div className="block md:hidden">
                 <AnimatedTooltip content="Share Link">
                   <Button
+                    aria-label="Share Link"
                     variant="outline"
                     size={buttonSize}
                     onClick={shareLink}
@@ -130,6 +131,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               </div>
               <AnimatedTooltip content="Open in ChatGPT">
                 <Button
+                  aria-label="Open in ChatGPT"
                   variant="outline"
                   size={buttonSize}
                   onClick={openInChatGPT}
@@ -145,6 +147,7 @@ function PromptMainCard({ prompt }: { prompt: Prompt }) {
               </AnimatedTooltip>
               <AnimatedTooltip content="Open in Claude">
                 <Button
+                  aria-label="Open in Claude"
                   variant="outline"
                   size={buttonSize}
                   onClick={openInClaude}
@@ -240,6 +243,7 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
                     <Link
                       href={`https://twitter.com/${author.twitter.replace('@', '')}`}
                       target="_blank"
+                      aria-label="Twitter"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-blue-400 transition-colors mt-1"
                       onClick={(e) => e.stopPropagation()}

@@ -34,6 +34,7 @@ export function CopyButton({ text, variant = "outline", size = "sm", className, 
 
   return (
     <Button
+      aria-label="Copy Prompt"
       variant={variant}
       size={size}
       onClick={handleCopy}
