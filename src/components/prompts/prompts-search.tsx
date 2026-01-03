@@ -91,7 +91,6 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
         <div className="mb-12">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-semibold">Featured Prompts</h2>
-            <Badge variant="secondary">⭐ Curated Selection</Badge>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredPrompts.slice(0, 6).map((prompt) => (
