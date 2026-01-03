@@ -2,6 +2,7 @@
 
 ## Image Handling
 - **Always check `tmp/` folder** for images when creating new prompts
+- **If optimized images not present:** Run `io` command in `tmp/` directory to generate optimized `.webp` files
 - **Image naming convention:**
   - `ChatGPT Image...` → `chatgpt-1`, `chatgpt-2`, etc.
   - `Gemini_Generated_Image...` → `gemini-1`, `gemini-2`, etc.
