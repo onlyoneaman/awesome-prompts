@@ -10,8 +10,8 @@ reference_image: true
 images: 
   - "/images/stylish-photoshoot-collage-urban-woman/stylish-photoshoot-collage-urban-woman-chatgpt-1-optimized.webp"
   - "/images/stylish-photoshoot-collage-urban-woman/stylish-photoshoot-collage-urban-woman-gemini-1-optimized.webp"
-  - "/images/stylish-photoshoot-collage-urban-woman/stylish-photoshoot-collage-urban-woman-1-optimized.webp"
-  - "/images/stylish-photoshoot-collage-urban-woman/stylish-photoshoot-collage-urban-woman-2-optimized.webp"
+  - "/images/stylish-photoshoot-collage-urban-woman/stylish-photoshoot-collage-urban-woman-grok-1-optimized.webp"
+  - "/images/stylish-photoshoot-collage-urban-woman/stylish-photoshoot-collage-urban-woman-grok-2-optimized.webp"
 use_cases: ["fashion photography", "lifestyle photography", "women's fashion", "photoshoot collages", "urban portraits", "brand photography"]
 created_at: "2026-01-03"
 updated_at: "2026-01-03"

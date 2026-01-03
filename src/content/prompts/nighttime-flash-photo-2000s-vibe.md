@@ -10,8 +10,8 @@ reference_image: true
 images: 
   - "/images/nighttime-flash-photo-2000s-vibe/nighttime-flash-photo-2000s-vibe-chatgpt-1-optimized.webp"
   - "/images/nighttime-flash-photo-2000s-vibe/nighttime-flash-photo-2000s-vibe-gemini-1-optimized.webp"
-  - "/images/nighttime-flash-photo-2000s-vibe/nighttime-flash-photo-2000s-vibe-1-optimized.webp"
-  - "/images/nighttime-flash-photo-2000s-vibe/nighttime-flash-photo-2000s-vibe-2-optimized.webp"
+  - "/images/nighttime-flash-photo-2000s-vibe/nighttime-flash-photo-2000s-vibe-grok-1-optimized.webp"
+  - "/images/nighttime-flash-photo-2000s-vibe/nighttime-flash-photo-2000s-vibe-grok-2-optimized.webp"
 use_cases: ["photo editing", "vintage photography", "nighttime photography", "portrait photography", "2000s aesthetic", "urban photography"]
 created_at: "2026-01-03"
 updated_at: "2026-01-03"

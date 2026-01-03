@@ -9,8 +9,8 @@ type: "image"
 images: 
   - "/images/sunny-outdoor-lifestyle-portrait-stairs/sunny-outdoor-lifestyle-portrait-stairs-chatgpt-1-optimized.webp"
   - "/images/sunny-outdoor-lifestyle-portrait-stairs/sunny-outdoor-lifestyle-portrait-stairs-gemini-1-optimized.webp"
-  - "/images/sunny-outdoor-lifestyle-portrait-stairs/sunny-outdoor-lifestyle-portrait-stairs-1-optimized.webp"
-  - "/images/sunny-outdoor-lifestyle-portrait-stairs/sunny-outdoor-lifestyle-portrait-stairs-2-optimized.webp"
+  - "/images/sunny-outdoor-lifestyle-portrait-stairs/sunny-outdoor-lifestyle-portrait-stairs-grok-1-optimized.webp"
+  - "/images/sunny-outdoor-lifestyle-portrait-stairs/sunny-outdoor-lifestyle-portrait-stairs-grok-2-optimized.webp"
 use_cases: ["lifestyle photography", "outdoor portraits", "fashion photography", "summer photography", "portrait photography"]
 created_at: "2026-01-03"
 updated_at: "2026-01-03"
