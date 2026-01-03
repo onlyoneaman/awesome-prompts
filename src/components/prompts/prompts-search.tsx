@@ -111,11 +111,6 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
               {filteredPrompts.length} prompt{filteredPrompts.length !== 1 ? 's' : ''} 
               {searchQuery ? ' found' : ' available'}
             </span>
-            <Link href={links.CATEGORY}>
-              <Button variant="outline" size="sm">
-                Browse Categories
-              </Button>
-            </Link>
           </div>
         </div>
 
