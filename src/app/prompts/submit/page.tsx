@@ -451,40 +451,6 @@ export default function SubmitPromptPage() {
 
               </CardContent>
             </Card>
-
-            {/* Guidelines */}
-            <Card className="mt-8">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Info className="w-5 h-5" />
-                  Guidelines
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-600">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Quality Standards</h4>
-                    <ul className="space-y-1">
-                      <li>• Clear and specific instructions</li>
-                      <li>• Tested with major AI models</li>
-                      <li>• Original or significantly improved</li>
-                      <li>• Properly formatted and structured</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2">Popular Categories</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {topCategories.slice(0, 4).map((category) => (
-                        <div key={category.id} className="flex items-center gap-2">
-                          <span>{category.icon}</span>
-                          <span className="text-sm">{category.name}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
