@@ -6,6 +6,8 @@ tags: ["cinematic", "editorial", "portrait", "hijab", "studio", "low-angle", "du
 author: "aman"
 difficulty: "beginner"
 type: "image"
+images: 
+  - "/images/cinematic-editorial-hijab-portrait/cinematic-editorial-hijab-portrait-1-optimized.webp"
 use_cases: ["editorial portraits", "professional photography", "studio portraits", "cinematic photography", "fashion portraits"]
 created_at: "2026-01-03"
 updated_at: "2026-01-03"
