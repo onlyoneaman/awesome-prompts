@@ -4,7 +4,7 @@ description: "Cinematic romantic restaurant scene at night with monochrome crims
 categories: ["images"]
 tags: ["cinematic", "romantic", "restaurant", "night", "monochrome", "crimson", "volumetric", "haze", "silhouette", "couple", "city skyline", "moon", "filmic", "vignette", "bloom"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/cinematic-romantic-restaurant-night/cinematic-romantic-restaurant-night-grok-1-optimized.webp"

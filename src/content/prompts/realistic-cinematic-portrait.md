@@ -4,7 +4,7 @@ description: "a realistic cinematic portrait of a woman"
 categories: ["portraits", "images"]
 tags: ["realistic", "cinematic", "portrait", "female", "aura"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/realistic-cinematic-portrait/img1_eg-optimized.webp"

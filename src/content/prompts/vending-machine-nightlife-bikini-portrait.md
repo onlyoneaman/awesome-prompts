@@ -4,7 +4,7 @@ description: "Ultra-photorealistic flash-lit nightlife portrait featuring a woma
 categories: ["portraits", "images"]
 tags: ["nightlife", "portrait", "photorealism", "flash photography", "vending machine", "bikini", "street photography", "social media", "night", "urban", "checkered", "squat pose", "over-the-shoulder"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/vending-machine-nightlife-bikini-portrait/vending-machine-nightlife-bikini-portrait-gemini-1-optimized.webp"

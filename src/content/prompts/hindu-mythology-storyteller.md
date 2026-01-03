@@ -4,10 +4,8 @@ description: "A master Indian storyteller that creates audio-first retellings of
 categories: ["storytelling", "education", "culture", "writing"]
 tags: ["hindu-mythology", "audio-stories", "indian-culture", "educational-content", "json-structured", "age-appropriate"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 use_cases: ["Educational content creation", "Audio story generation", "Cultural storytelling", "Children's content", "Mythology adaptation"]
-likes: 0
-views: 0
 created_at: "2025-01-27"
 updated_at: "2025-01-27"
 ---

@@ -4,7 +4,7 @@ description: "Create elegant Instagram Story mirror selfies for night out scenes
 categories: ["portraits", "images"]
 tags: ["instagram", "story", "mirror", "selfie", "night out", "restaurant", "bathroom", "elegant", "social media", "portrait", "evening", "luxury"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/instagram-story-night-out-mirror/instagram-story-night-out-mirror-chatgpt-1-optimized.webp"

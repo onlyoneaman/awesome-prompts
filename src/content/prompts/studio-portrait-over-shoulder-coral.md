@@ -4,7 +4,7 @@ description: "Identity-preserved studio portrait of a woman looking over her sho
 categories: ["portraits", "images"]
 tags: ["studio portrait", "photorealism", "identity preservation", "over shoulder", "coral background", "jeans", "tank top", "professional lighting", "fashion portrait"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/studio-portrait-over-shoulder-coral/studio-portrait-over-shoulder-coral-gemini-1-optimized.webp"

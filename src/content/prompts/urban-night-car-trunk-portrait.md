@@ -4,7 +4,7 @@ description: "Create edgy urban night portraits with flash photography aesthetic
 categories: ["portraits", "images"]
 tags: ["urban", "night", "car", "portrait", "flash", "photography", "lifestyle", "edgy", "street", "vintage", "film", "aesthetic", "yellow", "sports-car"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/urban-night-car-trunk-portrait/urban-night-car-trunk-portrait-1-optimized.webp"

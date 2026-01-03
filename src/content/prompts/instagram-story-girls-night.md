@@ -4,7 +4,7 @@ description: "Create authentic Instagram Story content for nightlife scenes. Per
 categories: ["portraits", "images"]
 tags: ["instagram", "story", "nightlife", "nightclub", "social media", "selfie", "portrait", "night out", "party", "candid", "ui", "overlay"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/instagram-story-girls-night/instagram-story-girls-night-gemini-1-optimized.webp"

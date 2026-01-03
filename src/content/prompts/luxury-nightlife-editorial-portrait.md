@@ -4,7 +4,7 @@ description: "Create high-fashion magazine editorial portraits with luxury night
 categories: ["portraits", "images"]
 tags: ["fashion", "editorial", "luxury", "nightlife", "portrait", "flash", "photography", "glamorous", "paparazzi", "high-fashion", "lace", "stiletto", "interior"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/luxury-nightlife-editorial-portrait/luxury-nightlife-editorial-portrait-1-optimized.webp"

@@ -4,7 +4,7 @@ description: "Identity-preserved photorealism workflow for creating beach portra
 categories: ["portraits", "images"]
 tags: ["beach", "portrait", "photorealism", "identity preservation", "bikini", "golden hour", "kneeling", "wet fabric", "ocean", "sand"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/beach-kneeling-portrait-wet-bikini/beach-kneeling-portrait-wet-bikini-gemini-1-optimized.webp"

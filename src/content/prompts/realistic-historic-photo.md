@@ -4,7 +4,7 @@ description: "Generate realistic historic photographs at specific locations and 
 categories: ["images"]
 tags: ["historic", "photo", "realistic", "historical", "period", "location", "coordinates", "date", "photography", "documentary", "vintage", "authentic"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/realistic-historic-photo/realistic-historic-photo-chatgpt-1-optimized.webp"

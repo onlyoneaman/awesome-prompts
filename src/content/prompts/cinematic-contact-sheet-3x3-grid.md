@@ -4,7 +4,7 @@ description: "Generate cinematic contact sheets with 3x3 grid layouts featuring 
 categories: ["images", "creativity"]
 tags: ["contact sheet", "grid", "cinematic", "3x3", "product photography", "character design", "visual storytelling", "octane render", "unreal engine", "8k", "ultra high fidelity", "shot types", "establishing shot", "macro", "silhouette", "low angle", "high angle"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/cinematic-contact-sheet-3x3-grid/cinematic-contact-sheet-3x3-grid-gemini-optimized.webp"

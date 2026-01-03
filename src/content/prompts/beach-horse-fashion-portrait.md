@@ -4,7 +4,7 @@ description: "Hyper-realistic, high-fashion photograph of an elegant woman in a 
 categories: ["portraits", "images"]
 tags: ["fashion", "photography", "horse", "beach", "high-fashion", "elegant", "black gown", "lace", "portrait", "luxury", "photorealistic", "fashion photography"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/beach-horse-fashion-portrait/beach-horse-fashion-portrait-grok-1-optimized.webp"

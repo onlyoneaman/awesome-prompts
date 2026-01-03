@@ -4,7 +4,7 @@ description: "A hyper-realistic product photograph of a premium round glass perf
 categories: ["images", "designer", "graphics"]
 tags: ["product photography", "perfume", "chanel", "hyper-realistic", "commercial", "studio lighting", "luxury", "bokeh", "marble", "rose petals"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/hyper-realistic-chanel-perfume-product-photography/hyper-realistic-chanel-perfume-product-photography-chatgpt-1-optimized.webp"

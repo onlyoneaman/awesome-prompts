@@ -4,7 +4,7 @@ description: "Create authentic mirror selfies with otaku style and blue gaming P
 categories: ["portraits", "images"]
 tags: ["selfie", "mirror", "otaku", "gaming", "pc", "bedroom", "lifestyle", "anime", "blue", "aesthetic", "portrait", "photography"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/mirror-selfie-otaku-pc-corner/mirror-selfie-otaku-pc-corner-1-optimized.webp"

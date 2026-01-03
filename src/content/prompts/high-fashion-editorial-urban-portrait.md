@@ -4,7 +4,7 @@ description: "Create high-fashion editorial portraits with luxury campaign aesth
 categories: ["portraits", "images"]
 tags: ["fashion", "editorial", "portrait", "urban", "luxury", "cinematic", "runway", "campaign", "high-fashion", "photography", "woman", "outdoor"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/high-fashion-editorial-urban-portrait/high-fashion-editorial-urban-portrait-1-optimized.webp"

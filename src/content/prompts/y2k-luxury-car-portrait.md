@@ -4,7 +4,7 @@ description: "Create nostalgic Y2K-era car portraits with cinematic flash photog
 categories: ["portraits", "images"]
 tags: ["y2k", "car", "portrait", "luxury", "nostalgic", "flash", "cinematic", "retro", "fashion", "photography", "suv", "night"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/y2k-luxury-car-portrait/y2k-luxury-car-portrait-chatgpt-1-optimized.webp"

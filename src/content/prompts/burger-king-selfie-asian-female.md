@@ -4,7 +4,7 @@ description: "Photorealistic iPhone selfie of an East Asian woman in a Burger Ki
 categories: ["portraits", "images"]
 tags: ["selfie", "burger king", "restaurant", "fast food", "asian", "casual", "iPhone", "social media", "photorealism", "evening", "burger", "fries", "fitted t-shirt", "denim shorts", "reference image"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/burger-king-selfie-asian-female/burger-king-selfie-asian-female-chatgpt-optimized.webp"

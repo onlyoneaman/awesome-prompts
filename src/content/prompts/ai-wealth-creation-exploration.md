@@ -4,7 +4,7 @@ description: "A structured exploration of AI wealth creation opportunities tailo
 categories: ["strategy", "business"]
 tags: ["ai", "wealth", "strategy", ]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 use_cases: ["ai", "wealth", "strategy"]
 created_at: "2025-08-12"
 updated_at: "2025-08-12"

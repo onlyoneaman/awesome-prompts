@@ -4,7 +4,7 @@ description: "Flash photography style portrait of a woman lying on a pool table 
 categories: ["portraits", "images"]
 tags: ["pool table", "bodysuit", "portrait", "flash photography", "billiard room", "high angle", "charcoal grey", "early 2000s", "paparazzi style", "dim lighting"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/pool-table-bodysuit-portrait/pool-table-bodysuit-portrait-chatgpt-1-optimized.webp"

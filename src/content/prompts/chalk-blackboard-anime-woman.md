@@ -4,12 +4,11 @@ description: "Create hyper-detailed chalk drawings on classroom blackboards feat
 categories: ["images", "illustration", "creativity"]
 tags: ["chalk", "blackboard", "anime", "illustration", "classroom", "japanese", "kanji", "kimono", "east asian", "photorealistic", "cinematic", "8k", "ultra detail", "chalk art", "traditional", "artistic", "depth of field", "film grain"]
 author: "aman"
-difficulty: "advanced"
+difficulty: "intermediate"
 type: "image"
 images: 
   - "/images/chalk-blackboard-anime-woman/chalk-blackboard-anime-woman-chatgpt-optimized.webp"
   - "/images/chalk-blackboard-anime-woman/chalk-blackboard-anime-woman-gemini-optimized.webp"
-use_cases: []
 created_at: "2025-12-29"
 updated_at: "2025-12-29"
 ---
