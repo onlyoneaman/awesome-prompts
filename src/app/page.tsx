@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { links } from "@/lib/constants";
 import { PopularPrompts } from "@/components/prompts/popular-prompts";
+import { CustomRequestCTA } from "@/components/prompts/custom-request-cta";
 
 export default function Home() {
   return (
@@ -80,6 +81,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* Custom Request CTA */}
+        <CustomRequestCTA />
 
         <BackgroundBeams className="z-1" />
       </div>
