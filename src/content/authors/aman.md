@@ -2,7 +2,7 @@
 name: "Aman"
 slug: "aman"
 website: "https://amankumar.ai"
-profile_picture: "/authors/aman.jpg"
+profile_picture: "/authors/aman.webp"
 bio: "AI enthusiast and prompt engineer passionate about creating high-quality prompts for various use cases."
 twitter: "@onlyoneaman"
 github: "onlyoneaman"
