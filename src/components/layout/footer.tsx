@@ -37,6 +37,12 @@ const resourceLinks = [
     icon: ExternalLink,
     external: true,
   },
+  {
+    href: "https://www.glean.com/prompt-library",
+    label: "Glean Prompt Library",
+    icon: ExternalLink,
+    external: true,
+  },
 ];
 
 export function Footer() {
