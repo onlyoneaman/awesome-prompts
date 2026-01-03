@@ -3,6 +3,7 @@ enum links {
     CATEGORY = "/categories",
     AUTHOR = "/authors",
     SUBMIT = "/prompts/submit",
+    REQUEST_NOW = "/prompts/request-now",
     HOME = "/",
     ABOUT = "/about",
     CONTACT = "/contact",

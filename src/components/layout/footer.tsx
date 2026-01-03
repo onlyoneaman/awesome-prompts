@@ -10,6 +10,7 @@ const navigationLinks = [
   { href: links.CATEGORY, label: "All Categories" },
   { href: links.AUTHOR, label: "Authors" },
   { href: links.SUBMIT, label: "Submit Prompt" },
+  { href: links.REQUEST_NOW, label: "Request Prompt" },
 ];
 
 const resourceLinks = [
