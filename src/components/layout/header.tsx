@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu,
@@ -16,6 +17,8 @@ import { links } from "@/lib/constants";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomePage = pathname === links.HOME;
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -36,12 +39,14 @@ export function Header() {
           <div className="flex items-center gap-2 md:gap-6">
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
-              <Link 
-                href={links.HOME}
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              >
-                Home
-              </Link>
+              {!isHomePage && (
+                <Link 
+                  href={links.HOME}
+                  className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+                >
+                  Home
+                </Link>
+              )}
               
               <Link 
                 href={links.PROMPT} 
@@ -116,13 +121,15 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t pt-4">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                href={links.HOME} 
-                className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
+              {!isHomePage && (
+                <Link 
+                  href={links.HOME} 
+                  className="text-gray-600 hover:text-gray-900 font-medium transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              )}
 
               {/* <Button 
                 className="w-fit"
