@@ -429,6 +429,8 @@ export default function PromptClientPage({ prompt, author, referrerCategory, ref
                       src={currentMedia.src}
                       alt={`${prompt.title} - Image ${currentMediaIndex + 1}`}
                       fill
+                      fetchPriority="high"
+                      loading="eager"
                       className="object-contain"
                       sizes="(max-width: 768px) 100vw, 50vw"
                     />
