@@ -1,22 +1,15 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { PromptCard } from "@/components/prompts/prompt-card";
-import { getAllPrompts } from "@/lib/content.server";
-import { topCategories, sortPrompts } from "@/lib/prompts";
-import { Search, ArrowRight } from "lucide-react";
+import { topCategories } from "@/lib/prompts";
+import { Search } from "lucide-react";
 import { PointerHighlight } from "@/components/ui/pointer-highlight";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { links } from "@/lib/constants";
+import { PopularPrompts } from "@/components/prompts/popular-prompts";
 
 export default function Home() {
-  // Get a few prompts for homepage preview
-  const allPrompts = getAllPrompts();
-  const sortedPrompts = sortPrompts(allPrompts, 'created_at', 'desc');
-  const previewPrompts = sortedPrompts.slice(0, 6);
-
   return (
       <div className="bg-gray-50 min-h-screen relative antialiased">
         {/* Hero Section */}
@@ -49,24 +42,7 @@ export default function Home() {
         </section>
 
         {/* Featured Prompts Preview */}
-        <section className="relative z-2 py-16">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl font-bold text-gray-900">Popular Prompts</h2>
-              <Button variant="outline" asChild>
-                <Link href={links.PROMPT} className="flex items-center gap-2">
-                  View All
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </Button>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {previewPrompts.map((prompt) => (
-                <PromptCard key={prompt.id} prompt={prompt} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <PopularPrompts />
 
         {/* Categories Section */}
         <section className="relative z-2 py-16">
