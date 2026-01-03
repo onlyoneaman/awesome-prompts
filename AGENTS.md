@@ -74,6 +74,17 @@ Each prompt includes:
 4. Place related media in appropriate `public/` subdirectories
 5. Follow naming convention: `kebab-case.md`
 
+### Changelog Updates
+**IMPORTANT:** When committing or finalizing changes, always update the changelog:
+1. Check `docs/changelog-workflow.md` for detailed instructions
+2. Update `src/lib/changelog-data.ts` with new entries
+3. **Always ask user for confirmation** before adding/updating changelog entries
+4. Group related changes together by date
+5. Use appropriate change types: `added`, `fixed`, `improved`, `changed`
+6. Be specific in descriptions - describe what changed, not just that something changed
+
+**Confirmation required:** Before updating changelog, ask: "Should I update the changelog with these changes: [list changes]?"
+
 ### Code Standards
 - TypeScript for all code
 - ESLint configuration enforced
@@ -98,6 +109,7 @@ Each prompt includes:
 ### Core Functionality
 - `src/lib/content.server.ts`: Server-side content loading
 - `src/lib/prompts.ts`: Prompt utilities and categories
+- `src/lib/changelog-data.ts`: Changelog entries and data
 - `src/types/prompt.ts`: Core data type definitions
 - `src/app/layout.tsx`: Root layout with SEO setup
 
@@ -105,6 +117,7 @@ Each prompt includes:
 - `src/components/prompts/prompt-card.tsx`: Individual prompt display
 - `src/components/prompts/prompts-search.tsx`: Search functionality
 - `src/app/prompts/submit/page.tsx`: Prompt submission form
+- `src/app/changelog/page.tsx`: Changelog page (imports from `changelog-data.ts`)
 
 ## Build Process
 1. **Pre-build**: Generate authors data (`scripts/generate-authors-data.js`)

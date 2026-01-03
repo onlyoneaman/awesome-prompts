@@ -11,6 +11,9 @@ const navigationLinks = [
   { href: links.AUTHOR, label: "Authors" },
   { href: links.SUBMIT, label: "Submit Prompt" },
   { href: links.REQUEST_NOW, label: "Request Prompt" },
+  { href: links.CHANGELOG, label: "Changelog" },
+  { href: links.FAQ, label: "FAQ" },
+  { href: links.CONTACT, label: "Contact" },
 ];
 
 const resourceLinks = [

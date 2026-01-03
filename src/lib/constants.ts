@@ -12,6 +12,8 @@ enum links {
     HELP = "/help",
     FEEDBACK = "/feedback",
     SEARCH = "/search",
+    CHANGELOG = "/changelog",
+    FAQ = "/faq",
     GITHUB = "https://github.com/onlyoneaman/awesome-prompts",
 }
 
