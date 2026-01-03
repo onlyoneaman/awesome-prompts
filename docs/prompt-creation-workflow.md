@@ -19,6 +19,7 @@
 ## Prompt File Structure
 - Create markdown file in `src/content/prompts/` with kebab-case naming
 - Include required frontmatter: title, description, categories, tags, author, difficulty, type
+- **Description rule:** Keep descriptions concise and to the point (avoid lengthy sentences)
 - Add `reference_image: true` if needed
 - Add `images:` array with paths to optimized webp files
 
