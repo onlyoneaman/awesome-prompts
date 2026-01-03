@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CopyButton } from "@/components/ui/copy-button";
 import { NavigationBack } from "@/components/ui/navigation-back";
-import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X, Twitter } from "lucide-react";
+import { Share2, Heart, ChevronLeft, ChevronRight, Maximize2, X, Twitter, ImageIcon } from "lucide-react";
 import type { Prompt, MediaItem } from "@/types/prompt";
 import type { Author } from "@/types/author";
 import { getDifficultyStars } from "@/lib/prompt-utils";
@@ -215,6 +215,12 @@ function MoreDetails({ prompt, author }: { prompt: Prompt; author: Author | null
               {prompt.difficulty && (
                 <Badge variant='secondary'>
                   {getDifficultyStars(prompt.difficulty)}
+                </Badge>
+              )}
+              {prompt.reference_image && (
+                <Badge variant="outline" className="text-xs flex items-center gap-1 text-gray-600 border-gray-300">
+                  <ImageIcon size={10} />
+                  Reference
                 </Badge>
               )}
             </div>

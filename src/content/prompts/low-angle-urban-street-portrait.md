@@ -1,6 +1,6 @@
 ---
 title: "Low-Angle Urban Street Portrait"
-description: "A low-angle, wide-shot photograph of a stylish young man standing confidently on a city street at dusk or night. He is looking directly at the camera with a neutral but engaging expression. He is wearing a simple, slightly oversized t-shirt and loose-fitting cargo pants, with sneakers. The lighting is dramatic, with bright, colorful neon signs and illuminated buildings blurred in the background, suggesting motion and urban energy. The perspective makes his appear tall and powerful against the cityscape. The overall mood is modern, urban, and slightly edgy, with a cinematic feel due to the dynamic composition and lighting."
+description: "Low-angle, wide-shot urban portrait of a stylish young man at night. Dramatic neon lights and blurred cityscape background. Cinematic, modern, and slightly edgy mood."
 categories: ["images", "portraits"]
 tags: ["low angle", "urban", "street photography", "night photography", "cinematic", "neon", "cityscape", "fashion portrait"]
 author: "aman"

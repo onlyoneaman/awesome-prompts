@@ -22,6 +22,7 @@ export interface Prompt {
   use_cases?: string[];
   likes?: number;
   views?: number;
+  reference_image?: boolean; // Indicates if the prompt requires a reference image
 }
 
 export interface PromptCategory {

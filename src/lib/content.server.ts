@@ -36,7 +36,8 @@ export function getAllPrompts(): Prompt[] {
           difficulty: data.difficulty,
           use_cases: data.use_cases,
           likes: data.likes || 0,
-          views: data.views || 0
+          views: data.views || 0,
+          reference_image: data.reference_image || false
         } as Prompt;
       });
 
@@ -68,10 +69,11 @@ export function getPromptBySlug(slug: string): Prompt | undefined {
       author: data.author,
       slug: slug, // Always use filename-based slug
       featured: data.featured || false,
-      difficulty: data.difficulty,
-      use_cases: data.use_cases,
-      likes: data.likes || 0,
-      views: data.views || 0
+          difficulty: data.difficulty,
+          use_cases: data.use_cases,
+          likes: data.likes || 0,
+          views: data.views || 0,
+          reference_image: data.reference_image || false
     } as Prompt;
   } catch (error) {
     console.error(`Error reading prompt ${slug}:`, error);
