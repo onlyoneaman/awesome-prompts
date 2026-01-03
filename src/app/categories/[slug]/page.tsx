@@ -132,21 +132,21 @@ export default async function CategoryPage({ params }: Props) {
       {/* Navigation */}
       <div className="mb-4 md:mb-6">
         {/* Back Navigation - Centered on mobile */}
-        <div className="flex justify-center md:justify-start mb-4">
+        <div className="flex justify-between mb-4">
           <Button variant="link" asChild className="hover:underline">
             <Link href="/categories" className="flex items-center gap-2 px-4 py-2">
               <ArrowLeft className="w-4 h-4" />
               <span className="text-sm md:text-base">Back to Categories</span>
             </Link>
           </Button>
+
+          {/* Breadcrumb - Hidden on mobile to avoid redundancy */}
+          <nav className="hidden md:flex justify-center lg:justify-end items-center gap-2 text-sm text-gray-500">
+            <Link href="/categories" className="hover:text-gray-700">Categories</Link>
+            <span className="text-gray-300">/</span>
+            <span className="text-gray-900">{category.name}</span>
+          </nav>
         </div>
-        
-        {/* Breadcrumb - Hidden on mobile to avoid redundancy */}
-        <nav className="hidden md:flex justify-center lg:justify-end items-center gap-2 text-sm text-gray-500">
-          <Link href="/categories" className="hover:text-gray-700">Categories</Link>
-          <span className="text-gray-300">/</span>
-          <span className="text-gray-900">{category.name}</span>
-        </nav>
       </div>
 
       {/* Category Header */}
