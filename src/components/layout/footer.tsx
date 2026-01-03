@@ -14,6 +14,8 @@ const navigationLinks = [
   { href: links.CHANGELOG, label: "Changelog" },
   { href: links.FAQ, label: "FAQ" },
   { href: links.CONTACT, label: "Contact" },
+  { href: links.PRIVACY, label: "Privacy Policy" },
+  { href: links.TERMS, label: "Terms of Service" },
 ];
 
 const resourceLinks = [
