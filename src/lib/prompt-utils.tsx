@@ -23,7 +23,7 @@ export function getDifficultyStars(difficulty: string | undefined): React.JSX.El
   return (
     <div className="flex gap-0.5">
       {Array.from({ length: starCount }, (_, i) => (
-        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+        <Star size={14} key={i} className="text-yellow-500" />
       ))}
     </div>
   );
