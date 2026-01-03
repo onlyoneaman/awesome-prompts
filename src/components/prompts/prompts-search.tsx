@@ -1,87 +1,44 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
-import { filterPrompts, sortPrompts } from "@/lib/content";
+import { filterPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { CustomRequestCTA } from "@/components/prompts/custom-request-cta";
+import { PromptsSort, sortPromptsByOption, type SortOption } from "@/components/prompts/prompts-sort";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { Prompt } from "@/types/prompt";
 import { Input } from "@/components/ui/input";
 import { links } from "@/lib/constants";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 interface PromptsSearchProps {
   allPrompts: Prompt[];
 }
-
-type SortOption = 'default' | 'difficulty-asc' | 'difficulty-desc' | 'old' | 'title-asc' | 'title-desc';
 
 export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOption, setSortOption] = useState<SortOption>('default');
   const inputRef = useRef<HTMLInputElement>(null);  
 
-  // Helper function to get difficulty order
-  const getDifficultyOrder = (difficulty?: string): number => {
-    if (!difficulty) return 999; // Put undefined at the end
-    const order: Record<string, number> = {
-      'beginner': 1,
-      'intermediate': 2,
-      'advanced': 3,
-    };
-    return order[difficulty] || 999;
-  };
-
-  // Filter and sort prompts based on search and sort option
+  // Filter prompts based on search
   const filteredPrompts = useMemo(() => {
-    let filtered = allPrompts;
-    
-    // Apply search filter
-    if (searchQuery.trim()) {
-      filtered = filterPrompts(allPrompts, { search: searchQuery.trim() });
+    if (!searchQuery.trim()) {
+      return allPrompts;
     }
+    return filterPrompts(allPrompts, { search: searchQuery.trim() });
+  }, [searchQuery, allPrompts]);
 
-    // Apply sorting
-    if (sortOption === 'default') {
-      return sortPrompts(filtered, 'created_at', 'desc');
-    } else if (sortOption === 'old') {
-      return sortPrompts(filtered, 'created_at', 'asc');
-    } else if (sortOption === 'difficulty-asc') {
-      // Custom sorting for difficulty (Low-Hi)
-      return [...filtered].sort((a, b) => {
-        const aOrder = getDifficultyOrder(a.difficulty);
-        const bOrder = getDifficultyOrder(b.difficulty);
-        return aOrder - bOrder;
-      });
-    } else if (sortOption === 'difficulty-desc') {
-      // Custom sorting for difficulty (Hi-Low)
-      return [...filtered].sort((a, b) => {
-        const aOrder = getDifficultyOrder(a.difficulty);
-        const bOrder = getDifficultyOrder(b.difficulty);
-        return bOrder - aOrder;
-      });
-    } else if (sortOption === 'title-asc') {
-      return sortPrompts(filtered, 'title', 'asc');
-    } else if (sortOption === 'title-desc') {
-      return sortPrompts(filtered, 'title', 'desc');
-    }
-
-    return filtered;
-  }, [searchQuery, sortOption, allPrompts]);
+  // Sort filtered prompts
+  const sortedPrompts = useMemo(() => {
+    return sortPromptsByOption(filteredPrompts, sortOption);
+  }, [filteredPrompts, sortOption]);
 
   // Get featured prompts (only show when no search)
   const featuredPrompts = useMemo(() => {
     if (searchQuery.trim()) return [];
     const featured = filterPrompts(allPrompts, { featured: true });
-    return sortPrompts(featured, 'created_at', 'desc');
+    return sortPromptsByOption(featured, 'default');
   }, [searchQuery, allPrompts]);
 
   const clearSearch = () => {
@@ -128,7 +85,7 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
             </div>
             {searchQuery && (
               <div className="mt-2 text-sm text-gray-600">
-                {filteredPrompts.length} result{filteredPrompts.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;
+                {sortedPrompts.length} result{sortedPrompts.length !== 1 ? 's' : ''} for &ldquo;{searchQuery}&rdquo;
               </div>
             )}
           </div>
@@ -150,34 +107,21 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
 
       {/* All Prompts / Search Results */}
       <div>
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-semibold">
-            {searchQuery ? 'Search Results' : 'All Prompts'}
+        <div className="flex flex-row items-center justify-between gap-4 mb-6">
+          <h2 className="text-xl sm:text-2xl font-semibold">
+            {searchQuery ? 'Results' : 'All Prompts'}
           </h2>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500">
-              {filteredPrompts.length} prompt{filteredPrompts.length !== 1 ? 's' : ''} 
-              {searchQuery ? ' found' : ' available'}
-            </span>
-            <Select value={sortOption} onValueChange={(value) => setSortOption(value as SortOption)}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="default">Newest First</SelectItem>
-                <SelectItem value="old">Oldest First</SelectItem>
-                <SelectItem value="difficulty-asc">Easiest First</SelectItem>
-                <SelectItem value="difficulty-desc">Hardest First</SelectItem>
-                <SelectItem value="title-asc">Alphabetical (A-Z)</SelectItem>
-                <SelectItem value="title-desc">Alphabetical (Z-A)</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          <PromptsSort
+            prompts={filteredPrompts}
+            sortOption={sortOption}
+            onSortChange={setSortOption}
+            countLabel={searchQuery ? 'found' : 'available'}
+          />
         </div>
 
-        {filteredPrompts.length > 0 ? (
+        {sortedPrompts.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPrompts.map((prompt) => (
+            {sortedPrompts.map((prompt) => (
               <PromptCard key={prompt.id} prompt={prompt} />
             ))}
           </div>
