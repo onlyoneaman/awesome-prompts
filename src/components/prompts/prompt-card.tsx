@@ -30,8 +30,17 @@ export function PromptCard({ prompt, referrerCategory, referrerAuthor }: PromptC
     return queryString ? `/prompts/${slug}?${queryString}` : `/prompts/${slug}`;
   };
 
+  const handleClick = (e: React.MouseEvent) => {
+    // If there's a query param in the current URL, do hard navigation to clear it
+    if (typeof window !== 'undefined' && window.location.search.includes('query=')) {
+      e.preventDefault();
+      const cleanUrl = buildPromptLink(prompt.slug);
+      window.location.href = cleanUrl;
+    }
+  };
+
   return (
-    <Link href={buildPromptLink(prompt.slug)}>
+    <Link href={buildPromptLink(prompt.slug)} onClick={handleClick}>
       <Card className="h-full hover:shadow-md transition-shadow border border-gray-200 cursor-pointer">
         <CardHeader className="pb-3">
           <div className="flex items-start gap-3">

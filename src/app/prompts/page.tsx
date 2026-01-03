@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { getAllPrompts } from "@/lib/content.server";
 import { PromptsSearch } from "@/components/prompts/prompts-search";
 
@@ -20,7 +21,9 @@ export default function PromptsPage() {
   return (
     <div className="bg-gray-50">
       <div className="container mx-auto px-4 py-8">
-        <PromptsSearch allPrompts={allPrompts} />
+        <Suspense fallback={<div className="text-center py-8">Loading...</div>}>
+          <PromptsSearch allPrompts={allPrompts} />
+        </Suspense>
       </div>
     </div>
   );

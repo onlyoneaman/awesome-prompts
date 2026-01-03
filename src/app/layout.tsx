@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Toaster } from "sonner";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { getAllPrompts } from "@/lib/content.server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -60,6 +61,16 @@ export default function RootLayout({
   const googleAnalyticsId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://promptsmint.com';
   
+  // Get prompts for header search (server-side, works in static export)
+  const allPrompts = getAllPrompts();
+  const searchPrompts = allPrompts.map(prompt => ({
+    id: prompt.id,
+    slug: prompt.slug,
+    title: prompt.title,
+    description: prompt.description,
+    tags: prompt.tags,
+  }));
+  
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -106,7 +117,7 @@ export default function RootLayout({
         )}
         
         <div className="min-h-screen flex flex-col">
-          <Header />
+          <Header prompts={searchPrompts} />
           <main className="flex-1">
             {children}
           </main>

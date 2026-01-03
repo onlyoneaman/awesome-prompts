@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { filterPrompts } from "@/lib/content";
 import { PromptCard } from "@/components/prompts/prompt-card";
 import { CustomRequestCTA } from "@/components/prompts/custom-request-cta";
@@ -17,9 +18,18 @@ interface PromptsSearchProps {
 }
 
 export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
-  const [searchQuery, setSearchQuery] = useState("");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const initialQuery = searchParams.get("query") || "";
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [sortOption, setSortOption] = useState<SortOption>('default');
-  const inputRef = useRef<HTMLInputElement>(null);  
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Update search query when URL param changes
+  useEffect(() => {
+    const query = searchParams.get("query") || "";
+    setSearchQuery(query);
+  }, [searchParams]);  
 
   // Filter prompts based on search
   const filteredPrompts = useMemo(() => {
@@ -43,6 +53,8 @@ export function PromptsSearch({ allPrompts }: PromptsSearchProps) {
 
   const clearSearch = () => {
     setSearchQuery("");
+    // Remove query parameter from URL
+    router.replace(links.PROMPT);
   };
 
   useEffect(() => {

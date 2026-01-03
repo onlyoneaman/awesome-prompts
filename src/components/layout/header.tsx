@@ -14,8 +14,21 @@ import { topCategories } from "@/lib/prompts";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { links } from "@/lib/constants";
+import { HeaderSearch } from "./header-search";
 
-export function Header() {
+interface PromptSearchData {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+interface HeaderProps {
+  prompts: PromptSearchData[];
+}
+
+export function Header({ prompts }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === links.HOME;
@@ -37,6 +50,11 @@ export function Header() {
 
           {/* Actions - Desktop Navigation + Submit */}
           <div className="flex items-center gap-2 md:gap-6">
+            {/* Search - Desktop */}
+            <div className="hidden md:block">
+              <HeaderSearch prompts={prompts} />
+            </div>
+            
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6">
               {!isHomePage && (
@@ -120,6 +138,11 @@ export function Header() {
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t pt-4">
+            {/* Search - Mobile */}
+            <div className="mb-4">
+              <HeaderSearch prompts={prompts} />
+            </div>
+            
             <nav className="flex flex-col space-y-4">
               {!isHomePage && (
                 <Link 
